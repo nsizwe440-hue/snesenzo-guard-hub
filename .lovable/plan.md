@@ -1,33 +1,23 @@
-## Add "Our Services in Action" section
+## Update "Our Services in Action" — full-size stacked photos
 
-Insert a new section in `src/routes/index.tsx` directly after the "OUR SERVICES" card and before "OUR FOUR PILLARS", using the four real Snesenzo photos you uploaded.
+Change the section in `src/routes/index.tsx` from a 2×2 cropped grid to a single-column stack where each photo displays at its **natural aspect ratio**, full width, with the label overlaid in the bottom-left corner.
 
-### Photo mapping (real, on-brand wording)
+### Changes
 
-1. `user-uploads://124657.jpg` → **VIP Protection & Escort**
-2. `user-uploads://124690.jpg` → **Retail & Commercial Security**
-3. `user-uploads://124676.jpg` → **Construction & Industrial Site Security**
-4. `user-uploads://124678.jpg` → **Property & Farm Watch**
+In the `OUR SERVICES IN ACTION` section:
 
-### Steps
+1. Replace `grid grid-cols-2 md:grid-cols-4 gap-2.5` with `flex flex-col gap-3`.
+2. On each tile:
+   - Remove `aspect-[4/3]` (which forced cropping).
+   - Remove `object-cover` and `absolute inset-0` from the `<img>`.
+   - Use a normal flow `<img>` with `className="w-full h-auto block"` so the photo shows in full, uncropped.
+   - Keep the rounded-lg + overflow-hidden wrapper (`relative`) so the overlay clips correctly.
+   - Keep the bottom gradient + red bar + white uppercase label, but make it `absolute bottom-0 left-0 right-0` with a taller gradient (`h-1/3 from-black/85 to-transparent`) so the label remains readable on tall portrait photos and short landscape ones.
+3. Bump the label readability slightly: `text-[12px]` on mobile, with a stronger gradient.
+4. On `md:` and up, keep it single-column (no 4-across) so photos always show in full — large screens just see a centered, narrower stack via the existing `max-w-` on `main`.
 
-1. Copy the 4 uploads into `src/assets/` as:
-   - `action-vip.jpg`
-   - `action-retail.jpg`
-   - `action-construction.jpg`
-   - `action-farm.jpg`
-2. Import them in `src/routes/index.tsx`.
-3. Add a new `<section>` styled like the dark mockup card:
-   - `bg-brand-navy rounded-[14px] p-[18px] mt-3.5`
-   - Title row: red 3px bar + "OUR SERVICES IN ACTION" (white, display font), matching existing `SectionTitle dark`.
-   - Mobile-first grid: `grid grid-cols-2 gap-2.5` (stacks 2x2 on 390px).
-   - Tablet/desktop: `md:grid-cols-4` so all 4 sit in a row.
-   - Each tile: rounded-lg, `aspect-[4/3]`, image with `object-cover w-full h-full`, dark gradient overlay (`from-black/85 via-black/20 to-transparent`), label pinned bottom-left in white uppercase bold (`text-[10.5px] leading-tight`), red 2px underline accent.
-   - Use `loading="lazy"` and proper `alt` text for SEO/perf.
-4. Also add the four images to the route `head()` as additional preview metadata is not needed — keep `og:image` as the hero.
+### Result
 
-### Result on 390px
+On 390px mobile and all larger screens, each of the four real Snesenzo photos (VIP escort, Retail/SPAR, Construction, Farm) renders one after the other, fully visible, with the service name overlaid clearly at the bottom of each image. No cropping, no cut-off content.
 
-A clean 2×2 photo grid of real Snesenzo operations sitting between Services and Four Pillars, matching the mockup's "Our Services in Action" block. On ≥768px it expands to a single row of 4.
-
-No other sections, copy, or styles change.
+No other sections change.
