@@ -199,22 +199,22 @@ function LandingPage() {
         {/* SERVICES IN ACTION */}
         <section className="bg-brand-navy rounded-[14px] p-[18px] mt-3.5">
           <SectionTitle dark>OUR SERVICES IN ACTION</SectionTitle>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 mt-2">
+          <div className="flex flex-col gap-3 mt-2">
             {servicesInAction.map((item) => (
               <div
                 key={item.label}
-                className="relative rounded-lg overflow-hidden aspect-[4/3] bg-black"
+                className="relative rounded-lg overflow-hidden bg-black"
               >
                 <img
                   src={item.src}
                   alt={item.label}
                   loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover"
+                  className="block w-full h-auto"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
-                <div className="absolute left-2 right-2 bottom-2">
-                  <div className="w-6 h-[2px] bg-brand-red mb-1" />
-                  <p className="text-white text-[10.5px] font-extrabold uppercase leading-[1.15] tracking-wide">
+                <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
+                <div className="absolute left-3 right-3 bottom-3">
+                  <div className="w-7 h-[2px] bg-brand-red mb-1.5" />
+                  <p className="text-white text-[12px] font-extrabold uppercase leading-[1.15] tracking-wide drop-shadow">
                     {item.label}
                   </p>
                 </div>
