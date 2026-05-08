@@ -10,6 +10,17 @@ import {
 import heroImg from "@/assets/hero-officers.jpg";
 import logo from "@/assets/ssg-logo.png";
 import ceo from "@/assets/ceo-portrait.jpg";
+import actionVip from "@/assets/action-vip.jpg";
+import actionRetail from "@/assets/action-retail.jpg";
+import actionConstruction from "@/assets/action-construction.jpg";
+import actionFarm from "@/assets/action-farm.jpg";
+
+const servicesInAction = [
+  { src: actionVip, label: "VIP Protection & Escort" },
+  { src: actionRetail, label: "Retail & Commercial Security" },
+  { src: actionConstruction, label: "Construction & Industrial Site Security" },
+  { src: actionFarm, label: "Property & Farm Watch" },
+];
 
 export const Route = createFileRoute("/")({
   head: () => ({
