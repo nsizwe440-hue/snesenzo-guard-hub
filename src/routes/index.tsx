@@ -10,6 +10,17 @@ import {
 import heroImg from "@/assets/hero-officers.jpg";
 import logo from "@/assets/ssg-logo.png";
 import ceo from "@/assets/ceo-portrait.jpg";
+import actionVip from "@/assets/action-vip.jpg";
+import actionRetail from "@/assets/action-retail.jpg";
+import actionConstruction from "@/assets/action-construction.jpg";
+import actionFarm from "@/assets/action-farm.jpg";
+
+const servicesInAction = [
+  { src: actionVip, label: "VIP Protection & Escort" },
+  { src: actionRetail, label: "Retail & Commercial Security" },
+  { src: actionConstruction, label: "Construction & Industrial Site Security" },
+  { src: actionFarm, label: "Property & Farm Watch" },
+];
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -179,6 +190,33 @@ function LandingPage() {
               >
                 <s.icon size={24} className="text-brand-red shrink-0" />
                 <span className="text-[10.5px] font-bold leading-[1.15] text-[#111827]">{s.label}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* SERVICES IN ACTION */}
+        <section className="bg-brand-navy rounded-[14px] p-[18px] mt-3.5">
+          <SectionTitle dark>OUR SERVICES IN ACTION</SectionTitle>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 mt-2">
+            {servicesInAction.map((item) => (
+              <div
+                key={item.label}
+                className="relative rounded-lg overflow-hidden aspect-[4/3] bg-black"
+              >
+                <img
+                  src={item.src}
+                  alt={item.label}
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+                <div className="absolute left-2 right-2 bottom-2">
+                  <div className="w-6 h-[2px] bg-brand-red mb-1" />
+                  <p className="text-white text-[10.5px] font-extrabold uppercase leading-[1.15] tracking-wide">
+                    {item.label}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
