@@ -14,6 +14,7 @@ import actionVip from "@/assets/action-vip.jpg";
 import actionRetail from "@/assets/action-retail.jpg";
 import actionConstruction from "@/assets/action-construction.jpg";
 import actionFarm from "@/assets/action-farm.jpg";
+import coverageMap from "@/assets/coverage-map.png";
 
 const servicesInAction = [
   { src: actionVip, label: "VIP Protection & Escort" },
@@ -240,7 +241,7 @@ function LandingPage() {
         <section className="bg-white rounded-[14px] p-[18px] mt-3.5 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.08)] lg:grid lg:grid-cols-2 lg:gap-8">
           <div>
             <SectionTitle>COVERAGE AREAS</SectionTitle>
-            <CoverageMap />
+            <img src={coverageMap} alt="Snesenzo Security coverage areas: KwaZulu-Natal and Mpumalanga" className="w-full h-auto" loading="lazy" />
             <div className="flex items-center gap-4 mt-2 text-[10px] text-[#374151] font-semibold">
               <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-brand-red" /> KwaZulu-Natal</span>
               <span className="flex items-center gap-1.5"><span className="w-2.5 h-2.5 rounded-full bg-brand-navy" /> Mpumalanga</span>
