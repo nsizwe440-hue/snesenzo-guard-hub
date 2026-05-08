@@ -344,25 +344,3 @@ function LandingPage() {
     </div>
   );
 }
-
-function CoverageMap() {
-  // Simplified South Africa silhouette with KZN (red) and Mpumalanga (navy) highlights.
-  return (
-    <svg viewBox="0 0 300 200" className="w-full h-[150px]" aria-label="Coverage map of South Africa">
-      <path
-        d="M40 110 Q35 80 60 60 Q90 40 130 45 Q170 35 210 50 Q250 60 270 90 Q278 120 260 150 Q230 180 190 178 Q150 185 110 175 Q70 168 50 145 Z"
-        fill="#E5E7EB"
-        stroke="#9CA3AF"
-        strokeWidth="1.2"
-      />
-      {/* Lesotho cutout-ish */}
-      <circle cx="180" cy="130" r="14" fill="#F4F6F8" stroke="#9CA3AF" strokeWidth="1" />
-      {/* KZN */}
-      <path d="M210 95 Q235 105 240 130 Q235 155 210 160 Q195 145 200 120 Z" fill="#E31B23" />
-      {/* Mpumalanga */}
-      <path d="M195 70 Q220 65 230 85 Q220 100 200 95 Q188 85 195 70 Z" fill="#061016" />
-      <text x="248" y="135" fontSize="9" fontWeight="700" fill="#111827">KZN</text>
-      <text x="232" y="78" fontSize="9" fontWeight="700" fill="#111827">MP</text>
-    </svg>
-  );
-}
