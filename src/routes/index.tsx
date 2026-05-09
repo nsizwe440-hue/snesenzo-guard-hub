@@ -273,7 +273,21 @@ function LandingPage() {
           </div>
         </section>
 
-        {/* WHY CHOOSE */}
+        {/* PEOPLE ON THE GROUND */}
+        <section className="bg-brand-navy rounded-[14px] p-[18px] mt-3.5">
+          <SectionTitle dark>OUR PEOPLE ON THE GROUND</SectionTitle>
+          <div className="grid grid-cols-3 gap-2 mt-2">
+            {peopleOnGround.map((p) => (
+              <div key={p.label} className="rounded-lg overflow-hidden bg-black">
+                <img src={p.src} alt={p.label} loading="lazy" className="w-full aspect-[3/4] object-cover" />
+                <div className="bg-black px-2 py-2">
+                  <div className="w-5 h-[2px] bg-brand-red mb-1" />
+                  <p className="text-white text-[10px] font-extrabold uppercase tracking-wide leading-tight">{p.label}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
         <section className="bg-brand-navy rounded-[14px] p-[18px] mt-3.5 relative overflow-hidden">
           <img
             src={logo}
