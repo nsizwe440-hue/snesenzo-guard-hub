@@ -19,6 +19,7 @@ import peopleDeployed from "@/assets/people-deployed.jpg";
 import peopleDisciplined from "@/assets/people-disciplined.jpg";
 import peopleAccountable from "@/assets/people-accountable.jpg";
 import psiraLogo from "@/assets/psira-logo.png";
+import { Reveal } from "@/components/Reveal";
 
 const peopleOnGround = [
   { src: peopleDeployed, label: "Deployed" },
