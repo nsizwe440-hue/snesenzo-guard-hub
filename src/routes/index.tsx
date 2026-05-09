@@ -15,6 +15,15 @@ import actionRetail from "@/assets/action-retail.jpg";
 import actionConstruction from "@/assets/action-construction.jpg";
 import actionFarm from "@/assets/action-farm.jpg";
 import coverageMap from "@/assets/coverage-map.png";
+import peopleDeployed from "@/assets/people-deployed.jpg";
+import peopleDisciplined from "@/assets/people-disciplined.jpg";
+import peopleAccountable from "@/assets/people-accountable.jpg";
+
+const peopleOnGround = [
+  { src: peopleDeployed, label: "Deployed" },
+  { src: peopleDisciplined, label: "Disciplined" },
+  { src: peopleAccountable, label: "Accountable" },
+];
 
 const servicesInAction = [
   { src: actionVip, label: "VIP Protection & Escort" },
