@@ -15,6 +15,15 @@ import actionRetail from "@/assets/action-retail.jpg";
 import actionConstruction from "@/assets/action-construction.jpg";
 import actionFarm from "@/assets/action-farm.jpg";
 import coverageMap from "@/assets/coverage-map.png";
+import peopleDeployed from "@/assets/people-deployed.jpg";
+import peopleDisciplined from "@/assets/people-disciplined.jpg";
+import peopleAccountable from "@/assets/people-accountable.jpg";
+
+const peopleOnGround = [
+  { src: peopleDeployed, label: "Deployed" },
+  { src: peopleDisciplined, label: "Disciplined" },
+  { src: peopleAccountable, label: "Accountable" },
+];
 
 const servicesInAction = [
   { src: actionVip, label: "VIP Protection & Escort" },
@@ -264,7 +273,21 @@ function LandingPage() {
           </div>
         </section>
 
-        {/* WHY CHOOSE */}
+        {/* PEOPLE ON THE GROUND */}
+        <section className="bg-brand-navy rounded-[14px] p-[18px] mt-3.5">
+          <SectionTitle dark>OUR PEOPLE ON THE GROUND</SectionTitle>
+          <div className="grid grid-cols-3 gap-2 mt-2">
+            {peopleOnGround.map((p) => (
+              <div key={p.label} className="rounded-lg overflow-hidden bg-black">
+                <img src={p.src} alt={p.label} loading="lazy" className="w-full aspect-[3/4] object-cover" />
+                <div className="bg-black px-2 py-2">
+                  <div className="w-5 h-[2px] bg-brand-red mb-1" />
+                  <p className="text-white text-[10px] font-extrabold uppercase tracking-wide leading-tight">{p.label}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
         <section className="bg-brand-navy rounded-[14px] p-[18px] mt-3.5 relative overflow-hidden">
           <img
             src={logo}
@@ -288,17 +311,17 @@ function LandingPage() {
           <div className="flex items-center gap-3.5">
             <img
               src={ceo}
-              alt="Mr Senzo S Ndlovu"
-              width={74}
-              height={74}
-              className="w-[74px] h-[74px] rounded-full object-cover shrink-0"
+              alt="Mr Senzo S Nkosi"
+              width={120}
+              height={140}
+              className="w-[120px] h-[140px] rounded-lg object-cover shrink-0"
             />
             <div className="min-w-0">
               <Quote size={28} className="text-brand-red mb-1" />
               <p className="text-[15px] leading-[1.35] italic text-[#111827]">
                 “We will hold ourselves accountable to the highest standards of professional integrity and service.”
               </p>
-              <p className="text-brand-red text-[12px] font-extrabold mt-2">Mr Senzo S Ndlovu</p>
+              <p className="text-brand-red text-[12px] font-extrabold mt-2">Mr Senzo S Nkosi</p>
               <p className="text-[#374151] text-[11px]">Chief Executive Officer</p>
             </div>
           </div>
@@ -333,7 +356,7 @@ function LandingPage() {
               className="h-[42px] flex-1 inline-flex items-center justify-center gap-2 rounded-lg border text-white text-[13px] font-semibold"
               style={{ borderColor: "rgba(255,255,255,0.35)" }}
             >
-              <Mail size={16} /> info@snesenzo.co.za
+              <Mail size={16} /> <span>info@snesenzo.co.za</span>
             </a>
           </div>
           <p className="text-white/60 text-[10px] mt-4 text-center">
