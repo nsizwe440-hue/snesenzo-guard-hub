@@ -311,17 +311,17 @@ function LandingPage() {
           <div className="flex items-center gap-3.5">
             <img
               src={ceo}
-              alt="Mr Senzo S Ndlovu"
-              width={74}
-              height={74}
-              className="w-[74px] h-[74px] rounded-full object-cover shrink-0"
+              alt="Mr Senzo S Nkosi"
+              width={120}
+              height={140}
+              className="w-[120px] h-[140px] rounded-lg object-cover shrink-0"
             />
             <div className="min-w-0">
               <Quote size={28} className="text-brand-red mb-1" />
               <p className="text-[15px] leading-[1.35] italic text-[#111827]">
                 “We will hold ourselves accountable to the highest standards of professional integrity and service.”
               </p>
-              <p className="text-brand-red text-[12px] font-extrabold mt-2">Mr Senzo S Ndlovu</p>
+              <p className="text-brand-red text-[12px] font-extrabold mt-2">Mr Senzo S Nkosi</p>
               <p className="text-[#374151] text-[11px]">Chief Executive Officer</p>
             </div>
           </div>
