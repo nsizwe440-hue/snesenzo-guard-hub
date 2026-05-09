@@ -18,6 +18,7 @@ import coverageMap from "@/assets/coverage-map.png";
 import peopleDeployed from "@/assets/people-deployed.jpg";
 import peopleDisciplined from "@/assets/people-disciplined.jpg";
 import peopleAccountable from "@/assets/people-accountable.jpg";
+import psiraLogo from "@/assets/psira-logo.png";
 
 const peopleOnGround = [
   { src: peopleDeployed, label: "Deployed" },
@@ -322,6 +323,26 @@ function LandingPage() {
             <p className="text-brand-red text-[12px] font-extrabold mt-2">Mr Senzo S Nkosi</p>
             <p className="text-[#374151] text-[11px]">Chief Executive Officer</p>
           </div>
+        </section>
+
+        {/* PSIRA ACCREDITATION */}
+        <section className="bg-white rounded-[14px] p-[18px] mt-3.5 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.08)]">
+          <div className="w-10 h-[2px] bg-brand-red mb-2" />
+          <p className="text-brand-red text-[10px] font-extrabold tracking-[0.18em] uppercase">Accreditation</p>
+          <h2 className="font-display text-brand-navy text-[18px] uppercase leading-tight mt-1">
+            Fully Accredited by PSIRA
+          </h2>
+          <div className="bg-[#F5F5F4] rounded-lg py-4 px-3 mt-3 flex items-center justify-center">
+            <img
+              src={psiraLogo}
+              alt="PSIRA — Private Security Industry Regulatory Authority"
+              className="max-h-16 w-auto"
+              loading="lazy"
+            />
+          </div>
+          <p className="text-[#374151] text-[12px] leading-[1.5] mt-3">
+            Snesenzo Security Group is fully registered and accredited by the Private Security Industry Regulatory Authority (PSIRA) — the official body governing the private security industry in South Africa. This accreditation confirms that our officers, operations and training meet the strict legal and professional standards required to protect our clients with integrity.
+          </p>
         </section>
 
         {/* FOOTER CTA */}

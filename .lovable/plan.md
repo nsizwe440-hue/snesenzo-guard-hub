@@ -1,17 +1,19 @@
-## Founder section: full-width photo, quote below
+## Add PSIRA Accreditation Section
 
-In `src/routes/index.tsx`, restructure the CEO QUOTE section:
+Insert a new section in `src/routes/index.tsx` directly after the CEO Quote section (after line 325) and before the Footer CTA.
 
-- Stack vertically instead of side-by-side. Replace the `flex items-center gap-3.5` row with a simple block layout.
-- Show the founder photo as a full-width image at the top of the card:
-  - `w-full h-auto` (natural aspect ratio, uncropped — fits the screen on mobile and the card width on larger screens)
-  - `rounded-lg` corners, `object-cover` not needed since we keep natural ratio
-  - Remove the fixed `120×140` sizing
-- Below the image, add spacing (`mt-4`) and render the quote block:
-  - Red Quote icon (unchanged)
-  - Italic quote text (unchanged)
-  - "Mr Senzo S Nkosi" in red, bold
-  - "Chief Executive Officer" subtitle
-- Keep the white card background, padding, and shadow.
+### Assets
+- Copy `user-uploads://126309.png` → `src/assets/psira-logo.png`
+- Import as `psiraLogo` in `src/routes/index.tsx`
+
+### New section markup
+A white card matching the surrounding card style (`bg-white rounded-[14px] p-[18px] mt-3.5 shadow-...`):
+
+- Small red eyebrow label: "ACCREDITATION"
+- Heading: "Fully Accredited by PSIRA"
+- PSIRA logo centered, `max-h-20 w-auto` on a soft neutral background block
+- Short body copy (rewritten in our own words), e.g.:
+  > "Snesenzo Security Group is fully registered and accredited by the Private Security Industry Regulatory Authority (PSIRA) — the official body that governs the private security industry in South Africa. This accreditation confirms that our officers, operations and training meet the strict legal and professional standards required to protect our clients with integrity."
+- Subtle red 2px divider bar above the heading to match the existing visual language
 
 No other sections change.
