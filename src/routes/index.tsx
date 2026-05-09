@@ -164,7 +164,7 @@ function LandingPage() {
       {/* MAIN */}
       <main className="px-3.5 pb-5 max-w-[430px] md:max-w-[760px] lg:max-w-[1120px] mx-auto">
         {/* WHO WE ARE */}
-        <section className="bg-white rounded-[14px] p-[18px] -mt-[18px] relative shadow-[0_4px_16px_-4px_rgba(0,0,0,0.08)]">
+        <Reveal as="section" variant="fade-up" className="bg-white rounded-[14px] p-[18px] -mt-[18px] relative shadow-[0_4px_16px_-4px_rgba(0,0,0,0.08)]">
           <SectionTitle>WHO WE ARE</SectionTitle>
           <p className="text-[13px] leading-[1.55] text-[#1F2937]">
             Snesenzo Security Group (Pty) Ltd is 100% youth black-owned and provides expert, risk-based security solutions across KwaZulu-Natal &amp; Mpumalanga with professional integrity, trained personnel and 24/7 readiness — ensuring safety, compliance and peace of mind.
@@ -177,8 +177,8 @@ function LandingPage() {
               { icon: ShieldCheck, label: "PSIRA Company", value: "4972817" },
               { icon: Award, label: "CEO Grade A", value: "4821072" },
               { icon: MapPin, label: "Operating", value: "KZN & Mpumalanga" },
-            ].map((c) => (
-              <div key={c.label} className="flex items-center gap-2">
+            ].map((c, i) => (
+              <Reveal key={c.label} variant="fade-up" delay={i * 80} className="flex items-center gap-2">
                 <span className="shrink-0 inline-flex items-center justify-center w-[34px] h-[34px] rounded-full bg-brand-red text-white">
                   <c.icon size={16} />
                 </span>
@@ -186,34 +186,38 @@ function LandingPage() {
                   <div className="text-white/70 text-[9px] uppercase tracking-wider font-semibold">{c.label}</div>
                   <div className="text-white text-[10px] font-bold truncate">{c.value}</div>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
-        </section>
+        </Reveal>
 
         {/* SERVICES */}
-        <section className="bg-white rounded-[14px] p-[18px] mt-3.5 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.08)]">
+        <Reveal as="section" variant="fade-up" className="bg-white rounded-[14px] p-[18px] mt-3.5 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.08)]">
           <SectionTitle>OUR SERVICES</SectionTitle>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2">
-            {services.map((s) => (
-              <div
+            {services.map((s, i) => (
+              <Reveal
                 key={s.label}
+                variant="fade-up"
+                delay={i * 60}
                 className="min-h-[66px] rounded-lg border border-[#E5E7EB] p-2.5 flex items-center gap-2 bg-white"
               >
                 <s.icon size={24} className="text-brand-red shrink-0" />
                 <span className="text-[10.5px] font-bold leading-[1.15] text-[#111827]">{s.label}</span>
-              </div>
+              </Reveal>
             ))}
           </div>
-        </section>
+        </Reveal>
 
         {/* SERVICES IN ACTION */}
-        <section className="bg-brand-navy rounded-[14px] p-[18px] mt-3.5">
+        <Reveal as="section" variant="fade-up" className="bg-brand-navy rounded-[14px] p-[18px] mt-3.5">
           <SectionTitle dark>OUR SERVICES IN ACTION</SectionTitle>
           <div className="flex flex-col gap-3 mt-2">
-            {servicesInAction.map((item) => (
-              <div
+            {servicesInAction.map((item, i) => (
+              <Reveal
                 key={item.label}
+                variant="zoom-in"
+                delay={i * 80}
                 className="relative rounded-lg overflow-hidden bg-black"
               >
                 <img
@@ -229,27 +233,27 @@ function LandingPage() {
                     {item.label}
                   </p>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
-        </section>
+        </Reveal>
 
         {/* PILLARS */}
-        <section className="bg-brand-navy rounded-[14px] p-[18px] mt-3.5">
+        <Reveal as="section" variant="fade-up" className="bg-brand-navy rounded-[14px] p-[18px] mt-3.5">
           <SectionTitle dark>OUR FOUR PILLARS</SectionTitle>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3.5 mt-2">
-            {pillars.map((p) => (
-              <div key={p.title}>
+            {pillars.map((p, i) => (
+              <Reveal key={p.title} variant="fade-up" delay={i * 80}>
                 <p.icon size={28} className="text-brand-red mb-2" />
                 <h3 className="text-white text-[11px] uppercase font-bold mb-1 tracking-wide">{p.title}</h3>
                 <p className="text-[#D1D5DB] text-[10.5px] leading-[1.35]">{p.body}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
-        </section>
+        </Reveal>
 
         {/* COVERAGE + CLIENTS */}
-        <section className="bg-white rounded-[14px] p-[18px] mt-3.5 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.08)] lg:grid lg:grid-cols-2 lg:gap-8">
+        <Reveal as="section" variant="fade-up" className="bg-white rounded-[14px] p-[18px] mt-3.5 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.08)] lg:grid lg:grid-cols-2 lg:gap-8">
           <div>
             <SectionTitle>COVERAGE AREAS</SectionTitle>
             <img src={coverageMap} alt="Snesenzo Security coverage areas: KwaZulu-Natal and Mpumalanga" className="w-full h-auto" loading="lazy" />
@@ -263,34 +267,36 @@ function LandingPage() {
             <SectionTitle>OUR CLIENT BASE</SectionTitle>
             <div className="grid grid-cols-2 gap-2">
               {clients.map((c, i) => (
-                <div
+                <Reveal
                   key={c.label}
+                  variant="fade-up"
+                  delay={i * 60}
                   className={`min-h-[68px] rounded-lg border border-[#E5E7EB] p-2.5 flex flex-col items-center justify-center gap-1 text-center ${i === clients.length - 1 ? "col-span-2" : ""}`}
                 >
                   <c.icon size={24} className="text-brand-red" />
                   <span className="text-[10.5px] font-bold text-[#111827]">{c.label}</span>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
-        </section>
+        </Reveal>
 
         {/* PEOPLE ON THE GROUND */}
-        <section className="bg-brand-navy rounded-[14px] p-[18px] mt-3.5">
+        <Reveal as="section" variant="fade-up" className="bg-brand-navy rounded-[14px] p-[18px] mt-3.5">
           <SectionTitle dark>OUR PEOPLE ON THE GROUND</SectionTitle>
           <div className="grid grid-cols-3 gap-2 mt-2">
-            {peopleOnGround.map((p) => (
-              <div key={p.label} className="rounded-lg overflow-hidden bg-black">
+            {peopleOnGround.map((p, i) => (
+              <Reveal key={p.label} variant="zoom-in" delay={i * 100} className="rounded-lg overflow-hidden bg-black">
                 <img src={p.src} alt={p.label} loading="lazy" className="w-full aspect-[3/4] object-cover" />
                 <div className="bg-black px-2 py-2">
                   <div className="w-5 h-[2px] bg-brand-red mb-1" />
                   <p className="text-white text-[10px] font-extrabold uppercase tracking-wide leading-tight">{p.label}</p>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
-        </section>
-        <section className="bg-brand-navy rounded-[14px] p-[18px] mt-3.5 relative overflow-hidden">
+        </Reveal>
+        <Reveal as="section" variant="fade-up" className="bg-brand-navy rounded-[14px] p-[18px] mt-3.5 relative overflow-hidden">
           <img
             src={logo}
             alt=""
@@ -299,17 +305,17 @@ function LandingPage() {
           />
           <SectionTitle dark>WHY CHOOSE SNESENZO?</SectionTitle>
           <ul className="grid grid-cols-2 gap-x-2.5 gap-y-3 mt-3.5 relative">
-            {whyChoose.map((item) => (
-              <li key={item} className="flex items-start gap-2">
+            {whyChoose.map((item, i) => (
+              <Reveal as="li" key={item} variant="fade-up" delay={i * 70} className="flex items-start gap-2">
                 <Check size={16} className="text-brand-red shrink-0 mt-0.5" />
                 <span className="text-white text-[10.5px] leading-[1.25] font-semibold">{item}</span>
-              </li>
+              </Reveal>
             ))}
           </ul>
-        </section>
+        </Reveal>
 
         {/* CEO QUOTE */}
-        <section className="bg-white rounded-[14px] p-[18px] mt-3.5 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.08)]">
+        <Reveal as="section" variant="fade-up" className="bg-white rounded-[14px] p-[18px] mt-3.5 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.08)]">
           <img
             src={ceo}
             alt="Mr Senzo S Nkosi"
@@ -324,10 +330,10 @@ function LandingPage() {
             <p className="text-brand-red text-[12px] font-extrabold mt-2">Mr Senzo S Nkosi</p>
             <p className="text-[#374151] text-[11px]">Chief Executive Officer</p>
           </div>
-        </section>
+        </Reveal>
 
         {/* PSIRA ACCREDITATION */}
-        <section className="bg-white rounded-[14px] p-[18px] mt-3.5 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.08)]">
+        <Reveal as="section" variant="fade-up" className="bg-white rounded-[14px] p-[18px] mt-3.5 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.08)]">
           <div className="w-10 h-[2px] bg-brand-red mb-2" />
           <p className="text-brand-red text-[10px] font-extrabold tracking-[0.18em] uppercase">Accreditation</p>
           <h2 className="font-display text-brand-navy text-[18px] uppercase leading-tight mt-1">
@@ -344,11 +350,11 @@ function LandingPage() {
           <p className="text-[#374151] text-[12px] leading-[1.5] mt-3">
             Snesenzo Security Group is fully registered and accredited by the Private Security Industry Regulatory Authority (PSIRA) — the official body governing the private security industry in South Africa. This accreditation confirms that our officers, operations and training meet the strict legal and professional standards required to protect our clients with integrity.
           </p>
-        </section>
+        </Reveal>
 
         {/* FOOTER CTA */}
-        <section id="contact" className="bg-brand-navy rounded-[14px] p-[18px] mt-3.5 mb-5">
-          <div className="flex items-center gap-3 mb-3">
+        <Reveal as="section" variant="fade-up" className="bg-brand-navy rounded-[14px] p-[18px] mt-3.5 mb-5">
+          <div id="contact" className="flex items-center gap-3 mb-3">
             <img src={logo} alt="SSG" width={56} height={56} className="w-14 h-14" />
             <h2 className="font-display text-white text-[18px] uppercase leading-tight">
               Let's protect what matters most
@@ -381,7 +387,7 @@ function LandingPage() {
           <p className="text-white/60 text-[10px] mt-4 text-center">
             45 Voor Street, Utrecht, 2980, KwaZulu-Natal · © {new Date().getFullYear()} Snesenzo Security Group
           </p>
-        </section>
+        </Reveal>
       </main>
     </div>
   );
