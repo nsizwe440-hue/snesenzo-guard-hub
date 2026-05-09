@@ -308,22 +308,19 @@ function LandingPage() {
 
         {/* CEO QUOTE */}
         <section className="bg-white rounded-[14px] p-[18px] mt-3.5 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.08)]">
-          <div className="flex items-center gap-3.5">
-            <img
-              src={ceo}
-              alt="Mr Senzo S Nkosi"
-              width={120}
-              height={140}
-              className="w-[120px] h-[140px] rounded-lg object-cover shrink-0"
-            />
-            <div className="min-w-0">
-              <Quote size={28} className="text-brand-red mb-1" />
-              <p className="text-[15px] leading-[1.35] italic text-[#111827]">
-                “We will hold ourselves accountable to the highest standards of professional integrity and service.”
-              </p>
-              <p className="text-brand-red text-[12px] font-extrabold mt-2">Mr Senzo S Nkosi</p>
-              <p className="text-[#374151] text-[11px]">Chief Executive Officer</p>
-            </div>
+          <img
+            src={ceo}
+            alt="Mr Senzo S Nkosi"
+            className="w-full h-auto rounded-lg block"
+            loading="lazy"
+          />
+          <div className="mt-4">
+            <Quote size={28} className="text-brand-red mb-1" />
+            <p className="text-[15px] leading-[1.35] italic text-[#111827]">
+              “We will hold ourselves accountable to the highest standards of professional integrity and service.”
+            </p>
+            <p className="text-brand-red text-[12px] font-extrabold mt-2">Mr Senzo S Nkosi</p>
+            <p className="text-[#374151] text-[11px]">Chief Executive Officer</p>
           </div>
         </section>
 
