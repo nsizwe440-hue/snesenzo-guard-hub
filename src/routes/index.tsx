@@ -356,7 +356,7 @@ function LandingPage() {
               className="h-[42px] flex-1 inline-flex items-center justify-center gap-2 rounded-lg border text-white text-[13px] font-semibold"
               style={{ borderColor: "rgba(255,255,255,0.35)" }}
             >
-              <Mail size={16} /> info@snesenzo.co.za
+              <Mail size={16} /> <span>info@snesenzo.co.za</span>
             </a>
           </div>
           <p className="text-white/60 text-[10px] mt-4 text-center">
