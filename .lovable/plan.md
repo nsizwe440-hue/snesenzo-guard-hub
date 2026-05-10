@@ -1,38 +1,63 @@
-## Redirect "Learn more" to /services + redesign services page with full details
+## Goal
 
-### What changes
+Fix the founder's name on the About page, make About / Coverage / Contact feel less empty, and add a dedicated Careers page (linked from the header and footer).
 
-**1. Homepage "What We Do" cards — `Learn more` now links to `/services`**
-On the home page, each photo card's "Learn more" link currently goes to `/services/{slug}` (a separate detail page). Change it to deep-link into the services page at `/services#{slug}` so the user lands on the right card on the all-in-one services page and can scroll/see context.
+---
 
-**2. Redesign `/services` — picture cards with full details + per-card Quote CTA**
-Replace the current compact icon grid with a rich, scannable layout. Each service becomes its own block on the page:
+## 1. About page (`src/routes/about.tsx`)
 
-- **Hero image** (for services that have one — 8 of 10 do; the two icon-only services use a branded icon block instead)
-- Service title + short tagline
-- Intro paragraph (`details.intro`)
-- Two-column lists: "What's included" and "Who it's for" (already in `src/data/services.ts`)
-- Outcome callout (red left border, light bg)
-- **"Get a quote for this service →"** button that navigates to `/contact?service={slug}` — already wired to preselect on the contact form
-- Each block gets `id={slug}` so the homepage `#slug` anchors land cleanly
+**Fix the name (high priority):**
+- The quote block currently credits "Mr Senzo S Nkosi · Chief Executive Officer · PSIRA Grade A". Replace with **Ntabazwe Shemeni Wegidi Ndlovu — Founder & CEO**. (The bio paragraph already has the correct name.)
 
-Layout pattern:
-- Alternating image-left / image-right on desktop for visual rhythm
-- Stacked single-column on mobile
-- Generous spacing between services
+**Make it feel fuller** (currently: navy hero → portrait+bio → quote → CTA — only one image):
+- Add a **"Why Snesenzo" pillars** section above the quote: 3 cards (Locally Rooted · Youth-Led & 100% Black-Owned · Personally Accountable) with icons (`MapPin`, `Users`, `ShieldCheck`).
+- Add a **"Our People" image strip** reusing `people-deployed.jpg`, `people-disciplined.jpg`, `people-accountable.jpg` so the page has real photography beyond the portrait.
+- Add a small **company facts band** (PSIRA 4972817 · CIPC 2024/620995/07 · Founded in Amajuba · Operating across KZN & Mpumalanga).
 
-**3. Keep the existing dynamic detail page `/services/$slug`**
-Still useful as a shareable, SEO-indexed deep link (e.g. from search results, social shares). No changes — homepage just stops linking to it directly.
+## 2. Coverage page (`src/routes/coverage.tsx`)
 
-**4. Smooth-scroll to anchor on `/services`**
-When the page loads with a `#slug` hash, scroll that block into view smoothly with a small offset for the sticky header. Use a small `useEffect` on mount that reads `window.location.hash`.
+Currently has the map, client icons, and the 3-image people strip. To fill it out:
+- Add a **"Where exactly we operate" town list** card under the map: two columns — KZN (Utrecht, Newcastle, Dundee, Vryheid, Ladysmith, Madadeni, Osizweni) and Mpumalanga (Volksrust, Wakkerstroom, Piet Retief, Ermelo, Standerton).
+- Add a **"Response promise"** band (3 stat-style tiles): 24/7 Control Room · Armed Response on standby · Local officers, local knowledge.
+- Add an `action-*` hero image (e.g. `action-farm-real.jpg`) at the top of the main content as a wide banner to break the all-white feel.
 
-### Files touched
-- `src/routes/index.tsx` — change the homepage "Learn more" links from `to="/services/$slug"` to `to="/services" hash={s.slug}`
-- `src/routes/services.tsx` — full redesign of the services list (rich blocks instead of compact grid), add hash-scroll on mount, add per-service "Get a quote" buttons that pass `?service={slug}`
+## 3. Contact page (`src/routes/contact.tsx`)
+
+Currently: navy hero → 3 contact cards → quote form → office/hours. To round it out:
+- Add an **embedded Google Map iframe** for 45 Voor Street, Utrecht under the Head Office card (no API key needed — standard `maps.google.com/maps?...&output=embed`).
+- Add a **"What happens next" 3-step strip** under the form (1. We call you back · 2. Free site assessment · 3. Tailored quote within 24h).
+- Add an `action-*` photo banner at the very top of the main content for visual weight.
+
+## 4. New Careers page (`src/routes/careers.tsx`)
+
+Clean, single-page route in the same brand style:
+
+```text
+[Navy hero]   "JOIN THE TEAM" · "Build a career in protection."
+[Why work with us]   3 cards: PSIRA-registered training · Local deployment · Real growth path
+[Open roles]   List of role cards: Security Officer (Grade C) · Armed Response Officer (Grade B) · Control Room Operator · Site Supervisor · Cleaner / Hygiene Operator
+   each card: title · location (KZN / Mpumalanga) · requirements bullets · "Apply" button → mailto:careers@snesenzo.co.za with prefilled subject
+[Requirements band]   PSIRA grade · valid ID · clear criminal record · own transport (advantage)
+[CTA]   "Don't see your role? Send us your CV." → mailto
+```
+
+- Add `head()` meta (title, description, og:title, og:description).
+- Reuse `Reveal`, `container`, brand colours, and `action-*` imagery for the hero.
+
+## 5. Navigation
+
+- Add **Careers** link to `SiteHeader` `navItems` (between Coverage and Contact) and to the `SiteFooter` Quick Links list.
+
+---
+
+### Technical notes
+
+- All new sections use existing tokens: `bg-brand-navy`, `bg-brand-surface`, `text-brand-red`, `font-display`, and the `Reveal` component for animations.
+- No new dependencies, no new assets — reuse existing images in `src/assets/`.
+- The `mailto:careers@snesenzo.co.za` address is used for applications; if you'd prefer a different address, say so and I'll swap it.
 
 ### Out of scope
-- No copy changes (uses existing `src/data/services.ts`)
-- No changes to `/contact` form (already supports `?service=` preselect)
-- No changes to `/services/$slug` detail page
-- No changes to "In Action" image grid or final CTA on `/services`
+
+- No backend / form submission changes (apply links use mailto, like the existing quote form).
+- No new images generated.
+- Services page is unchanged.

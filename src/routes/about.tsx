@@ -1,7 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Quote, ArrowRight, Phone } from "lucide-react";
+import { Quote, ArrowRight, Phone, MapPin, Users, ShieldCheck } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import ceo from "@/assets/ceo-portrait.jpg";
+import peopleDeployed from "@/assets/people-deployed.jpg";
+import peopleDisciplined from "@/assets/people-disciplined.jpg";
+import peopleAccountable from "@/assets/people-accountable.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -81,17 +84,86 @@ function AboutPage() {
         </div>
       </section>
 
-      {/* QUOTE — light gray */}
-      <section className="bg-[#F8FAFC] py-16 lg:py-24">
+      {/* WHY SNESENZO — pillars */}
+      <section className="bg-[#F8FAFC] py-16 lg:py-20">
+        <div className={container}>
+          <Reveal variant="fade-up">
+            <p className="text-brand-red text-[11px] font-extrabold tracking-[0.18em] uppercase mb-2">Why Snesenzo</p>
+            <h2 className="font-display text-[#0F172A] text-[28px] md:text-[40px] leading-tight mb-10">Three things we refuse to compromise on.</h2>
+          </Reveal>
+          <div className="grid md:grid-cols-3 gap-5">
+            {[
+              { icon: MapPin, title: "Locally Rooted", body: "Headquartered in Utrecht, Amajuba — we live, hire and answer to the communities we protect." },
+              { icon: Users, title: "Youth-Led, 100% Black-Owned", body: "A new generation of operators raising the standard for security in KZN and Mpumalanga." },
+              { icon: ShieldCheck, title: "Personally Accountable", body: "The founder's name is on the door. Every guard, every patrol, every response reflects that." },
+            ].map((p, i) => (
+              <Reveal key={p.title} variant="fade-up" delay={i * 100}>
+                <div className="bg-white rounded-2xl p-6 h-full shadow-[0_4px_16px_-4px_rgba(0,0,0,0.08)] border-t-4 border-brand-red">
+                  <p.icon size={28} className="text-brand-red mb-3" />
+                  <h3 className="font-display text-brand-navy text-[20px] mb-2">{p.title}</h3>
+                  <p className="text-[#374151] text-[14px] leading-[1.65]">{p.body}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* OUR PEOPLE — image strip */}
+      <section className="bg-brand-navy py-16 lg:py-20">
+        <div className={container}>
+          <Reveal variant="fade-up">
+            <p className="text-brand-red text-[11px] font-extrabold tracking-[0.18em] uppercase mb-2">Our People</p>
+            <h2 className="font-display text-white text-[28px] md:text-[40px] leading-tight mb-10">Deployed. Disciplined. Accountable.</h2>
+          </Reveal>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {[
+              { src: peopleDeployed, label: "Deployed" },
+              { src: peopleDisciplined, label: "Disciplined" },
+              { src: peopleAccountable, label: "Accountable" },
+            ].map((p, i) => (
+              <Reveal key={p.label} variant="zoom-in" delay={i * 100}>
+                <div className="rounded-xl overflow-hidden bg-black">
+                  <img src={p.src} alt={p.label} loading="lazy" className="w-full aspect-[3/4] object-cover" />
+                  <div className="bg-black px-4 py-3">
+                    <div className="w-6 h-[2px] bg-brand-red mb-1" />
+                    <p className="text-white text-[12px] font-extrabold uppercase tracking-wide">{p.label}</p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* QUOTE */}
+      <section className="bg-[#F8FAFC] py-16 lg:py-20">
         <div className={`${container} max-w-4xl`}>
           <Reveal variant="fade-up">
             <Quote size={44} className="text-brand-red mb-4" />
             <p className="text-[22px] md:text-[30px] leading-[1.35] italic text-[#0F172A] font-light">
               "We will hold ourselves accountable to the highest standards of professional integrity and service."
             </p>
-            <p className="text-brand-red text-[14px] font-extrabold mt-6">Mr Senzo S Nkosi</p>
-            <p className="text-[#374151] text-[13px]">Chief Executive Officer · PSIRA Grade A</p>
+            <p className="text-brand-red text-[14px] font-extrabold mt-6">Ntabazwe Shemeni Wegidi Ndlovu</p>
+            <p className="text-[#374151] text-[13px]">Founder &amp; CEO, Snesenzo Security Group</p>
           </Reveal>
+        </div>
+      </section>
+
+      {/* COMPANY FACTS BAND */}
+      <section className="bg-white py-10 border-y border-[#E5E7EB]">
+        <div className={`${container} grid grid-cols-2 md:grid-cols-4 gap-6 text-center`}>
+          {[
+            { k: "PSIRA", v: "4972817" },
+            { k: "CIPC", v: "2024/620995/07" },
+            { k: "Founded in", v: "Amajuba, KZN" },
+            { k: "Operating", v: "KZN & Mpumalanga" },
+          ].map((f) => (
+            <div key={f.k}>
+              <p className="text-brand-red text-[10px] font-extrabold tracking-[0.2em] uppercase mb-1">{f.k}</p>
+              <p className="font-display text-brand-navy text-[18px] md:text-[20px]">{f.v}</p>
+            </div>
+          ))}
         </div>
       </section>
 
