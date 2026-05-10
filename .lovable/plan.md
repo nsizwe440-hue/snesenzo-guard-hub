@@ -1,38 +1,43 @@
-## Plan: Add real photos to services + new "Caught in the Act" section
+## Add "Learn more" to services + detailed explanations
 
-### 1. Copy uploaded photos into project
-- `user-uploads://IMG-20260507-WA0130.jpg` → `src/assets/action-farm-real.jpg` (cows + SSG vehicle on patrol)
-- `user-uploads://IMG-20260507-WA0122.jpg` → `src/assets/action-industrial-real.jpg` (SSG vehicle at construction/mining site with officer)
-- `user-uploads://IMG-20260507-WA0132.jpg` → `src/assets/case-farm-arrest.jpg` (suspects detained on bakkie)
+### Approach
+Add a **"Learn more"** link to every service card on the home page "What We Do" section. Clicking it opens a **modal dialog** (shadcn `Dialog`) showing a full, professionally written explanation of that service — no new routes, no page reloads, works on mobile.
 
-### 2. Update services array in `src/routes/index.tsx`
-- **Property & Farm Watch**: add `image: actionFarmReal` so the card becomes a photo card (currently icon-only)
-- **Commercial & Industrial Security**: add `image: actionIndustrialReal` (currently icon-only)
+The same treatment will be applied on `/services` so the cards there match.
 
-This uses the existing photo-card branch in the services grid — no new layout needed.
+### Why a modal (not separate routes)
+- 10 services would mean 10 new route files + 10 SEO pages of thin content
+- Keeps the user on the page they came to
+- Fast to implement, easy to edit copy in one place
 
-### 3. New section: "Real Results — Farm Theft Stopped"
-Insert a new full-bleed section between **Services** and **Services in Action** (or right after Services). Two-column on desktop, stacked on mobile:
-- **Left**: the detainment photo (`case-farm-arrest.jpg`), rounded, shadow
-- **Right**: eyebrow `Real Results` / heading `Stock theft stopped on a client farm` / 2 short paragraphs in our voice (no names, no location, no police-procedure claims) emphasizing:
-  - Routine farm-watch patrol detected suspicious activity
-  - Suspects intercepted and detained on-site
-  - Handed over to SAPS — livestock recovered, client protected
-- Subtle disclaimer line: *"Faces and identifying details intentionally not disclosed."*
-- Background: light gray (`#F8FAFC`) so it sits cleanly between the white Services and navy In Action sections.
+### What changes
 
-### Suggested copy (draft)
-> **Real Results**
-> **Stock theft stopped on a client farm**
->
-> During a routine Property & Farm Watch patrol, our officers detected unusual movement on a client's grazing land. The team moved in quickly, intercepted the suspects on-site and held them until SAPS arrived. The livestock stayed with the owner — exactly where it belonged.
->
-> This is what fit-for-purpose rural security looks like: visible patrols, fast decisions, and officers who know the land they're protecting.
+**1. New data file: `src/data/services.ts`**
+Single source of truth for all 10 services — `slug`, `icon`, `label`, `shortDesc`, `image?`, and a new `details` object with:
+- `intro` — 1 short paragraph
+- `whatsIncluded` — bullet list (4–6 items)
+- `whoItsFor` — bullet list (3–4 items)
+- `outcome` — closing line
+
+Home page (`src/routes/index.tsx`) and `/services` page both import from here so copy stays in sync.
+
+**2. New component: `src/components/ServiceDetailDialog.tsx`**
+Wraps shadcn `Dialog` with a branded layout: hero image (if available), eyebrow, title, intro, two-column "What's included / Who it's for" lists, outcome banner, and a "Request a Quote" CTA linking to `/contact`.
+
+**3. Card updates (home + services page)**
+- **Photo cards**: add a "Learn more →" button pinned bottom-right of the gradient overlay
+- **Icon-only cards**: add a "Learn more →" text link below the description
+- Whole card also clickable as a fallback
+- Buttons styled with `text-brand-red` + `ArrowRight` icon, hover underline
+
+**4. Detailed copy (drafted by me, ~120–180 words each)**
+Covering all 10 services: VIP Protection, Events Security, CCTV & Armed Response, Commercial & Industrial, Hospitality, Petroleum/Oil/Gas, Highway Patrol, Property & Farm Watch, Integrated Fire, Specialised Cleaning. Tone matches existing site (professional, plain English, PSIRA-aware, no fluff). User can edit any after.
 
 ### Files touched
-- `src/assets/action-farm-real.jpg` (new)
-- `src/assets/action-industrial-real.jpg` (new)
-- `src/assets/case-farm-arrest.jpg` (new)
-- `src/routes/index.tsx` (3 imports, 2 service entries get `image:`, 1 new `<section>`)
+- `src/data/services.ts` (new — services array + details)
+- `src/components/ServiceDetailDialog.tsx` (new)
+- `src/routes/index.tsx` (import from new data file, add dialog trigger to cards)
+- `src/routes/services.tsx` (same)
 
-No header/footer/other route changes.
+### Out of scope
+- No new routes, no SEO pages per service, no CMS, no backend.
