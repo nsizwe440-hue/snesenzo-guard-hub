@@ -84,8 +84,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:title", content: "Snesenzo Security Group | Strength & Confidence in Protection" },
       { property: "og:description", content: "PSIRA-registered, 100% youth black-owned private security across KwaZulu-Natal & Mpumalanga." },
       { name: "twitter:description", content: "PSIRA-registered, 100% youth black-owned private security across KwaZulu-Natal & Mpumalanga." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f82b8403-949d-4c8a-b2d1-17d3ca1f3235/id-preview-9ba4a163--ce021952-9959-498e-88f9-e643b51f100e.lovable.app-1778276041972.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/f82b8403-949d-4c8a-b2d1-17d3ca1f3235/id-preview-9ba4a163--ce021952-9959-498e-88f9-e643b51f100e.lovable.app-1778276041972.png" },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/5R53oxltLjWqLAHbmbgjqiqZw6G2/social-images/social-1778433127880-124665.webp" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/5R53oxltLjWqLAHbmbgjqiqZw6G2/social-images/social-1778433127880-124665.webp" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
