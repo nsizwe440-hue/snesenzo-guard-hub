@@ -60,11 +60,12 @@ function AboutPage() {
       <section className="py-16 lg:py-24 bg-white">
         <div className={`${container} grid lg:grid-cols-2 gap-12 lg:gap-16 items-start`}>
           <Reveal variant="fade-up">
-            <img
-              src={ceo}
+            <ResponsiveImage
+              name="ceo-portrait"
               alt="Ntabazwe Ndlovu, Founder & CEO of Snesenzo Security Group"
-              className="w-full aspect-[4/5] object-cover object-top rounded-2xl shadow-xl"
-              loading="lazy"
+              sizes="(min-width: 1024px) 540px, 100vw"
+              className="block w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-xl"
+              imgClassName="w-full h-full object-cover object-top"
             />
           </Reveal>
           <Reveal variant="fade-up" delay={120}>
@@ -117,13 +118,19 @@ function AboutPage() {
           </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
-              { src: peopleDeployed, label: "Deployed" },
-              { src: peopleDisciplined, label: "Disciplined" },
-              { src: peopleAccountable, label: "Accountable" },
+              { name: "people-deployed", label: "Deployed" },
+              { name: "people-disciplined", label: "Disciplined" },
+              { name: "people-accountable", label: "Accountable" },
             ].map((p, i) => (
               <Reveal key={p.label} variant="zoom-in" delay={i * 100}>
                 <div className="rounded-xl overflow-hidden bg-black">
-                  <img src={p.src} alt={p.label} loading="lazy" className="w-full aspect-[3/4] object-cover" />
+                  <ResponsiveImage
+                    name={p.name}
+                    alt={p.label}
+                    sizes="(min-width: 768px) 33vw, 100vw"
+                    className="block w-full aspect-[3/4] overflow-hidden"
+                    imgClassName="w-full h-full object-cover"
+                  />
                   <div className="bg-black px-4 py-3">
                     <div className="w-6 h-[2px] bg-brand-red mb-1" />
                     <p className="text-white text-[12px] font-extrabold uppercase tracking-wide">{p.label}</p>
