@@ -1,7 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ShieldCheck, MapPin, TrendingUp, ArrowRight, Briefcase, CheckCircle2 } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
-import bannerOfficers from "@/assets/hero-officers.jpg";
+import { getImage } from "@/assets/optimized";
+const bannerOfficers = getImage("hero-officers").fallback.url;
 
 export const Route = createFileRoute("/careers")({
   head: () => ({
