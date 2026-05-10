@@ -19,6 +19,9 @@ import actionVip from "@/assets/action-vip.jpg";
 import actionRetail from "@/assets/action-retail.jpg";
 import actionConstruction from "@/assets/action-construction.jpg";
 import actionFarm from "@/assets/action-farm.jpg";
+import actionFarmReal from "@/assets/action-farm-real.jpg";
+import actionIndustrialReal from "@/assets/action-industrial-real.jpg";
+import caseFarmArrest from "@/assets/case-farm-arrest.jpg";
 import { Reveal } from "@/components/Reveal";
 
 export const Route = createFileRoute("/")({
@@ -39,11 +42,11 @@ const services = [
   { icon: UserCheck, label: "VIP Protection", desc: "Discreet close protection for executives and high-profile clients.", image: actionVip },
   { icon: CalendarDays, label: "Events Security Management", desc: "Crowd management, access control and incident response for events.", image: peopleDeployed },
   { icon: Camera, label: "CCTV & 24/7 Armed Response", desc: "Monitored surveillance backed by rapid armed response teams.", image: actionRetail },
-  { icon: Building2, label: "Commercial & Industrial Security", desc: "Site protection, access control and patrols for facilities." },
+  { icon: Building2, label: "Commercial & Industrial Security", desc: "Site protection, access control and patrols for facilities.", image: actionIndustrialReal },
   { icon: Hotel, label: "Hospitality Security", desc: "Guest-facing security for hotels, lodges and resorts." },
   { icon: Fuel, label: "Petroleum, Oil & Gas Security", desc: "Specialised security for high-risk fuel and energy sites." },
   { icon: Truck, label: "Highway Patrol & Road Assistance", desc: "Routine patrols and roadside support along key routes." },
-  { icon: Trees, label: "Property & Farm Watch", desc: "Rural and estate protection tailored to remote properties." },
+  { icon: Trees, label: "Property & Farm Watch", desc: "Rural and estate protection tailored to remote properties.", image: actionFarmReal },
   { icon: Flame, label: "Integrated Fire Security Solutions", desc: "Fire detection, prevention and emergency coordination." },
   { icon: Sparkles, label: "Specialised Cleaning & Hygiene", desc: "Professional cleaning bundled with security operations." },
 ];
