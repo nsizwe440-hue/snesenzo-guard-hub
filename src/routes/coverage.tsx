@@ -4,11 +4,7 @@ import {
   Headphones, Siren, MapPin,
 } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
-import coverageMap from "@/assets/coverage-map.png";
-import peopleDeployed from "@/assets/people-deployed.jpg";
-import peopleDisciplined from "@/assets/people-disciplined.jpg";
-import peopleAccountable from "@/assets/people-accountable.jpg";
-import bannerFarm from "@/assets/action-farm-real.jpg";
+import { ResponsiveImage } from "@/components/ResponsiveImage";
 
 export const Route = createFileRoute("/coverage")({
   head: () => ({
@@ -33,9 +29,9 @@ const clients = [
 ];
 
 const people = [
-  { src: peopleDeployed, label: "Deployed" },
-  { src: peopleDisciplined, label: "Disciplined" },
-  { src: peopleAccountable, label: "Accountable" },
+  { name: "people-deployed", label: "Deployed" },
+  { name: "people-disciplined", label: "Disciplined" },
+  { name: "people-accountable", label: "Accountable" },
 ];
 
 function CoveragePage() {
@@ -54,7 +50,7 @@ function CoveragePage() {
 
       <main className="px-5 py-10 max-w-[1120px] mx-auto">
         <Reveal as="div" variant="fade-up" className="rounded-[14px] overflow-hidden mb-5 relative h-[180px] md:h-[240px]">
-          <img src={bannerFarm} alt="Officers on patrol across KZN & Mpumalanga" className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+          <ResponsiveImage name="action-farm-real" alt="Officers on patrol across KZN & Mpumalanga" sizes="100vw" className="absolute inset-0 w-full h-full" imgClassName="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-brand-navy/85 via-brand-navy/55 to-transparent" />
           <div className="relative h-full flex items-center px-6 md:px-10">
             <div>
@@ -65,7 +61,7 @@ function CoveragePage() {
         </Reveal>
 
         <Reveal as="section" variant="fade-up" className="bg-white rounded-[14px] p-5 md:p-7 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.08)]">
-          <img src={coverageMap} alt="Snesenzo Security coverage areas: KwaZulu-Natal and Mpumalanga" className="w-full max-w-[720px] mx-auto h-auto" loading="lazy" />
+          <ResponsiveImage name="coverage-map" alt="Snesenzo Security coverage areas: KwaZulu-Natal and Mpumalanga" sizes="(min-width: 768px) 720px, 100vw" className="block w-full max-w-[720px] mx-auto" imgClassName="w-full h-auto" />
           <div className="flex items-center justify-center gap-6 mt-3 text-[12px] text-[#374151] font-semibold">
             <span className="flex items-center gap-2"><span className="w-3 h-3 rounded-full bg-brand-red" /> KwaZulu-Natal</span>
             <span className="flex items-center gap-2"><span className="w-3 h-3 rounded-full bg-brand-navy" /> Mpumalanga</span>
@@ -138,7 +134,7 @@ function CoveragePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
             {people.map((p, i) => (
               <Reveal key={p.label} variant="zoom-in" delay={i * 100} className="rounded-lg overflow-hidden bg-black">
-                <img src={p.src} alt={p.label} loading="lazy" className="w-full aspect-[3/4] object-cover" />
+                <ResponsiveImage name={p.name} alt={p.label} sizes="(min-width: 768px) 33vw, 100vw" className="block w-full aspect-[3/4] overflow-hidden" imgClassName="w-full h-full object-cover" />
                 <div className="bg-black px-3 py-2.5">
                   <div className="w-6 h-[2px] bg-brand-red mb-1" />
                   <p className="text-white text-[12px] font-extrabold uppercase tracking-wide leading-tight">{p.label}</p>
