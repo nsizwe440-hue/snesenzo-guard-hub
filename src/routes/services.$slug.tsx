@@ -148,7 +148,7 @@ function ServiceDetailPage() {
             Tell us about your site or operation and we'll design a fit-for-purpose plan.
           </p>
           <div className="mt-7 flex flex-col sm:flex-row gap-3 justify-center">
-            <Link to="/contact" className="inline-flex h-12 px-6 items-center justify-center gap-2 rounded-lg bg-brand-red text-white text-[13px] font-bold uppercase tracking-wide hover:opacity-90">
+            <Link to="/contact" search={{ service: service.slug }} className="inline-flex h-12 px-6 items-center justify-center gap-2 rounded-lg bg-brand-red text-white text-[13px] font-bold uppercase tracking-wide hover:opacity-90">
               Request a Quote <ArrowRight size={16} />
             </Link>
             <Link to="/services" className="inline-flex h-12 px-6 items-center justify-center gap-2 rounded-lg border border-white/30 text-white text-[13px] font-bold uppercase tracking-wide hover:bg-white/10">
