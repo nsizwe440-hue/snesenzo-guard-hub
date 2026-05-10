@@ -50,98 +50,34 @@ function ServicesPage() {
         </div>
       </section>
 
-      {/* Service blocks */}
+      {/* Service blocks - core */}
       <main className="px-5 py-12 md:py-20">
         <div className="max-w-[1120px] mx-auto flex flex-col gap-16 md:gap-24">
-          {services.map((s, i) => {
-            const Icon = s.icon;
-            const imageRight = i % 2 === 1;
-            return (
-              <section
-                key={s.slug}
-                id={s.slug}
-                className="scroll-mt-24"
-              >
-                <div className={`grid lg:grid-cols-2 gap-8 lg:gap-12 items-center ${imageRight ? "lg:[&>*:first-child]:order-2" : ""}`}>
-                  {/* Visual */}
-                  <Reveal variant="fade-up">
-                    {s.image ? (
-                      <ResponsiveImage
-                        name={s.image}
-                        alt={s.label}
-                        sizes="(min-width: 1024px) 540px, 100vw"
-                        className="block w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-xl"
-                        imgClassName="w-full h-full object-cover"
-                      />
-                    ) : (
-                      <div className="w-full aspect-[4/3] rounded-2xl bg-gradient-to-br from-brand-navy to-[#1e293b] shadow-xl flex items-center justify-center">
-                        <Icon size={96} className="text-brand-red" strokeWidth={1.5} />
-                      </div>
-                    )}
-                  </Reveal>
-
-                  {/* Content */}
-                  <Reveal variant="fade-up" delay={120}>
-                    <div className="flex items-center gap-2 mb-3">
-                      <Icon size={22} className="text-brand-red" />
-                      <p className="text-brand-red text-[10px] font-extrabold tracking-[0.2em] uppercase">Service</p>
-                    </div>
-                    <h2 className="font-display text-brand-navy text-[26px] md:text-[34px] leading-[1.1] tracking-wide">
-                      {s.label}
-                    </h2>
-                    <p className="text-[#374151] text-[15px] md:text-[16px] leading-[1.65] mt-4">
-                      {s.details.intro}
-                    </p>
-
-                    <div className="grid sm:grid-cols-2 gap-5 mt-6">
-                      <div>
-                        <h3 className="text-brand-navy font-display text-[12px] tracking-[0.18em] uppercase mb-2">
-                          What's included
-                        </h3>
-                        <ul className="space-y-1.5">
-                          {s.details.whatsIncluded.map((item) => (
-                            <li key={item} className="flex gap-2 text-[13px] text-[#374151] leading-[1.55]">
-                              <Check size={15} className="text-brand-red shrink-0 mt-0.5" />
-                              <span>{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                      <div>
-                        <h3 className="text-brand-navy font-display text-[12px] tracking-[0.18em] uppercase mb-2">
-                          Who it's for
-                        </h3>
-                        <ul className="space-y-1.5">
-                          {s.details.whoItsFor.map((item) => (
-                            <li key={item} className="flex gap-2 text-[13px] text-[#374151] leading-[1.55]">
-                              <Check size={15} className="text-brand-red shrink-0 mt-0.5" />
-                              <span>{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-
-                    <div className="mt-5 rounded-lg bg-[#F8FAFC] border-l-4 border-brand-red p-4">
-                      <p className="text-[13px] md:text-[14px] text-brand-navy font-medium leading-[1.55]">
-                        {s.details.outcome}
-                      </p>
-                    </div>
-
-                    <Link
-                      to="/contact"
-                      search={{ service: s.slug }}
-                      className="mt-6 inline-flex h-12 px-6 items-center justify-center gap-2 rounded-lg bg-brand-red text-white text-[13px] font-bold uppercase tracking-wide hover:opacity-90"
-                    >
-                      Get a quote for this service <ArrowRight size={16} />
-                    </Link>
-                  </Reveal>
-                </div>
-              </section>
-            );
-          })}
+          {services.filter((s) => !s.integrated).map((s, i) => renderServiceBlock(s, i))}
         </div>
       </main>
+
+      {/* INTEGRATED SERVICES band */}
+      <section className="bg-[#F8FAFC] px-5 py-14 md:py-20 border-t border-[#E5E7EB]">
+        <div className="max-w-[1120px] mx-auto">
+          <Reveal variant="fade-up">
+            <div className="text-center max-w-[720px] mx-auto mb-12 md:mb-16">
+              <div className="w-10 h-[2px] bg-brand-red mb-3 mx-auto" />
+              <p className="text-brand-red text-[10px] font-extrabold tracking-[0.25em] uppercase">Integrated Services</p>
+              <h2 className="font-display text-brand-navy text-[28px] md:text-[40px] leading-[1.05] mt-2">
+                More than security - one accountable partner
+              </h2>
+              <p className="text-[#374151] text-[14px] md:text-[15px] leading-[1.65] mt-4">
+                We bundle fire safety and specialised cleaning into our security operations so clients get one trusted team, one point of contact and one invoice across every service on site.
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="flex flex-col gap-16 md:gap-24">
+            {services.filter((s) => s.integrated).map((s, i) => renderServiceBlock(s, i))}
+          </div>
+        </div>
+      </section>
 
       {/* Final CTA */}
       <section className="bg-brand-navy px-5 py-14 md:py-20 text-center">
