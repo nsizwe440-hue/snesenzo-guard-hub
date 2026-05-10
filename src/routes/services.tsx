@@ -45,7 +45,7 @@ function ServicesPage() {
           <p className="text-brand-red text-[10px] font-extrabold tracking-[0.2em] uppercase">What we do</p>
           <h1 className="font-display text-[36px] md:text-[56px] leading-[0.95] mt-2">OUR SERVICES</h1>
           <p className="text-white/75 text-[14px] md:text-[15px] max-w-[680px] mt-4 leading-[1.6]">
-            A complete, PSIRA-compliant security stack — from close protection and armed response to industrial site security and integrated fire solutions. Tap "Get a quote" on any service below and we'll come back to you with a fit-for-purpose plan.
+            A complete, PSIRA-compliant security stack - from close protection and armed response to industrial site security and integrated fire solutions. Tap "Get a quote" on any service below and we'll come back to you with a fit-for-purpose plan.
           </p>
         </div>
       </section>

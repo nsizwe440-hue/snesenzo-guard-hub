@@ -7,8 +7,8 @@ const bannerOfficers = getImage("hero-ssg-vehicle").fallback.url;
 export const Route = createFileRoute("/careers")({
   head: () => ({
     meta: [
-      { title: "Careers — Join Snesenzo Security Group | KZN & Mpumalanga" },
-      { name: "description", content: "Build a career in protection with Snesenzo Security Group. PSIRA-registered roles across KwaZulu-Natal and Mpumalanga — officers, armed response, control room and supervisors." },
+      { title: "Careers - Join Snesenzo Security Group | KZN & Mpumalanga" },
+      { name: "description", content: "Build a career in protection with Snesenzo Security Group. PSIRA-registered roles across KwaZulu-Natal and Mpumalanga - officers, armed response, control room and supervisors." },
       { property: "og:title", content: "Careers at Snesenzo Security Group" },
       { property: "og:description", content: "PSIRA-registered training, local deployment, real growth path. Apply today." },
       { property: "og:image", content: bannerOfficers },
@@ -23,7 +23,7 @@ const CAREERS_EMAIL = "careers@snesenzo.co.za";
 const why = [
   { icon: ShieldCheck, title: "PSIRA-Registered Training", body: "Work for a compliant operator that invests in proper grading, refreshers and on-site coaching." },
   { icon: MapPin, title: "Local Deployment", body: "We hire from the communities we protect. Less travel, more hours where you live." },
-  { icon: TrendingUp, title: "Real Growth Path", body: "From officer to supervisor to control room — promotions go to those who show up and lead." },
+  { icon: TrendingUp, title: "Real Growth Path", body: "From officer to supervisor to control room - promotions go to those who show up and lead." },
 ];
 
 
@@ -62,7 +62,7 @@ function CareersPage() {
           </div>
         </Reveal>
 
-        {/* Open roles — none currently */}
+        {/* Open roles - none currently */}
         <Reveal as="section" variant="fade-up" className="mt-8">
           <div className="flex items-center gap-2 mb-4">
             <span className="block w-[3px] h-[18px] bg-brand-red rounded-sm" />
@@ -76,7 +76,7 @@ function CareersPage() {
               No open positions right now.
             </h3>
             <p className="text-[#4B5563] text-[14px] mt-2 max-w-[520px] mx-auto">
-              We're not actively recruiting at the moment — please check back soon. New roles across KZN and Mpumalanga are posted here as they open.
+              We're not actively recruiting at the moment - please check back soon. New roles across KZN and Mpumalanga are posted here as they open.
             </p>
             <p className="text-[#374151] text-[13px] mt-4">
               In the meantime, you can still send us your CV below and we'll keep it on file.
@@ -115,7 +115,7 @@ function CareersPage() {
           </p>
           <div className="mt-5 flex flex-row gap-3 flex-wrap justify-center">
             <a
-              href={`mailto:${CAREERS_EMAIL}?subject=${encodeURIComponent("General application — CV submission")}`}
+              href={`mailto:${CAREERS_EMAIL}?subject=${encodeURIComponent("General application - CV submission")}`}
               className="inline-flex h-12 px-6 items-center justify-center gap-2 rounded-lg bg-brand-red text-white text-[13px] font-bold uppercase tracking-wide hover:opacity-90"
             >
               Email your CV <ArrowRight size={16} />
