@@ -1,10 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Quote, ArrowRight, Phone, MapPin, Users, ShieldCheck } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
-import ceo from "@/assets/ceo-portrait.jpg";
-import peopleDeployed from "@/assets/people-deployed.jpg";
-import peopleDisciplined from "@/assets/people-disciplined.jpg";
-import peopleAccountable from "@/assets/people-accountable.jpg";
+import { ResponsiveImage } from "@/components/ResponsiveImage";
+import { getImage } from "@/assets/optimized";
+const ceo = getImage("ceo-portrait").fallback.url;
 
 export const Route = createFileRoute("/about")({
   head: () => ({
