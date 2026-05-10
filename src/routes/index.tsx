@@ -209,33 +209,37 @@ function LandingPage() {
 
       {/* MEET THE FOUNDER — light gray full bleed */}
       <section className={`bg-[#F8FAFC] ${sectionPad}`}>
-        <div className={`${container} grid lg:grid-cols-2 gap-12 items-center`}>
+        <div className={container}>
           <Reveal variant="fade-up">
-            <img
-              src={ceo}
-              alt="Ntabazwe Ndlovu, Founder & CEO of Snesenzo Security Group"
-              className="w-full aspect-[4/5] object-cover object-top rounded-2xl shadow-lg"
-              loading="lazy"
-            />
-          </Reveal>
-          <Reveal variant="fade-up" delay={120}>
             <SectionTitle eyebrow="Meet the Founder">Ntabazwe Ndlovu</SectionTitle>
-            <p className="text-brand-red text-[14px] font-extrabold uppercase tracking-wide -mt-4 mb-5">
+            <p className="text-brand-red text-[14px] font-extrabold uppercase tracking-wide -mt-4 mb-10">
               Founder &amp; CEO, Snesenzo Security Group
             </p>
-            <p className="text-[#374151] text-[16px] leading-[1.7]">
-              Not your typical security company CEO. An Amajuba-born entrepreneur and community leader who runs multiple businesses across the district — and chose to put his name, his standards, and his reputation behind a youth-led, 100% black-owned security company built to serve the people of KwaZulu-Natal and Mpumalanga.
-            </p>
-            <p className="text-[#374151] text-[16px] leading-[1.7] mt-4">
-              When you partner with Snesenzo, you're not hiring a logo. You're standing alongside a founder who backs his own community.
-            </p>
-            <Link
-              to="/about"
-              className="inline-flex items-center gap-2 mt-6 h-12 px-6 rounded-lg bg-brand-red text-white text-[13px] font-bold uppercase tracking-wide hover:opacity-90"
-            >
-              Read More About Ntabazwe <ArrowRight size={16} />
-            </Link>
           </Reveal>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <Reveal variant="fade-up">
+              <img
+                src={ceo}
+                alt="Ntabazwe Ndlovu, Founder & CEO of Snesenzo Security Group"
+                className="w-full aspect-[4/5] object-cover object-top rounded-2xl shadow-lg"
+                loading="lazy"
+              />
+            </Reveal>
+            <Reveal variant="fade-up" delay={120}>
+              <p className="text-[#374151] text-[16px] leading-[1.7]">
+                Not your typical security company CEO. An Amajuba-born entrepreneur and community leader who runs multiple businesses across the district — and chose to put his name, his standards, and his reputation behind a youth-led, 100% black-owned security company built to serve the people of KwaZulu-Natal and Mpumalanga.
+              </p>
+              <p className="text-[#374151] text-[16px] leading-[1.7] mt-4">
+                When you partner with Snesenzo, you're not hiring a logo. You're standing alongside a founder who backs his own community.
+              </p>
+              <Link
+                to="/about"
+                className="inline-flex items-center gap-2 mt-6 h-12 px-6 rounded-lg bg-brand-red text-white text-[13px] font-bold uppercase tracking-wide hover:opacity-90"
+              >
+                Read More About Ntabazwe <ArrowRight size={16} />
+              </Link>
+            </Reveal>
+          </div>
         </div>
       </section>
 
