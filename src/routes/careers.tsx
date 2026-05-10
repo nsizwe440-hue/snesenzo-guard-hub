@@ -25,39 +25,6 @@ const why = [
   { icon: TrendingUp, title: "Real Growth Path", body: "From officer to supervisor to control room — promotions go to those who show up and lead." },
 ];
 
-const roles = [
-  {
-    title: "Security Officer (Grade C)",
-    location: "KZN & Mpumalanga",
-    reqs: ["Valid PSIRA Grade C", "Clear criminal record", "South African ID", "Reliable transport (advantage)"],
-  },
-  {
-    title: "Armed Response Officer (Grade B)",
-    location: "Amajuba District & surrounds",
-    reqs: ["Valid PSIRA Grade B", "Firearm competency (Business Purposes)", "Driver's license — code 8", "Clear criminal record"],
-  },
-  {
-    title: "Control Room Operator",
-    location: "Utrecht HQ",
-    reqs: ["PSIRA Grade C minimum", "Computer literate", "Clear voice / radio comms", "Willing to work shifts"],
-  },
-  {
-    title: "Site Supervisor",
-    location: "KZN & Mpumalanga",
-    reqs: ["PSIRA Grade B", "2+ years guarding experience", "Driver's license", "Strong leadership & reporting skills"],
-  },
-  {
-    title: "Cleaner / Hygiene Operator",
-    location: "Various sites",
-    reqs: ["South African ID", "Clear criminal record", "Reliable & punctual", "Experience with industrial cleaning (advantage)"],
-  },
-];
-
-function applyHref(role: string) {
-  const subject = `Application — ${role}`;
-  const body = `Hi Snesenzo Security Group,\n\nI'd like to apply for the ${role} position.\n\nFull name:\nID number:\nPSIRA grade & number:\nLocation / town:\nContact number:\n\n(Please attach your CV and PSIRA certificate.)\n\nThank you.`;
-  return `mailto:${CAREERS_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-}
 
 function CareersPage() {
   return (
@@ -94,42 +61,25 @@ function CareersPage() {
           </div>
         </Reveal>
 
-        {/* Open roles */}
+        {/* Open roles — none currently */}
         <Reveal as="section" variant="fade-up" className="mt-8">
           <div className="flex items-center gap-2 mb-4">
             <span className="block w-[3px] h-[18px] bg-brand-red rounded-sm" />
             <h2 className="font-display text-brand-navy text-[18px] tracking-wide">OPEN ROLES</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-            {roles.map((r, i) => (
-              <Reveal key={r.title} variant="fade-up" delay={i * 60} className="bg-white rounded-[14px] p-5 md:p-6 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.08)] flex flex-col">
-                <div className="flex items-start gap-3 mb-2">
-                  <span className="inline-flex w-10 h-10 items-center justify-center rounded-lg bg-brand-red/10 text-brand-red shrink-0">
-                    <Briefcase size={18} />
-                  </span>
-                  <div>
-                    <h3 className="font-display text-brand-navy text-[18px] leading-tight">{r.title}</h3>
-                    <p className="text-[#6B7280] text-[12px] mt-0.5 flex items-center gap-1">
-                      <MapPin size={12} className="text-brand-red" /> {r.location}
-                    </p>
-                  </div>
-                </div>
-                <ul className="mt-3 space-y-1.5 text-[13px] text-[#374151]">
-                  {r.reqs.map((req) => (
-                    <li key={req} className="flex items-start gap-2">
-                      <CheckCircle2 size={14} className="text-brand-red mt-0.5 shrink-0" />
-                      <span>{req}</span>
-                    </li>
-                  ))}
-                </ul>
-                <a
-                  href={applyHref(r.title)}
-                  className="mt-5 inline-flex h-11 px-5 items-center justify-center gap-2 rounded-lg bg-brand-red text-white text-[12.5px] font-bold uppercase tracking-wide hover:opacity-90 self-start"
-                >
-                  Apply for this role <ArrowRight size={14} />
-                </a>
-              </Reveal>
-            ))}
+          <div className="bg-white rounded-[14px] p-6 md:p-8 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.08)] border-t-4 border-brand-red text-center">
+            <span className="inline-flex w-12 h-12 items-center justify-center rounded-full bg-brand-red/10 text-brand-red mb-3">
+              <Briefcase size={22} />
+            </span>
+            <h3 className="font-display text-brand-navy text-[22px] md:text-[26px] leading-tight">
+              No open positions right now.
+            </h3>
+            <p className="text-[#4B5563] text-[14px] mt-2 max-w-[520px] mx-auto">
+              We're not actively recruiting at the moment — please check back soon. New roles across KZN and Mpumalanga are posted here as they open.
+            </p>
+            <p className="text-[#374151] text-[13px] mt-4">
+              In the meantime, you can still send us your CV below and we'll keep it on file.
+            </p>
           </div>
         </Reveal>
 
