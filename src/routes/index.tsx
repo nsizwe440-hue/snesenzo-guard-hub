@@ -193,17 +193,29 @@ function LandingPage() {
         </div>
       </div>
 
-      {/* WHO WE ARE — white */}
+      {/* WHO WE ARE — white, 2-column */}
       <section className={`bg-white ${sectionPad}`}>
         <div className={container}>
-          <Reveal variant="fade-up">
-            <SectionTitle eyebrow="Who We Are">A trusted security partner across two provinces</SectionTitle>
-          </Reveal>
-          <Reveal variant="fade-up" delay={80}>
-            <p className="text-[16px] md:text-[18px] leading-[1.7] text-[#374151] max-w-3xl">
-              Snesenzo Security Group (Pty) Ltd is 100% youth black-owned and provides expert, risk-based security solutions across KwaZulu-Natal &amp; Mpumalanga with professional integrity, trained personnel and 24/7 readiness — ensuring safety, compliance and peace of mind.
-            </p>
-          </Reveal>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <Reveal variant="fade-up">
+                <SectionTitle eyebrow="Who We Are">A trusted security partner across two provinces</SectionTitle>
+              </Reveal>
+              <Reveal variant="fade-up" delay={80}>
+                <p className="text-[16px] md:text-[18px] leading-[1.7] text-[#374151]">
+                  Snesenzo Security Group (Pty) Ltd is 100% youth black-owned and provides expert, risk-based security solutions across KwaZulu-Natal &amp; Mpumalanga with professional integrity, trained personnel and 24/7 readiness — ensuring safety, compliance and peace of mind.
+                </p>
+              </Reveal>
+            </div>
+            <Reveal variant="fade-up" delay={120}>
+              <img
+                src={peopleDeployed}
+                alt="Snesenzo Security officers deployed on duty"
+                className="w-full aspect-[4/5] object-cover rounded-2xl shadow-lg"
+                loading="lazy"
+              />
+            </Reveal>
+          </div>
         </div>
       </section>
 
