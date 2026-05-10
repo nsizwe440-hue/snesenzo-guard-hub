@@ -255,15 +255,22 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* PILLARS — navy full bleed */}
-      <section className={`bg-brand-navy ${sectionPad}`}>
+      {/* PILLARS — navy with photo background */}
+      <section
+        className={`relative ${sectionPad}`}
+        style={{
+          backgroundImage: `linear-gradient(135deg, rgba(6,16,22,0.93) 0%, rgba(6,16,22,0.82) 100%), url(${peopleDisciplined})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
         <div className={container}>
           <Reveal variant="fade-up">
             <SectionTitle dark eyebrow="Our Approach">Built on four pillars</SectionTitle>
           </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {pillars.map((p, i) => (
-              <Reveal key={p.title} variant="fade-up" delay={i * 80} className="rounded-xl border border-white/10 p-6 bg-white/[0.02] hover:bg-white/[0.04] transition-colors">
+              <Reveal key={p.title} variant="fade-up" delay={i * 80} className="rounded-xl border border-white/10 p-6 bg-white/[0.06] backdrop-blur-sm hover:bg-white/[0.1] transition-colors">
                 <p.icon size={36} className="text-brand-red mb-4" />
                 <h3 className="text-white text-[15px] uppercase font-bold mb-2 tracking-wide">{p.title}</h3>
                 <p className="text-[#D1D5DB] text-[14px] leading-[1.55]">{p.body}</p>
