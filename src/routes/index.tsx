@@ -11,6 +11,7 @@ import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { getImage } from "@/assets/optimized";
 import psiraLogo from "@/assets/psira-logo.png";
 import { Reveal } from "@/components/Reveal";
+import { TrustedBy } from "@/components/TrustedBy";
 
 const heroImg = getImage("hero-ssg-vehicle").fallback.url;
 const peopleDisciplinedBg = getImage("people-disciplined").fallback.url;
@@ -409,6 +410,9 @@ function LandingPage() {
           </div>
         </div>
       </section>
+
+      {/* TRUSTED BY - logo marquee */}
+      <TrustedBy />
 
       {/* WHY CHOOSE - white */}
       <section className={`bg-white ${sectionPad}`}>

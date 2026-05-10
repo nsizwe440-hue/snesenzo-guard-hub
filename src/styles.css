@@ -188,3 +188,22 @@
     transition: none !important;
   }
 }
+
+/* Trusted-by marquee */
+@keyframes trusted-marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-25%, 0, 0); }
+}
+.animate-trusted-marquee {
+  animation: trusted-marquee 28s linear infinite;
+}
+@media (min-width: 768px) {
+  .animate-trusted-marquee { animation-duration: 40s; }
+}
+.trusted-mask {
+  -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+          mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-trusted-marquee { animation: none; }
+}
