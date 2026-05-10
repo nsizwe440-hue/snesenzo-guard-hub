@@ -25,39 +25,6 @@ const why = [
   { icon: TrendingUp, title: "Real Growth Path", body: "From officer to supervisor to control room — promotions go to those who show up and lead." },
 ];
 
-const roles = [
-  {
-    title: "Security Officer (Grade C)",
-    location: "KZN & Mpumalanga",
-    reqs: ["Valid PSIRA Grade C", "Clear criminal record", "South African ID", "Reliable transport (advantage)"],
-  },
-  {
-    title: "Armed Response Officer (Grade B)",
-    location: "Amajuba District & surrounds",
-    reqs: ["Valid PSIRA Grade B", "Firearm competency (Business Purposes)", "Driver's license — code 8", "Clear criminal record"],
-  },
-  {
-    title: "Control Room Operator",
-    location: "Utrecht HQ",
-    reqs: ["PSIRA Grade C minimum", "Computer literate", "Clear voice / radio comms", "Willing to work shifts"],
-  },
-  {
-    title: "Site Supervisor",
-    location: "KZN & Mpumalanga",
-    reqs: ["PSIRA Grade B", "2+ years guarding experience", "Driver's license", "Strong leadership & reporting skills"],
-  },
-  {
-    title: "Cleaner / Hygiene Operator",
-    location: "Various sites",
-    reqs: ["South African ID", "Clear criminal record", "Reliable & punctual", "Experience with industrial cleaning (advantage)"],
-  },
-];
-
-function applyHref(role: string) {
-  const subject = `Application — ${role}`;
-  const body = `Hi Snesenzo Security Group,\n\nI'd like to apply for the ${role} position.\n\nFull name:\nID number:\nPSIRA grade & number:\nLocation / town:\nContact number:\n\n(Please attach your CV and PSIRA certificate.)\n\nThank you.`;
-  return `mailto:${CAREERS_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-}
 
 function CareersPage() {
   return (
