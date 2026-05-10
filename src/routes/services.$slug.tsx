@@ -101,7 +101,7 @@ function ServiceDetailPage() {
               What's included
             </h2>
             <ul className="space-y-3">
-              {service.details.whatsIncluded.map((item) => (
+              {service.details.whatsIncluded.map((item: string) => (
                 <li key={item} className="flex gap-3 text-[14px] text-[#374151] leading-[1.6]">
                   <Check size={18} className="text-brand-red shrink-0 mt-0.5" />
                   <span>{item}</span>
@@ -115,7 +115,7 @@ function ServiceDetailPage() {
               Who it's for
             </h2>
             <ul className="space-y-3">
-              {service.details.whoItsFor.map((item) => (
+              {service.details.whoItsFor.map((item: string) => (
                 <li key={item} className="flex gap-3 text-[14px] text-[#374151] leading-[1.6]">
                   <Check size={18} className="text-brand-red shrink-0 mt-0.5" />
                   <span>{item}</span>
