@@ -1,9 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
-import { services, type Service } from "@/data/services";
-import { ServiceDetailDialog } from "@/components/ServiceDetailDialog";
+import { services } from "@/data/services";
 import actionVip from "@/assets/action-vip.jpg";
 import actionRetail from "@/assets/action-retail.jpg";
 import actionConstruction from "@/assets/action-construction.jpg";
@@ -29,15 +27,8 @@ const inAction = [
 ];
 
 function ServicesPage() {
-  const [activeService, setActiveService] = useState<Service | null>(null);
-
   return (
     <div className="bg-brand-surface">
-      <ServiceDetailDialog
-        service={activeService}
-        open={!!activeService}
-        onOpenChange={(o) => !o && setActiveService(null)}
-      />
       <section className="bg-brand-navy text-white px-5 py-12 md:py-20">
         <div className="max-w-[1120px] mx-auto">
           <div className="w-10 h-[2px] bg-brand-red mb-3" />
@@ -57,9 +48,9 @@ function ServicesPage() {
                 <s.icon size={28} className="text-brand-red mb-2" />
                 <h3 className="font-display text-[15px] text-[#111827] tracking-wide">{s.label}</h3>
                 <p className="text-[12px] text-[#4B5563] leading-[1.5] mt-1 flex-1">{s.desc}</p>
-                <button type="button" onClick={() => setActiveService(s)} className="mt-3 inline-flex items-center gap-1.5 text-brand-red text-[11px] font-extrabold uppercase tracking-[0.15em] hover:gap-2 transition-all self-start">
+                <Link to="/services/$slug" params={{ slug: s.slug }} className="mt-3 inline-flex items-center gap-1.5 text-brand-red text-[11px] font-extrabold uppercase tracking-[0.15em] hover:gap-2 transition-all self-start">
                   Learn more <ArrowRight size={12} />
-                </button>
+                </Link>
               </Reveal>
             ))}
           </div>
