@@ -48,9 +48,9 @@ function ServicesPage() {
                 <s.icon size={28} className="text-brand-red mb-2" />
                 <h3 className="font-display text-[15px] text-[#111827] tracking-wide">{s.label}</h3>
                 <p className="text-[12px] text-[#4B5563] leading-[1.5] mt-1 flex-1">{s.desc}</p>
-                <button type="button" onClick={() => setActiveService(s)} className="mt-3 inline-flex items-center gap-1.5 text-brand-red text-[11px] font-extrabold uppercase tracking-[0.15em] hover:gap-2 transition-all self-start">
+                <Link to="/services/$slug" params={{ slug: s.slug }} className="mt-3 inline-flex items-center gap-1.5 text-brand-red text-[11px] font-extrabold uppercase tracking-[0.15em] hover:gap-2 transition-all self-start">
                   Learn more <ArrowRight size={12} />
-                </button>
+                </Link>
               </Reveal>
             ))}
           </div>
