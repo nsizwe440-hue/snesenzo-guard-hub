@@ -6,7 +6,7 @@ import {
   Truck, Trees, Flame, Sparkles,
   Ear, Brain, Users, BadgeCheck,
   Briefcase, Landmark, Home, GraduationCap, Wheat, User,
-  Mail, Clock, MessageCircle,
+  
 } from "lucide-react";
 import heroImg from "@/assets/hero-officers.jpg";
 import ceo from "@/assets/ceo-portrait.jpg";
