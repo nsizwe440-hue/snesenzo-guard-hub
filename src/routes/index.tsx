@@ -187,11 +187,12 @@ function LandingPage() {
           </Reveal>
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <Reveal variant="fade-up">
-              <img
-                src={ceo}
+              <ResponsiveImage
+                name="ceo-portrait"
                 alt="Ntabazwe Ndlovu, Founder & CEO of Snesenzo Security Group"
-                className="w-full aspect-[4/5] object-cover object-top rounded-2xl shadow-lg"
-                loading="lazy"
+                sizes="(min-width: 1024px) 540px, 100vw"
+                className="block w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-lg"
+                imgClassName="w-full h-full object-cover object-top"
               />
             </Reveal>
             <Reveal variant="fade-up" delay={120}>
@@ -227,11 +228,12 @@ function LandingPage() {
               </Reveal>
             </div>
             <Reveal variant="fade-up" delay={120}>
-              <img
-                src={peopleDeployed}
+              <ResponsiveImage
+                name="people-deployed"
                 alt="Snesenzo Security officers deployed on duty"
-                className="w-full aspect-[4/5] object-cover rounded-2xl shadow-lg"
-                loading="lazy"
+                sizes="(min-width: 1024px) 540px, 100vw"
+                className="block w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-lg"
+                imgClassName="w-full h-full object-cover"
               />
             </Reveal>
           </div>
@@ -242,7 +244,7 @@ function LandingPage() {
       <section
         className={`relative ${sectionPad}`}
         style={{
-          backgroundImage: `linear-gradient(135deg, rgba(6,16,22,0.93) 0%, rgba(6,16,22,0.82) 100%), url(${peopleDisciplined})`,
+          backgroundImage: `linear-gradient(135deg, rgba(6,16,22,0.93) 0%, rgba(6,16,22,0.82) 100%), url(${peopleDisciplinedBg})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
@@ -277,7 +279,7 @@ function LandingPage() {
                   hash={s.slug}
                   className="absolute inset-0 w-full h-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-red"
                 >
-                  <img src={s.image} alt={s.label} loading="lazy" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <ResponsiveImage name={s.image!} alt={s.label} sizes="(min-width:1280px) 25vw, (min-width:1024px) 33vw, (min-width:768px) 50vw, 100vw" className="absolute inset-0 w-full h-full" imgClassName="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
                   <div className="absolute left-5 right-5 bottom-5">
                     <div className="w-8 h-[2px] bg-brand-red mb-2" />
@@ -304,11 +306,12 @@ function LandingPage() {
         <div className={container}>
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <Reveal variant="fade-up">
-              <img
-                src={caseFarmArrest}
+              <ResponsiveImage
+                name="case-farm-arrest"
                 alt="Suspects intercepted and detained during a Snesenzo Security farm-watch patrol"
-                className="w-full aspect-[4/5] object-cover rounded-2xl shadow-lg"
-                loading="lazy"
+                sizes="(min-width: 1024px) 540px, 100vw"
+                className="block w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-lg"
+                imgClassName="w-full h-full object-cover"
               />
             </Reveal>
             <Reveal variant="fade-up" delay={120}>
@@ -336,7 +339,7 @@ function LandingPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {inAction.map((item, i) => (
               <Reveal key={item.label} variant="zoom-in" delay={i * 80} className="group relative rounded-xl overflow-hidden bg-black aspect-[4/5]">
-                <img src={item.src} alt={item.label} loading="lazy" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <ResponsiveImage name={item.name} alt={item.label} sizes="(min-width:1024px) 25vw, (min-width:640px) 50vw, 100vw" className="absolute inset-0 w-full h-full" imgClassName="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
                 <div className="absolute left-4 right-4 bottom-4">
                   <div className="w-8 h-[2px] bg-brand-red mb-2" />
@@ -355,7 +358,7 @@ function LandingPage() {
             <SectionTitle eyebrow="Where We Operate">Coverage areas</SectionTitle>
           </Reveal>
           <Reveal variant="fade-up" delay={80}>
-            <img src={coverageMap} alt="Snesenzo Security coverage areas: KwaZulu-Natal and Mpumalanga" className="w-full max-w-3xl mx-auto h-auto" loading="lazy" />
+            <ResponsiveImage name="coverage-map" alt="Snesenzo Security coverage areas: KwaZulu-Natal and Mpumalanga" sizes="(min-width: 768px) 720px, 100vw" className="block w-full max-w-3xl mx-auto" imgClassName="w-full h-auto" />
             <div className="flex items-center justify-center gap-8 mt-6 text-[14px] text-[#374151] font-semibold">
               <span className="flex items-center gap-2"><span className="w-3 h-3 rounded-full bg-brand-red" /> KwaZulu-Natal</span>
               <span className="flex items-center gap-2"><span className="w-3 h-3 rounded-full bg-brand-navy" /> Mpumalanga</span>
@@ -391,7 +394,7 @@ function LandingPage() {
             {people.map((p, i) => (
               <Reveal key={p.label} variant="zoom-in" delay={i * 100} className="group rounded-xl overflow-hidden">
                 <div className="relative aspect-[4/5] overflow-hidden bg-black">
-                  <img src={p.src} alt={p.label} loading="lazy" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <ResponsiveImage name={p.name} alt={p.label} sizes="(min-width: 768px) 33vw, 100vw" className="absolute inset-0 w-full h-full" imgClassName="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                   <div className="absolute left-5 bottom-5">
                     <div className="w-8 h-[2px] bg-brand-red mb-2" />
