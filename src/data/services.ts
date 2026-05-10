@@ -25,7 +25,7 @@ export const services: Service[] = [
     icon: UserCheck,
     label: "VIP Protection",
     desc: "Discreet close protection for executives and high-profile clients.",
-    image: actionVip,
+    image: "action-vip",
     details: {
       intro:
         "Professional close protection for executives, dignitaries, public figures and private clients who need to move freely without compromising their safety. Our protectors are PSIRA-graded, route-trained and briefed on every assignment before they step out the door.",
@@ -51,7 +51,7 @@ export const services: Service[] = [
     icon: CalendarDays,
     label: "Events Security Management",
     desc: "Crowd management, access control and incident response for events.",
-    image: actionEventsReal,
+    image: "action-events-real",
     details: {
       intro:
         "End-to-end security for functions of any size — from corporate launches and conferences to weddings, festivals and stadium events. We plan ahead, deploy disciplined personnel and stay invisible until we're needed.",
@@ -77,7 +77,7 @@ export const services: Service[] = [
     icon: Camera,
     label: "CCTV & 24/7 Armed Response",
     desc: "Monitored surveillance backed by rapid armed response teams.",
-    image: actionRetail,
+    image: "action-retail",
     details: {
       intro:
         "Eyes on your site around the clock, with armed teams ready to roll. We pair monitored CCTV and alarms with vehicle response so a detected threat becomes an intercepted threat — fast.",
@@ -103,7 +103,7 @@ export const services: Service[] = [
     icon: Building2,
     label: "Commercial & Industrial Security",
     desc: "Site protection, access control and patrols for facilities.",
-    image: actionIndustrialReal,
+    image: "action-industrial-real",
     details: {
       intro:
         "Hardened security for factories, warehouses, construction sites, mines and corporate parks. We layer access control, foot and vehicle patrols, and supervisor checks so production keeps moving and stock stays where it should.",
@@ -129,7 +129,7 @@ export const services: Service[] = [
     icon: Hotel,
     label: "Hospitality Security",
     desc: "Guest-facing security for hotels, lodges and resorts.",
-    image: actionHospitalityReal,
+    image: "action-hospitality-real",
     details: {
       intro:
         "Security that protects guests and assets without ever feeling like security. Our hospitality team is trained to balance warmth and vigilance — the kind of presence that says \"welcome\" and \"we've got you\" at the same time.",
@@ -155,7 +155,7 @@ export const services: Service[] = [
     icon: Fuel,
     label: "Petroleum, Oil & Gas Security",
     desc: "Specialised security for high-risk fuel and energy sites.",
-    image: actionPetroleumReal,
+    image: "action-petroleum-real",
     details: {
       intro:
         "High-risk sites need specialist hands. We secure fuel depots, service stations, pipelines and energy infrastructure with officers who understand the safety, compliance and theft pressures unique to this sector.",
@@ -181,7 +181,7 @@ export const services: Service[] = [
     icon: Truck,
     label: "Highway Patrol & Road Assistance",
     desc: "Routine patrols and roadside support along key routes.",
-    image: actionHighwayReal,
+    image: "action-highway-real",
     details: {
       intro:
         "Visible patrol along the routes that matter to your business. We deter opportunistic crime, support stranded drivers and stay in radio contact with our control room for fast escalation.",
@@ -207,7 +207,7 @@ export const services: Service[] = [
     icon: Trees,
     label: "Property & Farm Watch",
     desc: "Rural and estate protection tailored to remote properties.",
-    image: actionFarmReal,
+    image: "action-farm-real",
     details: {
       intro:
         "Rural security designed for the realities of farms, smallholdings and estates — long perimeters, livestock, equipment and families to protect. Our officers know the land and the people on it.",
