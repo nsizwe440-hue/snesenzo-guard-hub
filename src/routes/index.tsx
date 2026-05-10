@@ -36,9 +36,9 @@ export const Route = createFileRoute("/")({
 });
 
 const services = [
-  { icon: UserCheck, label: "VIP Protection", desc: "Discreet close protection for executives and high-profile clients." },
-  { icon: CalendarDays, label: "Events Security Management", desc: "Crowd management, access control and incident response for events." },
-  { icon: Camera, label: "CCTV & 24/7 Armed Response", desc: "Monitored surveillance backed by rapid armed response teams." },
+  { icon: UserCheck, label: "VIP Protection", desc: "Discreet close protection for executives and high-profile clients.", image: actionVip },
+  { icon: CalendarDays, label: "Events Security Management", desc: "Crowd management, access control and incident response for events.", image: peopleDeployed },
+  { icon: Camera, label: "CCTV & 24/7 Armed Response", desc: "Monitored surveillance backed by rapid armed response teams.", image: actionRetail },
   { icon: Building2, label: "Commercial & Industrial Security", desc: "Site protection, access control and patrols for facilities." },
   { icon: Hotel, label: "Hospitality Security", desc: "Guest-facing security for hotels, lodges and resorts." },
   { icon: Fuel, label: "Petroleum, Oil & Gas Security", desc: "Specialised security for high-risk fuel and energy sites." },
