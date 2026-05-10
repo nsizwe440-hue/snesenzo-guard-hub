@@ -36,9 +36,9 @@ export const Route = createFileRoute("/")({
 });
 
 const services = [
-  { icon: UserCheck, label: "VIP Protection", desc: "Discreet close protection for executives and high-profile clients." },
-  { icon: CalendarDays, label: "Events Security Management", desc: "Crowd management, access control and incident response for events." },
-  { icon: Camera, label: "CCTV & 24/7 Armed Response", desc: "Monitored surveillance backed by rapid armed response teams." },
+  { icon: UserCheck, label: "VIP Protection", desc: "Discreet close protection for executives and high-profile clients.", image: actionVip },
+  { icon: CalendarDays, label: "Events Security Management", desc: "Crowd management, access control and incident response for events.", image: peopleDeployed },
+  { icon: Camera, label: "CCTV & 24/7 Armed Response", desc: "Monitored surveillance backed by rapid armed response teams.", image: actionRetail },
   { icon: Building2, label: "Commercial & Industrial Security", desc: "Site protection, access control and patrols for facilities." },
   { icon: Hotel, label: "Hospitality Security", desc: "Guest-facing security for hotels, lodges and resorts." },
   { icon: Fuel, label: "Petroleum, Oil & Gas Security", desc: "Specialised security for high-risk fuel and energy sites." },
@@ -193,17 +193,29 @@ function LandingPage() {
         </div>
       </div>
 
-      {/* WHO WE ARE — white */}
+      {/* WHO WE ARE — white, 2-column */}
       <section className={`bg-white ${sectionPad}`}>
         <div className={container}>
-          <Reveal variant="fade-up">
-            <SectionTitle eyebrow="Who We Are">A trusted security partner across two provinces</SectionTitle>
-          </Reveal>
-          <Reveal variant="fade-up" delay={80}>
-            <p className="text-[16px] md:text-[18px] leading-[1.7] text-[#374151] max-w-3xl">
-              Snesenzo Security Group (Pty) Ltd is 100% youth black-owned and provides expert, risk-based security solutions across KwaZulu-Natal &amp; Mpumalanga with professional integrity, trained personnel and 24/7 readiness — ensuring safety, compliance and peace of mind.
-            </p>
-          </Reveal>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <Reveal variant="fade-up">
+                <SectionTitle eyebrow="Who We Are">A trusted security partner across two provinces</SectionTitle>
+              </Reveal>
+              <Reveal variant="fade-up" delay={80}>
+                <p className="text-[16px] md:text-[18px] leading-[1.7] text-[#374151]">
+                  Snesenzo Security Group (Pty) Ltd is 100% youth black-owned and provides expert, risk-based security solutions across KwaZulu-Natal &amp; Mpumalanga with professional integrity, trained personnel and 24/7 readiness — ensuring safety, compliance and peace of mind.
+                </p>
+              </Reveal>
+            </div>
+            <Reveal variant="fade-up" delay={120}>
+              <img
+                src={peopleDeployed}
+                alt="Snesenzo Security officers deployed on duty"
+                className="w-full aspect-[4/5] object-cover rounded-2xl shadow-lg"
+                loading="lazy"
+              />
+            </Reveal>
+          </div>
         </div>
       </section>
 
@@ -243,15 +255,22 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* PILLARS — navy full bleed */}
-      <section className={`bg-brand-navy ${sectionPad}`}>
+      {/* PILLARS — navy with photo background */}
+      <section
+        className={`relative ${sectionPad}`}
+        style={{
+          backgroundImage: `linear-gradient(135deg, rgba(6,16,22,0.93) 0%, rgba(6,16,22,0.82) 100%), url(${peopleDisciplined})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
         <div className={container}>
           <Reveal variant="fade-up">
             <SectionTitle dark eyebrow="Our Approach">Built on four pillars</SectionTitle>
           </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {pillars.map((p, i) => (
-              <Reveal key={p.title} variant="fade-up" delay={i * 80} className="rounded-xl border border-white/10 p-6 bg-white/[0.02] hover:bg-white/[0.04] transition-colors">
+              <Reveal key={p.title} variant="fade-up" delay={i * 80} className="rounded-xl border border-white/10 p-6 bg-white/[0.06] backdrop-blur-sm hover:bg-white/[0.1] transition-colors">
                 <p.icon size={36} className="text-brand-red mb-4" />
                 <h3 className="text-white text-[15px] uppercase font-bold mb-2 tracking-wide">{p.title}</h3>
                 <p className="text-[#D1D5DB] text-[14px] leading-[1.55]">{p.body}</p>
@@ -268,13 +287,25 @@ function LandingPage() {
             <SectionTitle eyebrow="What We Do">Comprehensive security services</SectionTitle>
           </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-            {services.map((s, i) => (
-              <Reveal key={s.label} variant="fade-up" delay={i * 50} className="rounded-xl border border-[#E5E7EB] p-6 bg-white hover:shadow-lg hover:border-brand-red/30 transition-all">
-                <s.icon size={32} className="text-brand-red mb-3" />
-                <h3 className="font-display text-[17px] text-[#0F172A] tracking-wide leading-tight">{s.label}</h3>
-                <p className="text-[13px] text-[#4B5563] leading-[1.55] mt-2">{s.desc}</p>
-              </Reveal>
-            ))}
+            {services.map((s, i) =>
+              s.image ? (
+                <Reveal key={s.label} variant="zoom-in" delay={i * 50} className="group relative rounded-xl overflow-hidden bg-black aspect-[4/5]">
+                  <img src={s.image} alt={s.label} loading="lazy" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+                  <div className="absolute left-5 right-5 bottom-5">
+                    <div className="w-8 h-[2px] bg-brand-red mb-2" />
+                    <h3 className="font-display text-white text-[17px] tracking-wide leading-tight">{s.label}</h3>
+                    <p className="text-[12px] text-white/80 leading-[1.5] mt-1.5">{s.desc}</p>
+                  </div>
+                </Reveal>
+              ) : (
+                <Reveal key={s.label} variant="fade-up" delay={i * 50} className="rounded-xl border border-[#E5E7EB] p-6 bg-white hover:shadow-lg hover:border-brand-red/30 transition-all">
+                  <s.icon size={32} className="text-brand-red mb-3" />
+                  <h3 className="font-display text-[17px] text-[#0F172A] tracking-wide leading-tight">{s.label}</h3>
+                  <p className="text-[13px] text-[#4B5563] leading-[1.55] mt-2">{s.desc}</p>
+                </Reveal>
+              )
+            )}
           </div>
         </div>
       </section>
