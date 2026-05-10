@@ -27,15 +27,8 @@ const inAction = [
 ];
 
 function ServicesPage() {
-  const [activeService, setActiveService] = useState<Service | null>(null);
-
   return (
     <div className="bg-brand-surface">
-      <ServiceDetailDialog
-        service={activeService}
-        open={!!activeService}
-        onOpenChange={(o) => !o && setActiveService(null)}
-      />
       <section className="bg-brand-navy text-white px-5 py-12 md:py-20">
         <div className="max-w-[1120px] mx-auto">
           <div className="w-10 h-[2px] bg-brand-red mb-3" />
