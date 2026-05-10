@@ -1,43 +1,41 @@
-## Add "Learn more" to services + detailed explanations
+## Switch "Learn more" to per-service pages + slim the homepage
 
-### Approach
-Add a **"Learn more"** link to every service card on the home page "What We Do" section. Clicking it opens a **modal dialog** (shadcn `Dialog`) showing a full, professionally written explanation of that service — no new routes, no page reloads, works on mobile.
+### 1. New dynamic route: `/services/$slug`
+Create `src/routes/services.$slug.tsx` — one route file that renders the detailed page for any service by slug (we already have slugs in `src/data/services.ts`).
 
-The same treatment will be applied on `/services` so the cards there match.
+Page layout:
+- **Hero band** (brand-navy): eyebrow "What we do", H1 = service name, short intro
+- **Hero image** (if the service has one) below the band, full-width rounded
+- **Two-column body**: "What's included" and "Who it's for" lists (already in data)
+- **Outcome banner** (red-bordered callout)
+- **CTA row**: "Request a Quote" → `/contact`, "Back to all services" → `/services`
+- **`head()`** with per-service `title` / `description` / `og:title` / `og:description` / `og:image` for SEO
 
-### Why a modal (not separate routes)
-- 10 services would mean 10 new route files + 10 SEO pages of thin content
-- Keeps the user on the page they came to
-- Fast to implement, easy to edit copy in one place
+Includes `notFoundComponent` if slug doesn't match any service.
 
-### What changes
+### 2. Replace modal with real navigation
+- Delete `src/components/ServiceDetailDialog.tsx` (no longer needed).
+- **Home page (`src/routes/index.tsx`)**: remove `useState` + `<ServiceDetailDialog>`. Wrap each service card in `<Link to="/services/$slug" params={{ slug: s.slug }}>` so the whole card — and the "Learn more" — navigates.
+- **Services list page (`src/routes/services.tsx`)**: same — replace `onClick={() => setActiveService(s)}` button with a `<Link>` to `/services/$slug`. Remove dialog state.
 
-**1. New data file: `src/data/services.ts`**
-Single source of truth for all 10 services — `slug`, `icon`, `label`, `shortDesc`, `image?`, and a new `details` object with:
-- `intro` — 1 short paragraph
-- `whatsIncluded` — bullet list (4–6 items)
-- `whoItsFor` — bullet list (3–4 items)
-- `outcome` — closing line
+### 3. Slim the homepage services grid
+Show only the **8 image-backed services** on the home page (current grid is 4-up so 8 = two clean rows on desktop). Remove the two icon-only cards from the home page:
+- Integrated Fire Security Solutions
+- Specialised Cleaning & Hygiene
 
-Home page (`src/routes/index.tsx`) and `/services` page both import from here so copy stays in sync.
+These remain fully visible on `/services` (which lists all 10) and are reachable directly via `/services/fire-security` and `/services/cleaning-hygiene`.
 
-**2. New component: `src/components/ServiceDetailDialog.tsx`**
-Wraps shadcn `Dialog` with a branded layout: hero image (if available), eyebrow, title, intro, two-column "What's included / Who it's for" lists, outcome banner, and a "Request a Quote" CTA linking to `/contact`.
+Implementation: filter on home — `services.filter(s => s.image)` — so the home stays in sync if more services are added later. No data changes needed; `src/data/services.ts` continues to hold all 10.
 
-**3. Card updates (home + services page)**
-- **Photo cards**: add a "Learn more →" button pinned bottom-right of the gradient overlay
-- **Icon-only cards**: add a "Learn more →" text link below the description
-- Whole card also clickable as a fallback
-- Buttons styled with `text-brand-red` + `ArrowRight` icon, hover underline
-
-**4. Detailed copy (drafted by me, ~120–180 words each)**
-Covering all 10 services: VIP Protection, Events Security, CCTV & Armed Response, Commercial & Industrial, Hospitality, Petroleum/Oil/Gas, Highway Patrol, Property & Farm Watch, Integrated Fire, Specialised Cleaning. Tone matches existing site (professional, plain English, PSIRA-aware, no fluff). User can edit any after.
+### 4. Add a clear "View all services" link
+Below the homepage services grid, add a small `<Link to="/services">View all services →</Link>` so users discover the full list (including Fire and Cleaning).
 
 ### Files touched
-- `src/data/services.ts` (new — services array + details)
-- `src/components/ServiceDetailDialog.tsx` (new)
-- `src/routes/index.tsx` (import from new data file, add dialog trigger to cards)
-- `src/routes/services.tsx` (same)
+- `src/routes/services.$slug.tsx` (new — detail page)
+- `src/components/ServiceDetailDialog.tsx` (deleted)
+- `src/routes/index.tsx` (drop modal, switch to `<Link>`, filter to image services, add "View all" link)
+- `src/routes/services.tsx` (drop modal, switch to `<Link>`)
 
 ### Out of scope
-- No new routes, no SEO pages per service, no CMS, no backend.
+- No copy changes — uses existing details from `src/data/services.ts`
+- No changes to `/services` list ordering or content (still shows all 10)
