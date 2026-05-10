@@ -129,32 +129,64 @@ function LandingPage() {
         }}
       >
         <div className={`${container} relative h-full min-h-[560px] lg:min-h-[760px] flex items-end pb-12 lg:pb-24`}>
-          <div className="max-w-2xl">
-            <p className="text-white text-[11px] font-bold tracking-[1.5px] mb-3 uppercase">
-              Professional. Reliable. Accountable.
-            </p>
-            <h1 className="font-display text-white text-[40px] md:text-[64px] lg:text-[88px] leading-[0.95] -tracking-[1px] mb-5">
-              STRENGTH &amp;<br />
-              CONFIDENCE IN<br />
-              <span className="text-brand-red">PROTECTION</span> SERVICES
-            </h1>
-            <p className="text-white/90 text-[15px] md:text-[17px] leading-[1.55] max-w-[480px] mb-6">
-              Professional, PSIRA-registered security solutions for corporate, government, commercial and private clients.
-            </p>
-            <div className="flex flex-row gap-3 flex-wrap">
-              <Link
-                to="/contact"
-                className="inline-flex h-12 px-6 items-center justify-center gap-2 rounded-lg bg-brand-red text-white text-[13px] font-bold uppercase tracking-wide hover:opacity-90"
-              >
-                Request a Quote <ArrowRight size={16} />
-              </Link>
-              <a
-                href="tel:0611690365"
-                className="inline-flex h-12 px-6 items-center justify-center gap-2 rounded-lg text-white text-[13px] font-bold border"
-                style={{ background: "rgba(0,0,0,0.55)", borderColor: "rgba(255,255,255,0.45)" }}
-              >
-                <Phone size={16} /> 061 169 0365
-              </a>
+          <div className="w-full">
+            <div className="max-w-2xl">
+              <p className="text-white text-[11px] font-bold tracking-[1.5px] mb-3 uppercase">
+                Professional. Reliable. Accountable.
+              </p>
+              <h1 className="font-display text-white text-[40px] md:text-[64px] lg:text-[88px] leading-[0.95] -tracking-[1px] mb-5">
+                STRENGTH &amp;<br />
+                CONFIDENCE IN<br />
+                <span className="text-brand-red">PROTECTION</span> SERVICES
+              </h1>
+              <p className="text-white/90 text-[15px] md:text-[17px] leading-[1.55] max-w-[480px] mb-6">
+                Professional, PSIRA-registered security solutions for corporate, government, commercial and private clients.
+              </p>
+              <div className="flex flex-row gap-3 flex-wrap">
+                <Link
+                  to="/contact"
+                  className="inline-flex h-12 px-6 items-center justify-center gap-2 rounded-lg bg-brand-red text-white text-[13px] font-bold uppercase tracking-wide hover:opacity-90"
+                >
+                  Request a Quote <ArrowRight size={16} />
+                </Link>
+                <a
+                  href="tel:0611690365"
+                  className="inline-flex h-12 px-6 items-center justify-center gap-2 rounded-lg text-white text-[13px] font-bold border"
+                  style={{ background: "rgba(0,0,0,0.55)", borderColor: "rgba(255,255,255,0.45)" }}
+                >
+                  <Phone size={16} /> 061 169 0365
+                </a>
+              </div>
+            </div>
+
+            {/* Credentials — desktop dark bar */}
+            <Reveal variant="fade-up" delay={120} className="hidden lg:grid grid-cols-4 gap-6 mt-10 p-6 rounded-xl bg-brand-navy/90 backdrop-blur-sm border border-white/10">
+              {credentials.map((c) => (
+                <div key={c.label} className="flex items-center gap-4 min-w-0">
+                  <span className="shrink-0 inline-flex items-center justify-center w-12 h-12 rounded-full bg-brand-red text-white">
+                    <c.icon size={20} />
+                  </span>
+                  <div className="leading-tight min-w-0">
+                    <div className="text-white/60 text-[10px] uppercase tracking-wider font-semibold">{c.label}</div>
+                    <div className="text-white text-[15px] font-bold">{c.value}</div>
+                  </div>
+                </div>
+              ))}
+            </Reveal>
+
+            {/* Credentials — mobile 2x2 light cards */}
+            <div className="grid grid-cols-2 lg:hidden gap-3 mt-8">
+              {credentials.map((c, i) => (
+                <Reveal key={c.label} variant="fade-up" delay={i * 80} className="flex items-center gap-3 p-4 rounded-2xl bg-white/95 border border-white/40">
+                  <span className="shrink-0 inline-flex items-center justify-center w-11 h-11 rounded-full bg-brand-red text-white">
+                    <c.icon size={18} />
+                  </span>
+                  <div className="leading-tight min-w-0">
+                    <div className="text-[#6B7280] text-[10px] uppercase tracking-wider font-semibold">{c.label}</div>
+                    <div className="text-brand-navy text-[12px] font-bold break-words">{c.value}</div>
+                  </div>
+                </Reveal>
+              ))}
             </div>
           </div>
         </div>
@@ -171,36 +203,6 @@ function LandingPage() {
               Snesenzo Security Group (Pty) Ltd is 100% youth black-owned and provides expert, risk-based security solutions across KwaZulu-Natal &amp; Mpumalanga with professional integrity, trained personnel and 24/7 readiness — ensuring safety, compliance and peace of mind.
             </p>
           </Reveal>
-
-          {/* Desktop: single dark navy bar */}
-          <Reveal variant="fade-up" delay={120} className="hidden lg:grid grid-cols-4 gap-6 mt-10 p-6 rounded-xl bg-brand-navy">
-            {credentials.map((c) => (
-              <div key={c.label} className="flex items-center gap-4 min-w-0">
-                <span className="shrink-0 inline-flex items-center justify-center w-12 h-12 rounded-full bg-brand-red text-white">
-                  <c.icon size={20} />
-                </span>
-                <div className="leading-tight min-w-0">
-                  <div className="text-white/60 text-[10px] uppercase tracking-wider font-semibold">{c.label}</div>
-                  <div className="text-white text-[15px] font-bold">{c.value}</div>
-                </div>
-              </div>
-            ))}
-          </Reveal>
-
-          {/* Mobile: 2x2 light cards */}
-          <div className="grid grid-cols-2 lg:hidden gap-3 mt-10">
-            {credentials.map((c, i) => (
-              <Reveal key={c.label} variant="fade-up" delay={i * 80} className="flex items-center gap-3 p-4 rounded-2xl bg-[#F8FAFC] border border-[#E5E7EB]">
-                <span className="shrink-0 inline-flex items-center justify-center w-11 h-11 rounded-full bg-brand-red text-white">
-                  <c.icon size={18} />
-                </span>
-                <div className="leading-tight min-w-0">
-                  <div className="text-[#6B7280] text-[10px] uppercase tracking-wider font-semibold">{c.label}</div>
-                  <div className="text-brand-navy text-[12px] font-bold break-words">{c.value}</div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
 
