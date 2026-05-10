@@ -1,5 +1,4 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
 import {
   Phone, ArrowRight, Check,
   ShieldCheck, FileText, Award, MapPin,
@@ -7,8 +6,7 @@ import {
   Ear, Brain, Users, BadgeCheck,
   Briefcase, Landmark, Home, GraduationCap, Wheat, User,
 } from "lucide-react";
-import { services, type Service } from "@/data/services";
-import { ServiceDetailDialog } from "@/components/ServiceDetailDialog";
+import { services } from "@/data/services";
 import heroImg from "@/assets/hero-ssg-vehicle.jpg";
 import ceo from "@/assets/ceo-portrait.jpg";
 import psiraLogo from "@/assets/psira-logo.png";
