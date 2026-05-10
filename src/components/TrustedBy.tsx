@@ -32,13 +32,13 @@ export function TrustedBy() {
           {loop.map((l, i) => (
             <div
               key={i}
-              className="shrink-0 flex items-center justify-center bg-white border border-[#E5E7EB] rounded-xl shadow-sm hover:shadow-md transition-shadow h-24 w-40 md:h-28 md:w-52 p-4"
+              className="shrink-0 flex items-center justify-center overflow-hidden bg-white border border-[#E5E7EB] rounded-xl shadow-sm hover:shadow-md transition-shadow h-24 w-40 md:h-28 md:w-52"
             >
               <img
                 src={l.src}
                 alt={l.alt}
                 loading="lazy"
-                className="max-h-14 md:max-h-16 w-auto object-contain"
+                className="w-full h-full object-contain p-2"
               />
             </div>
           ))}
