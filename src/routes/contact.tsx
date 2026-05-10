@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Phone, Mail, MapPin, Clock, MessageCircle, ArrowRight } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, MessageCircle, ArrowRight, PhoneCall, ClipboardCheck, FileText } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { services } from "@/data/services";
 
@@ -181,6 +181,41 @@ function ContactPage() {
               <li><strong className="text-brand-navy">Office:</strong> Mon–Fri, 08:00 – 17:00</li>
               <li><strong className="text-brand-navy">Armed Response:</strong> Always on standby</li>
             </ul>
+          </div>
+        </Reveal>
+
+        {/* Map embed */}
+        <Reveal as="section" variant="fade-up" className="mt-5 bg-white rounded-[14px] overflow-hidden shadow-[0_4px_16px_-4px_rgba(0,0,0,0.08)]">
+          <iframe
+            title="Snesenzo Security Group — 45 Voor Street, Utrecht"
+            src="https://www.google.com/maps?q=45+Voor+Street,+Utrecht,+2980,+KwaZulu-Natal,+South+Africa&output=embed"
+            className="w-full h-[320px] border-0"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </Reveal>
+
+        {/* What happens next */}
+        <Reveal as="section" variant="fade-up" className="mt-5">
+          <div className="flex items-center gap-2 mb-4">
+            <span className="block w-[3px] h-[18px] bg-brand-red rounded-sm" />
+            <h2 className="font-display text-brand-navy text-[18px] tracking-wide">WHAT HAPPENS NEXT</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+            {[
+              { icon: PhoneCall, step: "01", title: "We call you back", body: "Usually within one business hour to understand your needs." },
+              { icon: ClipboardCheck, step: "02", title: "Free site assessment", body: "An officer visits your site to assess risks and access points." },
+              { icon: FileText, step: "03", title: "Tailored quote in 24h", body: "A clear, costed proposal — no jargon, no surprises." },
+            ].map((s) => (
+              <div key={s.step} className="bg-white rounded-[14px] p-5 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.08)] border-t-4 border-brand-red">
+                <div className="flex items-center justify-between mb-2">
+                  <s.icon size={22} className="text-brand-red" />
+                  <span className="font-display text-brand-navy/30 text-[28px] leading-none">{s.step}</span>
+                </div>
+                <p className="font-display text-brand-navy text-[16px] mb-1">{s.title}</p>
+                <p className="text-[#4B5563] text-[12.5px] leading-[1.6]">{s.body}</p>
+              </div>
+            ))}
           </div>
         </Reveal>
       </main>

@@ -1,12 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   Briefcase, Landmark, Home, GraduationCap, Fuel, Wheat, User, ArrowRight,
+  Headphones, Siren, MapPin,
 } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import coverageMap from "@/assets/coverage-map.png";
 import peopleDeployed from "@/assets/people-deployed.jpg";
 import peopleDisciplined from "@/assets/people-disciplined.jpg";
 import peopleAccountable from "@/assets/people-accountable.jpg";
+import bannerFarm from "@/assets/action-farm-real.jpg";
 
 export const Route = createFileRoute("/coverage")({
   head: () => ({
@@ -51,12 +53,64 @@ function CoveragePage() {
       </section>
 
       <main className="px-5 py-10 max-w-[1120px] mx-auto">
+        <Reveal as="div" variant="fade-up" className="rounded-[14px] overflow-hidden mb-5 relative h-[180px] md:h-[240px]">
+          <img src={bannerFarm} alt="Officers on patrol across KZN & Mpumalanga" className="absolute inset-0 w-full h-full object-cover" loading="lazy" />
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-navy/85 via-brand-navy/55 to-transparent" />
+          <div className="relative h-full flex items-center px-6 md:px-10">
+            <div>
+              <p className="text-brand-red text-[10px] font-extrabold tracking-[0.2em] uppercase mb-1">Two provinces. One standard.</p>
+              <h2 className="font-display text-white text-[22px] md:text-[32px] leading-tight max-w-[520px]">From coastal cities to inland farms — local boots on the ground.</h2>
+            </div>
+          </div>
+        </Reveal>
+
         <Reveal as="section" variant="fade-up" className="bg-white rounded-[14px] p-5 md:p-7 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.08)]">
           <img src={coverageMap} alt="Snesenzo Security coverage areas: KwaZulu-Natal and Mpumalanga" className="w-full max-w-[720px] mx-auto h-auto" loading="lazy" />
           <div className="flex items-center justify-center gap-6 mt-3 text-[12px] text-[#374151] font-semibold">
             <span className="flex items-center gap-2"><span className="w-3 h-3 rounded-full bg-brand-red" /> KwaZulu-Natal</span>
             <span className="flex items-center gap-2"><span className="w-3 h-3 rounded-full bg-brand-navy" /> Mpumalanga</span>
           </div>
+        </Reveal>
+
+        {/* Town list */}
+        <Reveal as="section" variant="fade-up" className="mt-5 bg-white rounded-[14px] p-5 md:p-7 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.08)]">
+          <div className="flex items-center gap-2 mb-4">
+            <span className="block w-[3px] h-[18px] bg-brand-red rounded-sm" />
+            <h2 className="font-display text-[#111827] text-[18px] tracking-wide">WHERE EXACTLY WE OPERATE</h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div>
+              <p className="text-brand-red text-[11px] font-extrabold tracking-[0.18em] uppercase mb-3">KwaZulu-Natal</p>
+              <ul className="grid grid-cols-2 gap-y-2 text-[13px] text-[#374151]">
+                {["Utrecht","Newcastle","Dundee","Vryheid","Ladysmith","Madadeni","Osizweni"].map((t) => (
+                  <li key={t} className="flex items-center gap-2"><MapPin size={14} className="text-brand-red shrink-0" />{t}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <p className="text-brand-red text-[11px] font-extrabold tracking-[0.18em] uppercase mb-3">Mpumalanga</p>
+              <ul className="grid grid-cols-2 gap-y-2 text-[13px] text-[#374151]">
+                {["Volksrust","Wakkerstroom","Piet Retief","Ermelo","Standerton"].map((t) => (
+                  <li key={t} className="flex items-center gap-2"><MapPin size={14} className="text-brand-red shrink-0" />{t}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </Reveal>
+
+        {/* Response promise */}
+        <Reveal as="section" variant="fade-up" className="mt-5 grid grid-cols-1 md:grid-cols-3 gap-3">
+          {[
+            { icon: Headphones, title: "24/7 Control Room", body: "Always staffed. Always reachable. Always logging." },
+            { icon: Siren, title: "Armed Response on Standby", body: "Trained officers, rapid dispatch across our coverage." },
+            { icon: User, title: "Local Officers, Local Knowledge", body: "Recruited from the communities we protect." },
+          ].map((s) => (
+            <div key={s.title} className="bg-white rounded-[14px] p-5 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.08)] border-t-4 border-brand-red">
+              <s.icon size={22} className="text-brand-red mb-2" />
+              <p className="font-display text-brand-navy text-[16px] mb-1">{s.title}</p>
+              <p className="text-[#4B5563] text-[12.5px] leading-[1.6]">{s.body}</p>
+            </div>
+          ))}
         </Reveal>
 
         {/* Clients */}

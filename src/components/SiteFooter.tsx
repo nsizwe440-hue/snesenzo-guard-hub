@@ -30,6 +30,7 @@ export function SiteFooter() {
               { to: "/services" as const, label: "Services" },
               { to: "/about" as const, label: "About Us" },
               { to: "/coverage" as const, label: "Coverage" },
+              { to: "/careers" as const, label: "Careers" },
               { to: "/contact" as const, label: "Contact" },
             ].map((l) => (
               <li key={l.to}>
