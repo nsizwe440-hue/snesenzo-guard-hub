@@ -3,6 +3,8 @@ import { useEffect } from "react";
 import { ArrowRight, Check } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { services } from "@/data/services";
+import { ResponsiveImage } from "@/components/ResponsiveImage";
+import { getImage } from "@/assets/optimized";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -61,11 +63,12 @@ function ServicesPage() {
                   {/* Visual */}
                   <Reveal variant="fade-up">
                     {s.image ? (
-                      <img
-                        src={s.image}
+                      <ResponsiveImage
+                        name={s.image}
                         alt={s.label}
-                        loading="lazy"
-                        className="w-full aspect-[4/3] object-cover rounded-2xl shadow-xl"
+                        sizes="(min-width: 1024px) 540px, 100vw"
+                        className="block w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-xl"
+                        imgClassName="w-full h-full object-cover"
                       />
                     ) : (
                       <div className="w-full aspect-[4/3] rounded-2xl bg-gradient-to-br from-brand-navy to-[#1e293b] shadow-xl flex items-center justify-center">

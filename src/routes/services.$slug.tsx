@@ -2,6 +2,8 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowRight, ArrowLeft, Check } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { services } from "@/data/services";
+import { ResponsiveImage } from "@/components/ResponsiveImage";
+import { getImage } from "@/assets/optimized";
 
 export const Route = createFileRoute("/services/$slug")({
   loader: ({ params }) => {
@@ -21,8 +23,8 @@ export const Route = createFileRoute("/services/$slug")({
         { property: "og:title", content: title },
         { property: "og:description", content: description },
         ...(s.image ? [
-          { property: "og:image", content: s.image },
-          { name: "twitter:image", content: s.image },
+          { property: "og:image", content: getImage(s.image).fallback.url },
+          { name: "twitter:image", content: getImage(s.image).fallback.url },
         ] : []),
       ],
     };
@@ -81,11 +83,13 @@ function ServiceDetailPage() {
         <section className="px-5 -mt-8 md:-mt-14">
           <div className="max-w-[1120px] mx-auto">
             <Reveal variant="fade-up">
-              <img
-                src={service.image}
+              <ResponsiveImage
+                name={service.image}
                 alt={service.label}
-                className="w-full aspect-[16/7] object-cover rounded-2xl shadow-xl"
-                loading="eager"
+                sizes="(min-width: 1120px) 1120px, 100vw"
+                priority
+                className="block w-full aspect-[16/7] rounded-2xl overflow-hidden shadow-xl"
+                imgClassName="w-full h-full object-cover"
               />
             </Reveal>
           </div>
