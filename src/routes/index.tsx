@@ -146,7 +146,7 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* Credentials strip — overlaps bottom of hero */}
+      {/* Credentials strip  - overlaps bottom of hero */}
       <div className={`${container} relative z-10 -mt-12 lg:-mt-20`}>
         {/* Desktop dark bar */}
         <Reveal variant="fade-up" delay={120} className="hidden lg:grid grid-cols-4 gap-6 p-6 rounded-xl bg-brand-navy shadow-2xl border border-white/10">
@@ -179,7 +179,7 @@ function LandingPage() {
         </div>
       </div>
 
-      {/* MEET THE FOUNDER — light gray full bleed */}
+      {/* MEET THE FOUNDER  - light gray full bleed */}
       <section className={`bg-[#F8FAFC] ${sectionPad}`}>
         <div className={container}>
           <Reveal variant="fade-up">
@@ -200,7 +200,7 @@ function LandingPage() {
             </Reveal>
             <Reveal variant="fade-up" delay={120}>
               <p className="text-[#374151] text-[16px] leading-[1.7]">
-                Not your typical security company CEO. An Amajuba-born entrepreneur and community leader who runs multiple businesses across the district — and chose to put his name, his standards, and his reputation behind a youth-led, 100% black-owned security company built to serve the people of KwaZulu-Natal and Mpumalanga.
+                Not your typical security company CEO. An Amajuba-born entrepreneur and community leader who runs multiple businesses across the district  - and chose to put his name, his standards, and his reputation behind a youth-led, 100% black-owned security company built to serve the people of KwaZulu-Natal and Mpumalanga.
               </p>
               <p className="text-[#374151] text-[16px] leading-[1.7] mt-4">
                 When you partner with Snesenzo, you're not hiring a logo. You're standing alongside a founder who backs his own community.
@@ -216,7 +216,7 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* WHO WE ARE — white, 2-column */}
+      {/* WHO WE ARE  - white, 2-column */}
       <section className={`bg-white ${sectionPad}`}>
         <div className={container}>
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -226,7 +226,7 @@ function LandingPage() {
               </Reveal>
               <Reveal variant="fade-up" delay={80}>
                 <p className="text-[16px] md:text-[18px] leading-[1.7] text-[#374151]">
-                  Snesenzo Security Group (Pty) Ltd is 100% youth black-owned and provides expert, risk-based security solutions across KwaZulu-Natal &amp; Mpumalanga with professional integrity, trained personnel and 24/7 readiness — ensuring safety, compliance and peace of mind.
+                  Snesenzo Security Group (Pty) Ltd is 100% youth black-owned and provides expert, risk-based security solutions across KwaZulu-Natal &amp; Mpumalanga with professional integrity, trained personnel and 24/7 readiness  - ensuring safety, compliance and peace of mind.
                 </p>
               </Reveal>
             </div>
@@ -243,7 +243,7 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* PILLARS — navy with photo background */}
+      {/* PILLARS  - navy with photo background */}
       <section
         className={`relative ${sectionPad}`}
         style={{
@@ -268,7 +268,7 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* SERVICES — white */}
+      {/* SERVICES  - white */}
       <section className={`bg-white ${sectionPad}`}>
         <div className={container}>
           <Reveal variant="fade-up">
@@ -304,7 +304,7 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* REAL RESULTS — case study */}
+      {/* REAL RESULTS  - case study */}
       <section className={`bg-[#F8FAFC] ${sectionPad}`}>
         <div className={container}>
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -320,7 +320,7 @@ function LandingPage() {
             <Reveal variant="fade-up" delay={120}>
               <SectionTitle eyebrow="Real Results">Stock theft stopped on a client farm</SectionTitle>
               <p className="text-[#374151] text-[16px] leading-[1.7]">
-                During a routine Property &amp; Farm Watch patrol, our officers picked up unusual movement on a client's grazing land. The team moved in quickly, intercepted the suspects on-site and held them until SAPS arrived. The livestock stayed with the owner — exactly where it belonged.
+                During a routine Property &amp; Farm Watch patrol, our officers picked up unusual movement on a client's grazing land. The team moved in quickly, intercepted the suspects on-site and held them until SAPS arrived. The livestock stayed with the owner  - exactly where it belonged.
               </p>
               <p className="text-[#374151] text-[16px] leading-[1.7] mt-4">
                 This is what fit-for-purpose rural security looks like: visible patrols, fast decisions, and officers who know the land they're protecting.
@@ -333,7 +333,7 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* SERVICES IN ACTION — navy with image grid */}
+      {/* SERVICES IN ACTION  - navy with image grid */}
       <section className={`bg-brand-navy ${sectionPad}`}>
         <div className={container}>
           <Reveal variant="fade-up">
@@ -354,7 +354,7 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* COVERAGE — white */}
+      {/* COVERAGE  - white */}
       <section className={`bg-white ${sectionPad}`}>
         <div className={container}>
           <Reveal variant="fade-up">
@@ -370,7 +370,7 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* CLIENTS — light gray */}
+      {/* CLIENTS  - light gray */}
       <section className={`bg-[#F8FAFC] ${sectionPad}`}>
         <div className={container}>
           <Reveal variant="fade-up">
@@ -387,7 +387,7 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* PEOPLE — navy */}
+      {/* PEOPLE  - navy */}
       <section className={`bg-brand-navy ${sectionPad}`}>
         <div className={container}>
           <Reveal variant="fade-up">
@@ -410,7 +410,7 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* WHY CHOOSE — white */}
+      {/* WHY CHOOSE  - white */}
       <section className={`bg-white ${sectionPad}`}>
         <div className={container}>
           <Reveal variant="fade-up">
@@ -429,22 +429,22 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* PSIRA — light gray */}
+      {/* PSIRA  - light gray */}
       <section className={`bg-[#F8FAFC] ${sectionPad}`}>
         <div className={`${container} grid lg:grid-cols-2 gap-10 lg:gap-16 items-center`}>
           <Reveal variant="fade-up">
             <SectionTitle eyebrow="Accreditation">Fully accredited by PSIRA</SectionTitle>
             <p className="text-[#374151] text-[15px] leading-[1.7]">
-              Snesenzo Security Group is fully registered and accredited by the Private Security Industry Regulatory Authority (PSIRA) — the official body governing the private security industry in South Africa. This accreditation confirms that our officers, operations and training meet the strict legal and professional standards required to protect our clients with integrity.
+              Snesenzo Security Group is fully registered and accredited by the Private Security Industry Regulatory Authority (PSIRA)  - the official body governing the private security industry in South Africa. This accreditation confirms that our officers, operations and training meet the strict legal and professional standards required to protect our clients with integrity.
             </p>
           </Reveal>
           <Reveal variant="fade-up" delay={120} className="bg-white rounded-2xl p-12 flex items-center justify-center shadow-sm border border-[#E5E7EB]">
-            <img src={psiraLogo} alt="PSIRA — Private Security Industry Regulatory Authority" className="max-h-32 w-auto" loading="lazy" />
+            <img src={psiraLogo} alt="PSIRA  - Private Security Industry Regulatory Authority" className="max-h-32 w-auto" loading="lazy" />
           </Reveal>
         </div>
       </section>
 
-      {/* FINAL CTA — navy full bleed */}
+      {/* FINAL CTA  - navy full bleed */}
       <section className={`bg-brand-navy ${sectionPad}`}>
         <div className={`${container} text-center`}>
           <Reveal variant="fade-up">

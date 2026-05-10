@@ -43,7 +43,7 @@ export const services: Service[] = [
         "Private families with elevated risk",
       ],
       outcome:
-        "You move with confidence — meetings, events and family time stay private and uninterrupted.",
+        "You move with confidence  - meetings, events and family time stay private and uninterrupted.",
     },
   },
   {
@@ -54,7 +54,7 @@ export const services: Service[] = [
     image: "action-events-real",
     details: {
       intro:
-        "End-to-end security for functions of any size — from corporate launches and conferences to weddings, festivals and stadium events. We plan ahead, deploy disciplined personnel and stay invisible until we're needed.",
+        "End-to-end security for functions of any size  - from corporate launches and conferences to weddings, festivals and stadium events. We plan ahead, deploy disciplined personnel and stay invisible until we're needed.",
       whatsIncluded: [
         "Pre-event risk assessment and security plan",
         "Access control, ticket gates and VIP zones",
@@ -69,7 +69,7 @@ export const services: Service[] = [
         "Government and public-sector gatherings",
       ],
       outcome:
-        "Your guests enjoy the event. We handle everything that could go wrong — quietly.",
+        "Your guests enjoy the event. We handle everything that could go wrong  - quietly.",
     },
   },
   {
@@ -80,7 +80,7 @@ export const services: Service[] = [
     image: "action-retail",
     details: {
       intro:
-        "Eyes on your site around the clock, with armed teams ready to roll. We pair monitored CCTV and alarms with vehicle response so a detected threat becomes an intercepted threat — fast.",
+        "Eyes on your site around the clock, with armed teams ready to roll. We pair monitored CCTV and alarms with vehicle response so a detected threat becomes an intercepted threat  - fast.",
       whatsIncluded: [
         "24/7 monitored CCTV and alarm signals",
         "Armed response vehicles on standby",
@@ -95,7 +95,7 @@ export const services: Service[] = [
         "Schools, clinics and offices",
       ],
       outcome:
-        "Threats are spotted early, verified instantly and intercepted — not just recorded.",
+        "Threats are spotted early, verified instantly and intercepted  - not just recorded.",
     },
   },
   {
@@ -132,7 +132,7 @@ export const services: Service[] = [
     image: "action-hospitality-real",
     details: {
       intro:
-        "Security that protects guests and assets without ever feeling like security. Our hospitality team is trained to balance warmth and vigilance — the kind of presence that says \"welcome\" and \"we've got you\" at the same time.",
+        "Security that protects guests and assets without ever feeling like security. Our hospitality team is trained to balance warmth and vigilance  - the kind of presence that says \"welcome\" and \"we've got you\" at the same time.",
       whatsIncluded: [
         "Guest-facing front-of-house officers",
         "Concierge support and bag screening",
@@ -173,7 +173,7 @@ export const services: Service[] = [
         "Transport and logistics operators",
       ],
       outcome:
-        "Product, people and infrastructure stay safe — with full audit trails for compliance.",
+        "Product, people and infrastructure stay safe  - with full audit trails for compliance.",
     },
   },
   {
@@ -199,7 +199,7 @@ export const services: Service[] = [
         "Corporate fleets and field teams",
       ],
       outcome:
-        "Your routes stay watched, your drivers stay supported and incidents get answered — not ignored.",
+        "Your routes stay watched, your drivers stay supported and incidents get answered  - not ignored.",
     },
   },
   {
@@ -210,7 +210,7 @@ export const services: Service[] = [
     image: "action-farm-real",
     details: {
       intro:
-        "Rural security designed for the realities of farms, smallholdings and estates — long perimeters, livestock, equipment and families to protect. Our officers know the land and the people on it.",
+        "Rural security designed for the realities of farms, smallholdings and estates  - long perimeters, livestock, equipment and families to protect. Our officers know the land and the people on it.",
       whatsIncluded: [
         "Routine perimeter and grazing-land patrols",
         "Livestock counts and theft prevention",
@@ -250,7 +250,7 @@ export const services: Service[] = [
         "Estates and large residential complexes",
       ],
       outcome:
-        "Faster detection, calmer evacuations, fewer losses — and full compliance peace of mind.",
+        "Faster detection, calmer evacuations, fewer losses  - and full compliance peace of mind.",
     },
   },
   {

@@ -34,7 +34,7 @@ function ContactPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const serviceLabel = services.find((s) => s.slug === serviceSlug)?.label ?? "General enquiry";
-    const subject = `Quote request — ${serviceLabel}`;
+    const subject = `Quote request  - ${serviceLabel}`;
     const body = [
       `Name: ${name}`,
       `Phone: ${phone}`,
@@ -55,7 +55,7 @@ function ContactPage() {
           <p className="text-brand-red text-[10px] font-extrabold tracking-[0.2em] uppercase">Get in touch</p>
           <h1 className="font-display text-[36px] md:text-[56px] leading-[0.95] mt-2">CONTACT US</h1>
           <p className="text-white/75 text-[14px] max-w-[620px] mt-4">
-            Our 24/7 control room is always on call. Reach us by phone, email or WhatsApp — we'll respond promptly.
+            Our 24/7 control room is always on call. Reach us by phone, email or WhatsApp  - we'll respond promptly.
           </p>
         </div>
       </section>
@@ -102,7 +102,7 @@ function ContactPage() {
 
           {matched && (
             <div className="mb-5 rounded-lg bg-[#F8FAFC] border-l-4 border-brand-red px-4 py-3 text-[13px] text-brand-navy">
-              Enquiring about <strong>{matched.label}</strong> — preselected below.
+              Enquiring about <strong>{matched.label}</strong>  - preselected below.
             </div>
           )}
 
@@ -187,7 +187,7 @@ function ContactPage() {
         {/* Map embed */}
         <Reveal as="section" variant="fade-up" className="mt-5 bg-white rounded-[14px] overflow-hidden shadow-[0_4px_16px_-4px_rgba(0,0,0,0.08)]">
           <iframe
-            title="Snesenzo Security Group — 45 Voor Street, Utrecht"
+            title="Snesenzo Security Group  - 45 Voor Street, Utrecht"
             src="https://www.google.com/maps?q=45+Voor+Street,+Utrecht,+2980,+KwaZulu-Natal,+South+Africa&output=embed"
             className="w-full h-[320px] border-0"
             loading="lazy"
@@ -205,7 +205,7 @@ function ContactPage() {
             {[
               { icon: PhoneCall, step: "01", title: "We call you back", body: "Usually within one business hour to understand your needs." },
               { icon: ClipboardCheck, step: "02", title: "Free site assessment", body: "An officer visits your site to assess risks and access points." },
-              { icon: FileText, step: "03", title: "Tailored quote in 24h", body: "A clear, costed proposal — no jargon, no surprises." },
+              { icon: FileText, step: "03", title: "Tailored quote in 24h", body: "A clear, costed proposal  - no jargon, no surprises." },
             ].map((s) => (
               <div key={s.step} className="bg-white rounded-[14px] p-5 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.08)] border-t-4 border-brand-red">
                 <div className="flex items-center justify-between mb-2">
