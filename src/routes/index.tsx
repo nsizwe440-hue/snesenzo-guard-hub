@@ -7,19 +7,13 @@ import {
   Briefcase, Landmark, Home, GraduationCap, Wheat, User,
 } from "lucide-react";
 import { services } from "@/data/services";
-import heroImg from "@/assets/hero-ssg-vehicle.jpg";
-import ceo from "@/assets/ceo-portrait.jpg";
+import { ResponsiveImage } from "@/components/ResponsiveImage";
+import { getImage } from "@/assets/optimized";
 import psiraLogo from "@/assets/psira-logo.png";
-import coverageMap from "@/assets/coverage-map.png";
-import peopleDeployed from "@/assets/people-deployed.jpg";
-import peopleDisciplined from "@/assets/people-disciplined.jpg";
-import peopleAccountable from "@/assets/people-accountable.jpg";
-import actionVip from "@/assets/action-vip.jpg";
-import actionRetail from "@/assets/action-retail.jpg";
-import actionConstruction from "@/assets/action-construction.jpg";
-import actionFarm from "@/assets/action-farm.jpg";
-import caseFarmArrest from "@/assets/case-farm-arrest.jpg";
 import { Reveal } from "@/components/Reveal";
+
+const heroImg = getImage("hero-ssg-vehicle").fallback.url;
+const peopleDisciplinedBg = getImage("people-disciplined").fallback.url;
 
 export const Route = createFileRoute("/")({
   head: () => ({
