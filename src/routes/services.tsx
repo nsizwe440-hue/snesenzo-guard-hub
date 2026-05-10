@@ -1,9 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import {
-  UserCheck, CalendarDays, Camera, Building2, Hotel, Fuel,
-  Truck, Trees, Flame, Sparkles, ArrowRight,
-} from "lucide-react";
+import { useState } from "react";
+import { ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
+import { services, type Service } from "@/data/services";
+import { ServiceDetailDialog } from "@/components/ServiceDetailDialog";
 import actionVip from "@/assets/action-vip.jpg";
 import actionRetail from "@/assets/action-retail.jpg";
 import actionConstruction from "@/assets/action-construction.jpg";
@@ -21,19 +21,6 @@ export const Route = createFileRoute("/services")({
   component: ServicesPage,
 });
 
-const services = [
-  { icon: UserCheck, label: "VIP Protection", desc: "Discreet close protection for executives and high-profile clients." },
-  { icon: CalendarDays, label: "Events Security Management", desc: "Crowd management, access control and incident response for events." },
-  { icon: Camera, label: "CCTV & 24/7 Armed Response", desc: "Monitored surveillance backed by rapid armed response teams." },
-  { icon: Building2, label: "Commercial & Industrial Security", desc: "Site protection, access control and patrols for facilities." },
-  { icon: Hotel, label: "Hospitality Security", desc: "Guest-facing security for hotels, lodges and resorts." },
-  { icon: Fuel, label: "Petroleum, Oil & Gas Security", desc: "Specialised security for high-risk fuel and energy sites." },
-  { icon: Truck, label: "Highway Patrol & Road Assistance", desc: "Routine patrols and roadside support along key routes." },
-  { icon: Trees, label: "Property & Farm Watch", desc: "Rural and estate protection tailored to remote properties." },
-  { icon: Flame, label: "Integrated Fire Security Solutions", desc: "Fire detection, prevention and emergency coordination." },
-  { icon: Sparkles, label: "Specialised Cleaning & Hygiene", desc: "Professional cleaning bundled with security operations." },
-];
-
 const inAction = [
   { src: actionVip, label: "VIP Protection & Escort" },
   { src: actionRetail, label: "Retail & Commercial Security" },
@@ -42,8 +29,15 @@ const inAction = [
 ];
 
 function ServicesPage() {
+  const [activeService, setActiveService] = useState<Service | null>(null);
+
   return (
     <div className="bg-brand-surface">
+      <ServiceDetailDialog
+        service={activeService}
+        open={!!activeService}
+        onOpenChange={(o) => !o && setActiveService(null)}
+      />
       <section className="bg-brand-navy text-white px-5 py-12 md:py-20">
         <div className="max-w-[1120px] mx-auto">
           <div className="w-10 h-[2px] bg-brand-red mb-3" />
@@ -59,10 +53,13 @@ function ServicesPage() {
         <Reveal as="section" variant="fade-up" className="bg-white rounded-[14px] p-5 md:p-7 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.08)]">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
             {services.map((s, i) => (
-              <Reveal key={s.label} variant="fade-up" delay={i * 50} className="rounded-lg border border-[#E5E7EB] p-4 bg-white hover:shadow-md transition-shadow">
+              <Reveal key={s.label} variant="fade-up" delay={i * 50} className="rounded-lg border border-[#E5E7EB] p-4 bg-white hover:shadow-md transition-shadow flex flex-col">
                 <s.icon size={28} className="text-brand-red mb-2" />
                 <h3 className="font-display text-[15px] text-[#111827] tracking-wide">{s.label}</h3>
-                <p className="text-[12px] text-[#4B5563] leading-[1.5] mt-1">{s.desc}</p>
+                <p className="text-[12px] text-[#4B5563] leading-[1.5] mt-1 flex-1">{s.desc}</p>
+                <button type="button" onClick={() => setActiveService(s)} className="mt-3 inline-flex items-center gap-1.5 text-brand-red text-[11px] font-extrabold uppercase tracking-[0.15em] hover:gap-2 transition-all self-start">
+                  Learn more <ArrowRight size={12} />
+                </button>
               </Reveal>
             ))}
           </div>
