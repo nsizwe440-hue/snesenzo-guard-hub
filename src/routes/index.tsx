@@ -279,8 +279,8 @@ function LandingPage() {
             {homeServices.map((s, i) => (
               <Reveal key={s.label} variant="zoom-in" delay={i * 50} className="group relative rounded-xl overflow-hidden bg-black aspect-[4/5]">
                 <Link
-                  to="/services/$slug"
-                  params={{ slug: s.slug }}
+                  to="/services"
+                  hash={s.slug}
                   className="absolute inset-0 w-full h-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-red"
                 >
                   <img src={s.image} alt={s.label} loading="lazy" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />

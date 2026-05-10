@@ -1,41 +1,38 @@
-## Switch "Learn more" to per-service pages + slim the homepage
+## Redirect "Learn more" to /services + redesign services page with full details
 
-### 1. New dynamic route: `/services/$slug`
-Create `src/routes/services.$slug.tsx` — one route file that renders the detailed page for any service by slug (we already have slugs in `src/data/services.ts`).
+### What changes
 
-Page layout:
-- **Hero band** (brand-navy): eyebrow "What we do", H1 = service name, short intro
-- **Hero image** (if the service has one) below the band, full-width rounded
-- **Two-column body**: "What's included" and "Who it's for" lists (already in data)
-- **Outcome banner** (red-bordered callout)
-- **CTA row**: "Request a Quote" → `/contact`, "Back to all services" → `/services`
-- **`head()`** with per-service `title` / `description` / `og:title` / `og:description` / `og:image` for SEO
+**1. Homepage "What We Do" cards — `Learn more` now links to `/services`**
+On the home page, each photo card's "Learn more" link currently goes to `/services/{slug}` (a separate detail page). Change it to deep-link into the services page at `/services#{slug}` so the user lands on the right card on the all-in-one services page and can scroll/see context.
 
-Includes `notFoundComponent` if slug doesn't match any service.
+**2. Redesign `/services` — picture cards with full details + per-card Quote CTA**
+Replace the current compact icon grid with a rich, scannable layout. Each service becomes its own block on the page:
 
-### 2. Replace modal with real navigation
-- Delete `src/components/ServiceDetailDialog.tsx` (no longer needed).
-- **Home page (`src/routes/index.tsx`)**: remove `useState` + `<ServiceDetailDialog>`. Wrap each service card in `<Link to="/services/$slug" params={{ slug: s.slug }}>` so the whole card — and the "Learn more" — navigates.
-- **Services list page (`src/routes/services.tsx`)**: same — replace `onClick={() => setActiveService(s)}` button with a `<Link>` to `/services/$slug`. Remove dialog state.
+- **Hero image** (for services that have one — 8 of 10 do; the two icon-only services use a branded icon block instead)
+- Service title + short tagline
+- Intro paragraph (`details.intro`)
+- Two-column lists: "What's included" and "Who it's for" (already in `src/data/services.ts`)
+- Outcome callout (red left border, light bg)
+- **"Get a quote for this service →"** button that navigates to `/contact?service={slug}` — already wired to preselect on the contact form
+- Each block gets `id={slug}` so the homepage `#slug` anchors land cleanly
 
-### 3. Slim the homepage services grid
-Show only the **8 image-backed services** on the home page (current grid is 4-up so 8 = two clean rows on desktop). Remove the two icon-only cards from the home page:
-- Integrated Fire Security Solutions
-- Specialised Cleaning & Hygiene
+Layout pattern:
+- Alternating image-left / image-right on desktop for visual rhythm
+- Stacked single-column on mobile
+- Generous spacing between services
 
-These remain fully visible on `/services` (which lists all 10) and are reachable directly via `/services/fire-security` and `/services/cleaning-hygiene`.
+**3. Keep the existing dynamic detail page `/services/$slug`**
+Still useful as a shareable, SEO-indexed deep link (e.g. from search results, social shares). No changes — homepage just stops linking to it directly.
 
-Implementation: filter on home — `services.filter(s => s.image)` — so the home stays in sync if more services are added later. No data changes needed; `src/data/services.ts` continues to hold all 10.
-
-### 4. Add a clear "View all services" link
-Below the homepage services grid, add a small `<Link to="/services">View all services →</Link>` so users discover the full list (including Fire and Cleaning).
+**4. Smooth-scroll to anchor on `/services`**
+When the page loads with a `#slug` hash, scroll that block into view smoothly with a small offset for the sticky header. Use a small `useEffect` on mount that reads `window.location.hash`.
 
 ### Files touched
-- `src/routes/services.$slug.tsx` (new — detail page)
-- `src/components/ServiceDetailDialog.tsx` (deleted)
-- `src/routes/index.tsx` (drop modal, switch to `<Link>`, filter to image services, add "View all" link)
-- `src/routes/services.tsx` (drop modal, switch to `<Link>`)
+- `src/routes/index.tsx` — change the homepage "Learn more" links from `to="/services/$slug"` to `to="/services" hash={s.slug}`
+- `src/routes/services.tsx` — full redesign of the services list (rich blocks instead of compact grid), add hash-scroll on mount, add per-service "Get a quote" buttons that pass `?service={slug}`
 
 ### Out of scope
-- No copy changes — uses existing details from `src/data/services.ts`
-- No changes to `/services` list ordering or content (still shows all 10)
+- No copy changes (uses existing `src/data/services.ts`)
+- No changes to `/contact` form (already supports `?service=` preselect)
+- No changes to `/services/$slug` detail page
+- No changes to "In Action" image grid or final CTA on `/services`
