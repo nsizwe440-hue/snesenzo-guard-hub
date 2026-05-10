@@ -32,10 +32,10 @@ export const Route = createFileRoute("/")({
 
 
 const inAction = [
-  { src: actionVip, label: "VIP Protection & Escort" },
-  { src: actionRetail, label: "Retail & Commercial Security" },
-  { src: actionConstruction, label: "Construction & Industrial Site Security" },
-  { src: actionFarm, label: "Property & Farm Watch" },
+  { name: "action-vip", label: "VIP Protection & Escort" },
+  { name: "action-retail", label: "Retail & Commercial Security" },
+  { name: "action-construction", label: "Construction & Industrial Site Security" },
+  { name: "action-farm", label: "Property & Farm Watch" },
 ];
 
 const pillars = [
@@ -72,9 +72,9 @@ const clients = [
 ];
 
 const people = [
-  { src: peopleDeployed, label: "Deployed" },
-  { src: peopleDisciplined, label: "Disciplined" },
-  { src: peopleAccountable, label: "Accountable" },
+  { name: "people-deployed", label: "Deployed" },
+  { name: "people-disciplined", label: "Disciplined" },
+  { name: "people-accountable", label: "Accountable" },
 ];
 
 function SectionTitle({ children, dark = false, eyebrow }: { children: React.ReactNode; dark?: boolean; eyebrow?: string }) {
