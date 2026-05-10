@@ -108,9 +108,14 @@ const container = "max-w-7xl mx-auto px-6 lg:px-8";
 const sectionPad = "py-16 lg:py-24";
 
 function LandingPage() {
+  const [activeService, setActiveService] = useState<Service | null>(null);
   return (
     <div className="bg-white">
-      {/* HERO — full bleed */}
+      <ServiceDetailDialog
+        service={activeService}
+        open={!!activeService}
+        onOpenChange={(o) => !o && setActiveService(null)}
+      />
       <section
         className="relative w-full min-h-[560px] lg:min-h-[760px] overflow-hidden"
         style={{
