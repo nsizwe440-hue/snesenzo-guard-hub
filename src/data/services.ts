@@ -2,14 +2,6 @@ import {
   UserCheck, CalendarDays, Camera, Building2, Hotel, Fuel,
   Truck, Trees, Flame, Sparkles, type LucideIcon,
 } from "lucide-react";
-import actionVip from "@/assets/action-vip.jpg";
-import actionRetail from "@/assets/action-retail.jpg";
-import actionFarmReal from "@/assets/action-farm-real.jpg";
-import actionIndustrialReal from "@/assets/action-industrial-real.jpg";
-import actionPetroleumReal from "@/assets/action-petroleum-real.jpg";
-import actionHospitalityReal from "@/assets/action-hospitality-real.jpg";
-import actionEventsReal from "@/assets/action-events-real.jpg";
-import actionHighwayReal from "@/assets/action-highway-real.jpg";
 
 export type ServiceDetails = {
   intro: string;
