@@ -37,18 +37,7 @@ export const Route = createFileRoute("/")({
   component: LandingPage,
 });
 
-const services = [
-  { icon: UserCheck, label: "VIP Protection", desc: "Discreet close protection for executives and high-profile clients.", image: actionVip },
-  { icon: CalendarDays, label: "Events Security Management", desc: "Crowd management, access control and incident response for events.", image: actionEventsReal },
-  { icon: Camera, label: "CCTV & 24/7 Armed Response", desc: "Monitored surveillance backed by rapid armed response teams.", image: actionRetail },
-  { icon: Building2, label: "Commercial & Industrial Security", desc: "Site protection, access control and patrols for facilities.", image: actionIndustrialReal },
-  { icon: Hotel, label: "Hospitality Security", desc: "Guest-facing security for hotels, lodges and resorts.", image: actionHospitalityReal },
-  { icon: Fuel, label: "Petroleum, Oil & Gas Security", desc: "Specialised security for high-risk fuel and energy sites.", image: actionPetroleumReal },
-  { icon: Truck, label: "Highway Patrol & Road Assistance", desc: "Routine patrols and roadside support along key routes.", image: actionHighwayReal },
-  { icon: Trees, label: "Property & Farm Watch", desc: "Rural and estate protection tailored to remote properties.", image: actionFarmReal },
-  { icon: Flame, label: "Integrated Fire Security Solutions", desc: "Fire detection, prevention and emergency coordination." },
-  { icon: Sparkles, label: "Specialised Cleaning & Hygiene", desc: "Professional cleaning bundled with security operations." },
-];
+
 
 const inAction = [
   { src: actionVip, label: "VIP Protection & Escort" },
