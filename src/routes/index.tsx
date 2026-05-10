@@ -421,61 +421,6 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* CONTACT — white */}
-      <section className={`bg-white ${sectionPad}`}>
-        <div className={container}>
-          <Reveal variant="fade-up">
-            <SectionTitle eyebrow="Get In Touch">Reach us 24/7</SectionTitle>
-          </Reveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            <a href="tel:0611690365" className="rounded-xl border border-[#E5E7EB] p-6 hover:shadow-lg hover:border-brand-red/30 transition-all flex flex-col items-start gap-3">
-              <span className="inline-flex w-12 h-12 items-center justify-center rounded-full bg-brand-red text-white">
-                <Phone size={20} />
-              </span>
-              <p className="text-[#6B7280] text-[11px] uppercase font-bold tracking-wider">Call 24/7</p>
-              <p className="font-display text-brand-navy text-[22px]">061 169 0365</p>
-            </a>
-            <a href="mailto:info@snesenzo.co.za" className="rounded-xl border border-[#E5E7EB] p-6 hover:shadow-lg hover:border-brand-red/30 transition-all flex flex-col items-start gap-3">
-              <span className="inline-flex w-12 h-12 items-center justify-center rounded-full bg-brand-red text-white">
-                <Mail size={20} />
-              </span>
-              <p className="text-[#6B7280] text-[11px] uppercase font-bold tracking-wider">Email</p>
-              <p className="font-display text-brand-navy text-[18px] break-all">info@snesenzo.co.za</p>
-            </a>
-            <a href="https://wa.me/27611690365" target="_blank" rel="noopener noreferrer" className="rounded-xl border border-[#E5E7EB] p-6 hover:shadow-lg hover:border-brand-red/30 transition-all flex flex-col items-start gap-3">
-              <span className="inline-flex w-12 h-12 items-center justify-center rounded-full bg-brand-red text-white">
-                <MessageCircle size={20} />
-              </span>
-              <p className="text-[#6B7280] text-[11px] uppercase font-bold tracking-wider">WhatsApp</p>
-              <p className="font-display text-brand-navy text-[22px]">Message us</p>
-            </a>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-5">
-            <div className="rounded-xl border border-[#E5E7EB] p-6">
-              <div className="flex items-center gap-2 mb-3">
-                <MapPin size={18} className="text-brand-red" />
-                <h3 className="font-display text-brand-navy text-[16px] tracking-wide">HEAD OFFICE</h3>
-              </div>
-              <p className="text-[#374151] text-[14px] leading-[1.7]">
-                45 Voor Street<br />Utrecht, 2980<br />KwaZulu-Natal, South Africa
-              </p>
-            </div>
-            <div className="rounded-xl border border-[#E5E7EB] p-6">
-              <div className="flex items-center gap-2 mb-3">
-                <Clock size={18} className="text-brand-red" />
-                <h3 className="font-display text-brand-navy text-[16px] tracking-wide">OPERATING HOURS</h3>
-              </div>
-              <ul className="text-[#374151] text-[14px] leading-[1.8]">
-                <li><strong className="text-brand-navy">Control Room:</strong> 24/7</li>
-                <li><strong className="text-brand-navy">Office:</strong> Mon–Fri, 08:00 – 17:00</li>
-                <li><strong className="text-brand-navy">Armed Response:</strong> Always on standby</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* FINAL CTA — navy full bleed */}
       <section className={`bg-brand-navy ${sectionPad}`}>
         <div className={`${container} text-center`}>
