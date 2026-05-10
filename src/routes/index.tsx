@@ -313,6 +313,34 @@ function LandingPage() {
         </div>
       </section>
 
+      {/* REAL RESULTS — case study */}
+      <section className={`bg-[#F8FAFC] ${sectionPad}`}>
+        <div className={container}>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <Reveal variant="fade-up">
+              <img
+                src={caseFarmArrest}
+                alt="Suspects intercepted and detained during a Snesenzo Security farm-watch patrol"
+                className="w-full aspect-[4/5] object-cover rounded-2xl shadow-lg"
+                loading="lazy"
+              />
+            </Reveal>
+            <Reveal variant="fade-up" delay={120}>
+              <SectionTitle eyebrow="Real Results">Stock theft stopped on a client farm</SectionTitle>
+              <p className="text-[#374151] text-[16px] leading-[1.7]">
+                During a routine Property &amp; Farm Watch patrol, our officers picked up unusual movement on a client's grazing land. The team moved in quickly, intercepted the suspects on-site and held them until SAPS arrived. The livestock stayed with the owner — exactly where it belonged.
+              </p>
+              <p className="text-[#374151] text-[16px] leading-[1.7] mt-4">
+                This is what fit-for-purpose rural security looks like: visible patrols, fast decisions, and officers who know the land they're protecting.
+              </p>
+              <p className="text-[#6B7280] text-[12px] italic mt-6">
+                Faces and identifying details intentionally not disclosed.
+              </p>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
       {/* SERVICES IN ACTION — navy with image grid */}
       <section className={`bg-brand-navy ${sectionPad}`}>
         <div className={container}>
