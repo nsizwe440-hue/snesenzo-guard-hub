@@ -276,33 +276,31 @@ function LandingPage() {
             <SectionTitle eyebrow="What We Do">Comprehensive security services</SectionTitle>
           </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-            {services.map((s, i) =>
-              s.image ? (
-                <Reveal key={s.label} variant="zoom-in" delay={i * 50} className="group relative rounded-xl overflow-hidden bg-black aspect-[4/5]">
-                  <button type="button" onClick={() => setActiveService(s)} className="absolute inset-0 w-full h-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-red">
-                    <img src={s.image} alt={s.label} loading="lazy" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
-                    <div className="absolute left-5 right-5 bottom-5">
-                      <div className="w-8 h-[2px] bg-brand-red mb-2" />
-                      <h3 className="font-display text-white text-[17px] tracking-wide leading-tight">{s.label}</h3>
-                      <p className="text-[12px] text-white/80 leading-[1.5] mt-1.5">{s.desc}</p>
-                      <span className="mt-3 inline-flex items-center gap-1.5 text-brand-red text-[11px] font-extrabold uppercase tracking-[0.15em]">
-                        Learn more <ArrowRight size={13} />
-                      </span>
-                    </div>
-                  </button>
-                </Reveal>
-              ) : (
-                <Reveal key={s.label} variant="fade-up" delay={i * 50} className="rounded-xl border border-[#E5E7EB] p-6 bg-white hover:shadow-lg hover:border-brand-red/30 transition-all flex flex-col">
-                  <s.icon size={32} className="text-brand-red mb-3" />
-                  <h3 className="font-display text-[17px] text-[#0F172A] tracking-wide leading-tight">{s.label}</h3>
-                  <p className="text-[13px] text-[#4B5563] leading-[1.55] mt-2 flex-1">{s.desc}</p>
-                  <button type="button" onClick={() => setActiveService(s)} className="mt-4 inline-flex items-center gap-1.5 text-brand-red text-[11px] font-extrabold uppercase tracking-[0.15em] hover:gap-2 transition-all self-start">
-                    Learn more <ArrowRight size={13} />
-                  </button>
-                </Reveal>
-              )
-            )}
+            {homeServices.map((s, i) => (
+              <Reveal key={s.label} variant="zoom-in" delay={i * 50} className="group relative rounded-xl overflow-hidden bg-black aspect-[4/5]">
+                <Link
+                  to="/services/$slug"
+                  params={{ slug: s.slug }}
+                  className="absolute inset-0 w-full h-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-red"
+                >
+                  <img src={s.image} alt={s.label} loading="lazy" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+                  <div className="absolute left-5 right-5 bottom-5">
+                    <div className="w-8 h-[2px] bg-brand-red mb-2" />
+                    <h3 className="font-display text-white text-[17px] tracking-wide leading-tight">{s.label}</h3>
+                    <p className="text-[12px] text-white/80 leading-[1.5] mt-1.5">{s.desc}</p>
+                    <span className="mt-3 inline-flex items-center gap-1.5 text-brand-red text-[11px] font-extrabold uppercase tracking-[0.15em] group-hover:gap-2 transition-all">
+                      Learn more <ArrowRight size={13} />
+                    </span>
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+          <div className="mt-8 text-center">
+            <Link to="/services" className="inline-flex items-center gap-2 text-brand-navy text-[13px] font-bold uppercase tracking-[0.15em] hover:text-brand-red transition-colors">
+              View all services <ArrowRight size={16} />
+            </Link>
           </div>
         </div>
       </section>
