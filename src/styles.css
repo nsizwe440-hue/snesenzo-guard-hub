@@ -195,10 +195,13 @@
   to   { transform: translate3d(-25%, 0, 0); }
 }
 .animate-trusted-marquee {
-  animation: trusted-marquee 28s linear infinite;
+  animation: trusted-marquee 60s linear infinite;
 }
 @media (min-width: 768px) {
-  .animate-trusted-marquee { animation-duration: 40s; }
+  .animate-trusted-marquee { animation-duration: 80s; }
+}
+.group:hover .animate-trusted-marquee {
+  animation-play-state: paused;
 }
 .trusted-mask {
   -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
