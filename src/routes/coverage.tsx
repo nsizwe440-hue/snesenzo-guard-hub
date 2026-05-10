@@ -47,7 +47,7 @@ function CoveragePage() {
           <p className="text-brand-red text-[10px] font-extrabold tracking-[0.2em] uppercase">Where we operate</p>
           <h1 className="font-display text-[36px] md:text-[56px] leading-[0.95] mt-2">COVERAGE AREAS</h1>
           <p className="text-white/75 text-[14px] max-w-[620px] mt-4">
-            We deliver protection services across KwaZulu-Natal and Mpumalanga  - from coastal cities to inland farms.
+            We deliver protection services across KwaZulu-Natal and Mpumalanga - from coastal cities to inland farms.
           </p>
         </div>
       </section>
@@ -59,7 +59,7 @@ function CoveragePage() {
           <div className="relative h-full flex items-center px-6 md:px-10">
             <div>
               <p className="text-brand-red text-[10px] font-extrabold tracking-[0.2em] uppercase mb-1">Two provinces. One standard.</p>
-              <h2 className="font-display text-white text-[22px] md:text-[32px] leading-tight max-w-[520px]">From coastal cities to inland farms  - local boots on the ground.</h2>
+              <h2 className="font-display text-white text-[22px] md:text-[32px] leading-tight max-w-[520px]">From coastal cities to inland farms - local boots on the ground.</h2>
             </div>
           </div>
         </Reveal>

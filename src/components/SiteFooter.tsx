@@ -60,7 +60,7 @@ export function SiteFooter() {
             </li>
             <li className="flex items-start gap-2">
               <Clock size={14} className="mt-0.5 text-brand-red shrink-0" />
-              <span>24/7 Control Room  - always on call</span>
+              <span>24/7 Control Room - always on call</span>
             </li>
           </ul>
         </div>

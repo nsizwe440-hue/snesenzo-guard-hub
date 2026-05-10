@@ -9,9 +9,9 @@ const heroBg = getImage("hero-ssg-vehicle").fallback.url;
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "Meet the Founder  - Ntabazwe Ndlovu | Snesenzo Security Group" },
-      { name: "description", content: "Meet Ntabazwe Shemeni Wegidi Ndlovu, the Amajuba-born entrepreneur and founder of Snesenzo Security Group  - a youth-led, 100% black-owned security company serving KZN & Mpumalanga." },
-      { property: "og:title", content: "Meet the Founder  - Ntabazwe Ndlovu" },
+      { title: "Meet the Founder - Ntabazwe Ndlovu | Snesenzo Security Group" },
+      { name: "description", content: "Meet Ntabazwe Shemeni Wegidi Ndlovu, the Amajuba-born entrepreneur and founder of Snesenzo Security Group - a youth-led, 100% black-owned security company serving KZN & Mpumalanga." },
+      { property: "og:title", content: "Meet the Founder - Ntabazwe Ndlovu" },
       { property: "og:description", content: "Founder & CEO of Snesenzo Security Group. Locally rooted, professionally run, personally accountable." },
       { property: "og:image", content: ceo },
       { name: "twitter:image", content: ceo },
@@ -43,7 +43,7 @@ function SectionTitle({ children, dark = false, eyebrow }: { children: React.Rea
 function AboutPage() {
   return (
     <div className="bg-white">
-      {/* HERO HEADER  - navy */}
+      {/* HERO HEADER - navy */}
       <section
         className="relative bg-brand-navy py-16 lg:py-24 bg-cover bg-center"
         style={{ backgroundImage: `linear-gradient(90deg, rgba(6,16,22,0.92) 0%, rgba(6,16,22,0.7) 45%, rgba(6,16,22,0.35) 100%), url(${heroBg})` }}
@@ -75,20 +75,20 @@ function AboutPage() {
           <Reveal variant="fade-up" delay={120}>
             <div className="space-y-5 text-[#374151] text-[16px] md:text-[17px] leading-[1.75]">
               <p>
-                <span className="font-bold text-[#0F172A]">Ntabazwe Shemeni Wegidi Ndlovu</span> is not your typical security company CEO. He's an Amajuba-born entrepreneur and community leader who runs multiple businesses across the district  - and Snesenzo Security Group is the venture closest to home, born out of a simple conviction: the people, businesses, and families of KwaZulu-Natal and Mpumalanga deserve a security partner who actually knows them, lives among them, and answers to them.
+                <span className="font-bold text-[#0F172A]">Ntabazwe Shemeni Wegidi Ndlovu</span> is not your typical security company CEO. He's an Amajuba-born entrepreneur and community leader who runs multiple businesses across the district - and Snesenzo Security Group is the venture closest to home, born out of a simple conviction: the people, businesses, and families of KwaZulu-Natal and Mpumalanga deserve a security partner who actually knows them, lives among them, and answers to them.
               </p>
               <p>
-                Operating from Utrecht in the Amajuba District, Ntabazwe brings the instincts of a businessman and the standards of a leader to an industry too often run from a distance. He built Snesenzo as a youth-led, 100% black-owned company because he believes the next generation of security in this region must be locally rooted, professionally run, and personally accountable  - not faceless, not outsourced, not detached.
+                Operating from Utrecht in the Amajuba District, Ntabazwe brings the instincts of a businessman and the standards of a leader to an industry too often run from a distance. He built Snesenzo as a youth-led, 100% black-owned company because he believes the next generation of security in this region must be locally rooted, professionally run, and personally accountable - not faceless, not outsourced, not detached.
               </p>
               <p>
-                When you partner with Snesenzo, you're not hiring a logo. You're standing alongside a founder who has chosen to back his own community with his name, his businesses, and his reputation  - and who expects every guard, every patrol, and every response to reflect that.
+                When you partner with Snesenzo, you're not hiring a logo. You're standing alongside a founder who has chosen to back his own community with his name, his businesses, and his reputation - and who expects every guard, every patrol, and every response to reflect that.
               </p>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* WHY SNESENZO  - pillars */}
+      {/* WHY SNESENZO - pillars */}
       <section className="bg-[#F8FAFC] py-16 lg:py-20">
         <div className={container}>
           <Reveal variant="fade-up">
@@ -97,7 +97,7 @@ function AboutPage() {
           </Reveal>
           <div className="grid md:grid-cols-3 gap-5">
             {[
-              { icon: MapPin, title: "Locally Rooted", body: "Headquartered in Utrecht, Amajuba  - we live, hire and answer to the communities we protect." },
+              { icon: MapPin, title: "Locally Rooted", body: "Headquartered in Utrecht, Amajuba - we live, hire and answer to the communities we protect." },
               { icon: Users, title: "Youth-Led, 100% Black-Owned", body: "A new generation of operators raising the standard for security in KZN and Mpumalanga." },
               { icon: ShieldCheck, title: "Personally Accountable", body: "The founder's name is on the door. Every guard, every patrol, every response reflects that." },
             ].map((p, i) => (
@@ -113,7 +113,7 @@ function AboutPage() {
         </div>
       </section>
 
-      {/* OUR PEOPLE  - image strip */}
+      {/* OUR PEOPLE - image strip */}
       <section className="bg-brand-navy py-16 lg:py-20">
         <div className={container}>
           <Reveal variant="fade-up">
@@ -177,7 +177,7 @@ function AboutPage() {
         </div>
       </section>
 
-      {/* CTA  - navy */}
+      {/* CTA - navy */}
       <section className="bg-brand-navy py-16 lg:py-20">
         <div className={`${container} text-center`}>
           <Reveal variant="fade-up">
@@ -197,7 +197,7 @@ function AboutPage() {
                 href="tel:0611690365"
                 className="inline-flex h-12 px-6 items-center justify-center gap-2 rounded-lg text-white text-[13px] font-bold border border-white/45 bg-black/40 hover:bg-black/60"
               >
-                <Phone size={16} /> Call 24/7  - 061 169 0365
+                <Phone size={16} /> Call 24/7 - 061 169 0365
               </a>
             </div>
           </Reveal>
