@@ -1,153 +1,126 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import {
-  Quote, Ear, Brain, Users, BadgeCheck, Check,
-  ShieldCheck, FileText, Award, MapPin, ArrowRight,
-} from "lucide-react";
+import { Quote, ArrowRight, Phone } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import ceo from "@/assets/ceo-portrait.jpg";
-import psiraLogo from "@/assets/psira-logo.png";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Snesenzo Security Group | PSIRA-Registered, Youth Black-Owned" },
-      { name: "description", content: "100% youth black-owned, PSIRA-registered private security across KZN & Mpumalanga. Meet our CEO and our four pillars of service." },
-      { property: "og:title", content: "About Snesenzo Security Group" },
-      { property: "og:description", content: "Locally rooted, nationally committed — leadership accountability and trained professionals." },
+      { title: "Meet the Founder — Ntabazwe Ndlovu | Snesenzo Security Group" },
+      { name: "description", content: "Meet Ntabazwe Shemeni Wegidi Ndlovu, the Amajuba-born entrepreneur and founder of Snesenzo Security Group — a youth-led, 100% black-owned security company serving KZN & Mpumalanga." },
+      { property: "og:title", content: "Meet the Founder — Ntabazwe Ndlovu" },
+      { property: "og:description", content: "Founder & CEO of Snesenzo Security Group. Locally rooted, professionally run, personally accountable." },
+      { property: "og:image", content: ceo },
+      { name: "twitter:image", content: ceo },
     ],
   }),
   component: AboutPage,
 });
 
-const pillars = [
-  { icon: Ear, title: "Listen First", body: "We understand your needs and risks before recommending solutions." },
-  { icon: Brain, title: "Expert Knowledge", body: "We design smart, effective, fit-for-purpose security plans." },
-  { icon: Users, title: "Trained Personnel", body: "We deploy disciplined, PSIRA-graded professionals." },
-  { icon: BadgeCheck, title: "Quality Assurance", body: "We measure, monitor and continuously improve." },
-];
+const container = "max-w-7xl mx-auto px-6 lg:px-8";
 
-const whyChoose = [
-  "PSIRA-Compliant & Fully Registered",
-  "Locally Rooted, Nationally Committed",
-  "100% Youth Black-Owned",
-  "Fit-for-Purpose Pricing",
-  "Integrated Service Stack",
-  "Leadership Accountability",
-];
-
-const credentials = [
-  { icon: FileText, label: "CIPC", value: "2024/620995/07" },
-  { icon: ShieldCheck, label: "PSIRA Company", value: "4972817" },
-  { icon: Award, label: "CEO Grade A", value: "4821072" },
-  { icon: MapPin, label: "Operating", value: "KZN & Mpumalanga" },
-];
+function SectionTitle({ children, dark = false, eyebrow }: { children: React.ReactNode; dark?: boolean; eyebrow?: string }) {
+  return (
+    <div className="mb-8 lg:mb-10">
+      <div className="flex items-center gap-3 mb-3">
+        <span className="block w-[4px] h-6 bg-brand-red rounded-sm" />
+        {eyebrow && (
+          <span className="text-brand-red text-[11px] font-extrabold tracking-[0.18em] uppercase">
+            {eyebrow}
+          </span>
+        )}
+      </div>
+      <h1 className={`font-display text-[32px] md:text-[44px] lg:text-[56px] leading-[1.05] tracking-tight ${dark ? "text-white" : "text-[#0F172A]"}`}>
+        {children}
+      </h1>
+    </div>
+  );
+}
 
 function AboutPage() {
   return (
-    <div className="bg-brand-surface">
-      <section className="bg-brand-navy text-white px-5 py-12 md:py-20">
-        <div className="max-w-[1120px] mx-auto">
-          <div className="w-10 h-[2px] bg-brand-red mb-3" />
-          <p className="text-brand-red text-[10px] font-extrabold tracking-[0.2em] uppercase">About Us</p>
-          <h1 className="font-display text-[36px] md:text-[56px] leading-[0.95] mt-2">WHO WE ARE</h1>
-          <p className="text-white/75 text-[14px] max-w-[620px] mt-4">
-            Snesenzo Security Group (Pty) Ltd is a 100% youth black-owned private security company providing risk-based protection across KwaZulu-Natal and Mpumalanga.
-          </p>
+    <div className="bg-white">
+      {/* HERO HEADER — navy */}
+      <section className="bg-brand-navy py-16 lg:py-24">
+        <div className={container}>
+          <Reveal variant="fade-up">
+            <SectionTitle dark eyebrow="Meet the Founder">Ntabazwe Ndlovu</SectionTitle>
+          </Reveal>
+          <Reveal variant="fade-up" delay={80}>
+            <p className="text-brand-red text-[14px] md:text-[16px] font-extrabold uppercase tracking-wide">
+              Founder &amp; CEO, Snesenzo Security Group
+            </p>
+          </Reveal>
         </div>
       </section>
 
-      <main className="px-5 py-10 max-w-[1120px] mx-auto">
-        {/* CEO */}
-        <Reveal as="section" variant="fade-up" className="bg-white rounded-[14px] p-5 md:p-7 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.08)] grid md:grid-cols-2 gap-6 items-center">
-          <img src={ceo} alt="Mr Senzo S Nkosi, CEO" className="w-full h-auto rounded-lg" loading="lazy" />
-          <div>
-            <Quote size={28} className="text-brand-red mb-2" />
-            <p className="text-[16px] md:text-[18px] leading-[1.4] italic text-[#111827]">
+      {/* PORTRAIT + BIO */}
+      <section className="py-16 lg:py-24 bg-white">
+        <div className={`${container} grid lg:grid-cols-2 gap-12 lg:gap-16 items-start`}>
+          <Reveal variant="fade-up">
+            <img
+              src={ceo}
+              alt="Ntabazwe Ndlovu, Founder & CEO of Snesenzo Security Group"
+              className="w-full aspect-[4/5] object-cover object-top rounded-2xl shadow-xl"
+              loading="lazy"
+            />
+          </Reveal>
+          <Reveal variant="fade-up" delay={120}>
+            <div className="space-y-5 text-[#374151] text-[16px] md:text-[17px] leading-[1.75]">
+              <p>
+                <span className="font-bold text-[#0F172A]">Ntabazwe Shemeni Wegidi Ndlovu</span> is not your typical security company CEO. He's an Amajuba-born entrepreneur and community leader who runs multiple businesses across the district — and Snesenzo Security Group is the venture closest to home, born out of a simple conviction: the people, businesses, and families of KwaZulu-Natal and Mpumalanga deserve a security partner who actually knows them, lives among them, and answers to them.
+              </p>
+              <p>
+                Operating from Utrecht in the Amajuba District, Ntabazwe brings the instincts of a businessman and the standards of a leader to an industry too often run from a distance. He built Snesenzo as a youth-led, 100% black-owned company because he believes the next generation of security in this region must be locally rooted, professionally run, and personally accountable — not faceless, not outsourced, not detached.
+              </p>
+              <p>
+                When you partner with Snesenzo, you're not hiring a logo. You're standing alongside a founder who has chosen to back his own community with his name, his businesses, and his reputation — and who expects every guard, every patrol, and every response to reflect that.
+              </p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* QUOTE — light gray */}
+      <section className="bg-[#F8FAFC] py-16 lg:py-24">
+        <div className={`${container} max-w-4xl`}>
+          <Reveal variant="fade-up">
+            <Quote size={44} className="text-brand-red mb-4" />
+            <p className="text-[22px] md:text-[30px] leading-[1.35] italic text-[#0F172A] font-light">
               "We will hold ourselves accountable to the highest standards of professional integrity and service."
             </p>
-            <p className="text-brand-red text-[13px] font-extrabold mt-3">Mr Senzo S Nkosi</p>
-            <p className="text-[#374151] text-[12px]">Chief Executive Officer · PSIRA Grade A</p>
-            <p className="text-[#4B5563] text-[13px] leading-[1.6] mt-4">
-              Under the leadership of CEO Senzo Nkosi, Snesenzo Security Group has grown into a trusted partner for corporate, government and private clients — delivering professional integrity, trained personnel and 24/7 readiness across two provinces.
-            </p>
-          </div>
-        </Reveal>
+            <p className="text-brand-red text-[14px] font-extrabold mt-6">Mr Senzo S Nkosi</p>
+            <p className="text-[#374151] text-[13px]">Chief Executive Officer · PSIRA Grade A</p>
+          </Reveal>
+        </div>
+      </section>
 
-        {/* Credentials */}
-        <Reveal as="section" variant="fade-up" className="mt-5 bg-brand-navy rounded-[14px] p-5 md:p-7">
-          <div className="flex items-center gap-2 mb-4">
-            <span className="block w-[3px] h-[18px] bg-brand-red rounded-sm" />
-            <h2 className="font-display text-white text-[18px] tracking-wide">CREDENTIALS</h2>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            {credentials.map((c, i) => (
-              <Reveal key={c.label} variant="fade-up" delay={i * 80} className="flex items-center gap-2">
-                <span className="shrink-0 inline-flex items-center justify-center w-[34px] h-[34px] rounded-full bg-brand-red text-white">
-                  <c.icon size={16} />
-                </span>
-                <div className="leading-tight min-w-0">
-                  <div className="text-white/70 text-[9px] uppercase tracking-wider font-semibold">{c.label}</div>
-                  <div className="text-white text-[11px] font-bold truncate">{c.value}</div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </Reveal>
-
-        {/* Pillars */}
-        <Reveal as="section" variant="fade-up" className="mt-5 bg-white rounded-[14px] p-5 md:p-7 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.08)]">
-          <div className="flex items-center gap-2 mb-4">
-            <span className="block w-[3px] h-[18px] bg-brand-red rounded-sm" />
-            <h2 className="font-display text-[#111827] text-[18px] tracking-wide">OUR FOUR PILLARS</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {pillars.map((p, i) => (
-              <Reveal key={p.title} variant="fade-up" delay={i * 80} className="rounded-lg border border-[#E5E7EB] p-4">
-                <p.icon size={28} className="text-brand-red mb-2" />
-                <h3 className="font-display text-[14px] text-[#111827] tracking-wide">{p.title}</h3>
-                <p className="text-[12px] text-[#4B5563] leading-[1.5] mt-1">{p.body}</p>
-              </Reveal>
-            ))}
-          </div>
-        </Reveal>
-
-        {/* Why choose */}
-        <Reveal as="section" variant="fade-up" className="mt-5 bg-brand-navy rounded-[14px] p-5 md:p-7">
-          <div className="flex items-center gap-2 mb-4">
-            <span className="block w-[3px] h-[18px] bg-brand-red rounded-sm" />
-            <h2 className="font-display text-white text-[18px] tracking-wide">WHY CHOOSE SNESENZO?</h2>
-          </div>
-          <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3">
-            {whyChoose.map((item, i) => (
-              <Reveal as="li" key={item} variant="fade-up" delay={i * 60} className="flex items-start gap-2">
-                <Check size={18} className="text-brand-red shrink-0 mt-0.5" />
-                <span className="text-white text-[13px] leading-[1.4] font-semibold">{item}</span>
-              </Reveal>
-            ))}
-          </ul>
-        </Reveal>
-
-        {/* PSIRA */}
-        <Reveal as="section" variant="fade-up" className="mt-5 bg-white rounded-[14px] p-5 md:p-7 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.08)]">
-          <div className="w-10 h-[2px] bg-brand-red mb-2" />
-          <p className="text-brand-red text-[10px] font-extrabold tracking-[0.18em] uppercase">Accreditation</p>
-          <h2 className="font-display text-brand-navy text-[20px] md:text-[26px] uppercase leading-tight mt-1">
-            Fully Accredited by PSIRA
-          </h2>
-          <div className="bg-[#F5F5F4] rounded-lg py-5 px-3 mt-3 flex items-center justify-center">
-            <img src={psiraLogo} alt="PSIRA — Private Security Industry Regulatory Authority" className="max-h-20 w-auto" loading="lazy" />
-          </div>
-          <p className="text-[#374151] text-[13px] leading-[1.6] mt-3">
-            Snesenzo Security Group is fully registered and accredited by the Private Security Industry Regulatory Authority (PSIRA) — the official body governing the private security industry in South Africa. This accreditation confirms that our officers, operations and training meet the strict legal and professional standards required to protect our clients with integrity.
-          </p>
-        </Reveal>
-
-        <Reveal as="section" variant="fade-up" className="mt-5 text-center">
-          <Link to="/contact" className="inline-flex h-12 px-6 items-center justify-center gap-2 rounded-lg bg-brand-red text-white text-[13px] font-bold uppercase tracking-wide hover:opacity-90">
-            Work with us <ArrowRight size={16} />
-          </Link>
-        </Reveal>
-      </main>
+      {/* CTA — navy */}
+      <section className="bg-brand-navy py-16 lg:py-20">
+        <div className={`${container} text-center`}>
+          <Reveal variant="fade-up">
+            <h2 className="font-display text-white text-[28px] md:text-[40px] leading-tight mb-6">
+              Ready to work with a team that <span className="text-brand-red">stands behind its name?</span>
+            </h2>
+          </Reveal>
+          <Reveal variant="fade-up" delay={100}>
+            <div className="flex flex-row gap-3 flex-wrap justify-center">
+              <Link
+                to="/contact"
+                className="inline-flex h-12 px-6 items-center justify-center gap-2 rounded-lg bg-brand-red text-white text-[13px] font-bold uppercase tracking-wide hover:opacity-90"
+              >
+                Request a Quote <ArrowRight size={16} />
+              </Link>
+              <a
+                href="tel:0611690365"
+                className="inline-flex h-12 px-6 items-center justify-center gap-2 rounded-lg text-white text-[13px] font-bold border border-white/45 bg-black/40 hover:bg-black/60"
+              >
+                <Phone size={16} /> Call 24/7 — 061 169 0365
+              </a>
+            </div>
+          </Reveal>
+        </div>
+      </section>
     </div>
   );
 }
