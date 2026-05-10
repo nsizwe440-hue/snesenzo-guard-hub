@@ -8,7 +8,7 @@ import {
   Briefcase, Landmark, Home, GraduationCap, Wheat, User,
   
 } from "lucide-react";
-import heroImg from "@/assets/hero-officers.jpg";
+import heroImg from "@/assets/hero-ssg-vehicle.jpg";
 import ceo from "@/assets/ceo-portrait.jpg";
 import psiraLogo from "@/assets/psira-logo.png";
 import coverageMap from "@/assets/coverage-map.png";
@@ -123,9 +123,9 @@ function LandingPage() {
       <section
         className="relative w-full min-h-[560px] lg:min-h-[760px] overflow-hidden"
         style={{
-          backgroundImage: `linear-gradient(135deg, rgba(6,16,22,0.88) 0%, rgba(6,16,22,0.55) 55%, rgba(6,16,22,0.35) 100%), url(${heroImg})`,
+          backgroundImage: `linear-gradient(90deg, rgba(6,16,22,0.92) 0%, rgba(6,16,22,0.7) 45%, rgba(6,16,22,0.25) 100%), url(${heroImg})`,
           backgroundSize: "cover",
-          backgroundPosition: "center",
+          backgroundPosition: "center right",
         }}
       >
         <div className={`${container} relative h-full min-h-[560px] lg:min-h-[760px] flex items-end pb-20 lg:pb-32`}>
