@@ -61,8 +61,11 @@ function ServiceDetailPage() {
   return (
     <div className="bg-white">
       {/* Hero band */}
-      <section className="bg-brand-navy text-white px-5 py-12 md:py-20">
-        <div className="max-w-[1120px] mx-auto">
+      <section
+        className="relative bg-brand-navy text-white px-5 py-12 md:py-20 bg-cover bg-center"
+        style={{ backgroundImage: `linear-gradient(90deg, rgba(6,16,22,0.92) 0%, rgba(6,16,22,0.7) 45%, rgba(6,16,22,0.35) 100%), url(${getImage("hero-ssg-vehicle").fallback.url})` }}
+      >
+        <div className="max-w-[1120px] mx-auto relative">
           <Link to="/services" className="inline-flex items-center gap-1.5 text-white/70 hover:text-white text-[12px] font-bold uppercase tracking-[0.15em] mb-6">
             <ArrowLeft size={14} /> All services
           </Link>

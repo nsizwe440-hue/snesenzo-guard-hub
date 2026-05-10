@@ -36,8 +36,11 @@ function ServicesPage() {
   return (
     <div className="bg-white">
       {/* Hero band */}
-      <section className="bg-brand-navy text-white px-5 py-12 md:py-20">
-        <div className="max-w-[1120px] mx-auto">
+      <section
+        className="relative bg-brand-navy text-white px-5 py-12 md:py-20 bg-cover bg-center"
+        style={{ backgroundImage: `linear-gradient(90deg, rgba(6,16,22,0.92) 0%, rgba(6,16,22,0.7) 45%, rgba(6,16,22,0.35) 100%), url(${getImage("hero-ssg-vehicle").fallback.url})` }}
+      >
+        <div className="max-w-[1120px] mx-auto relative">
           <div className="w-10 h-[2px] bg-brand-red mb-3" />
           <p className="text-brand-red text-[10px] font-extrabold tracking-[0.2em] uppercase">What we do</p>
           <h1 className="font-display text-[36px] md:text-[56px] leading-[0.95] mt-2">OUR SERVICES</h1>
