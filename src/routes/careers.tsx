@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ShieldCheck, MapPin, TrendingUp, ArrowRight, Briefcase, CheckCircle2 } from "lucide-react";
 import { Reveal } from "@/components/Reveal";
 import { getImage } from "@/assets/optimized";
-const bannerOfficers = getImage("hero-officers").fallback.url;
+const bannerOfficers = getImage("hero-ssg-vehicle").fallback.url;
 
 export const Route = createFileRoute("/careers")({
   head: () => ({
@@ -32,7 +32,7 @@ function CareersPage() {
     <div className="bg-brand-surface">
       {/* Hero */}
       <section className="relative bg-brand-navy text-white px-5 py-16 md:py-24 overflow-hidden">
-        <img src={bannerOfficers} alt="" aria-hidden className="absolute inset-0 w-full h-full object-cover opacity-25" />
+        <img src={bannerOfficers} alt="" aria-hidden className="absolute inset-0 w-full h-full object-cover opacity-40" />
         <div className="absolute inset-0 bg-gradient-to-r from-brand-navy via-brand-navy/85 to-brand-navy/40" />
         <div className="relative max-w-[1120px] mx-auto">
           <div className="w-10 h-[2px] bg-brand-red mb-3" />

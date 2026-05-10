@@ -4,6 +4,7 @@ import { Reveal } from "@/components/Reveal";
 import { ResponsiveImage } from "@/components/ResponsiveImage";
 import { getImage } from "@/assets/optimized";
 const ceo = getImage("ceo-portrait").fallback.url;
+const heroBg = getImage("hero-ssg-vehicle").fallback.url;
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -43,8 +44,11 @@ function AboutPage() {
   return (
     <div className="bg-white">
       {/* HERO HEADER — navy */}
-      <section className="bg-brand-navy py-16 lg:py-24">
-        <div className={container}>
+      <section
+        className="relative bg-brand-navy py-16 lg:py-24 bg-cover bg-center"
+        style={{ backgroundImage: `linear-gradient(90deg, rgba(6,16,22,0.92) 0%, rgba(6,16,22,0.7) 45%, rgba(6,16,22,0.35) 100%), url(${heroBg})` }}
+      >
+        <div className={`${container} relative`}>
           <Reveal variant="fade-up">
             <SectionTitle dark eyebrow="Meet the Founder">Ntabazwe Ndlovu</SectionTitle>
           </Reveal>
