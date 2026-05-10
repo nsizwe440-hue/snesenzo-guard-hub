@@ -172,15 +172,31 @@ function LandingPage() {
             </p>
           </Reveal>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
+          {/* Desktop: single dark navy bar */}
+          <Reveal variant="fade-up" delay={120} className="hidden lg:grid grid-cols-4 gap-6 mt-10 p-6 rounded-xl bg-brand-navy">
+            {credentials.map((c) => (
+              <div key={c.label} className="flex items-center gap-4 min-w-0">
+                <span className="shrink-0 inline-flex items-center justify-center w-12 h-12 rounded-full bg-brand-red text-white">
+                  <c.icon size={20} />
+                </span>
+                <div className="leading-tight min-w-0">
+                  <div className="text-white/60 text-[10px] uppercase tracking-wider font-semibold">{c.label}</div>
+                  <div className="text-white text-[15px] font-bold">{c.value}</div>
+                </div>
+              </div>
+            ))}
+          </Reveal>
+
+          {/* Mobile: 2x2 light cards */}
+          <div className="grid grid-cols-2 lg:hidden gap-3 mt-10">
             {credentials.map((c, i) => (
-              <Reveal key={c.label} variant="fade-up" delay={i * 80} className="flex items-center gap-3 p-4 rounded-xl bg-[#F8FAFC] border border-[#E5E7EB]">
+              <Reveal key={c.label} variant="fade-up" delay={i * 80} className="flex items-center gap-3 p-4 rounded-2xl bg-[#F8FAFC] border border-[#E5E7EB]">
                 <span className="shrink-0 inline-flex items-center justify-center w-11 h-11 rounded-full bg-brand-red text-white">
                   <c.icon size={18} />
                 </span>
                 <div className="leading-tight min-w-0">
                   <div className="text-[#6B7280] text-[10px] uppercase tracking-wider font-semibold">{c.label}</div>
-                  <div className="text-brand-navy text-[13px] font-bold truncate">{c.value}</div>
+                  <div className="text-brand-navy text-[12px] font-bold break-words">{c.value}</div>
                 </div>
               </Reveal>
             ))}
