@@ -195,10 +195,10 @@
   to   { transform: translate3d(-25%, 0, 0); }
 }
 .animate-trusted-marquee {
-  animation: trusted-marquee 60s linear infinite;
+  animation: trusted-marquee 12s linear infinite;
 }
 @media (min-width: 768px) {
-  .animate-trusted-marquee { animation-duration: 80s; }
+  .animate-trusted-marquee { animation-duration: 16s; }
 }
 .group:hover .animate-trusted-marquee {
   animation-play-state: paused;
