@@ -113,7 +113,7 @@ function renderServiceBlock(s: (typeof services)[number], i: number) {
               alt={s.label}
               sizes="(min-width: 1024px) 540px, 100vw"
               className="block w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-xl"
-              imgClassName="w-full h-full object-cover"
+              imgClassName={`w-full h-full object-cover ${s.slug === "hospitality" ? "object-top" : ""}`}
             />
           ) : (
             <div className="w-full aspect-[4/3] rounded-2xl bg-gradient-to-br from-brand-navy to-[#1e293b] shadow-xl flex items-center justify-center">
