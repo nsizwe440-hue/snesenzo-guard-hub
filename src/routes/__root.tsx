@@ -11,7 +11,6 @@ import {
 import appCss from "../styles.css?url";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
-import { StickyCallBar } from "@/components/StickyCallBar";
 
 function NotFoundComponent() {
   return (
@@ -119,13 +118,12 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="min-h-screen flex flex-col pb-14 md:pb-0">
+      <div className="min-h-screen flex flex-col">
         <SiteHeader />
         <div className="flex-1">
           <Outlet />
         </div>
         <SiteFooter />
-        <StickyCallBar />
       </div>
     </QueryClientProvider>
   );
