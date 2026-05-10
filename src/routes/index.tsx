@@ -1,13 +1,14 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { useState } from "react";
 import {
   Phone, ArrowRight, Check,
   ShieldCheck, FileText, Award, MapPin,
-  UserCheck, CalendarDays, Camera, Building2, Hotel, Fuel,
-  Truck, Trees, Flame, Sparkles,
+  Fuel,
   Ear, Brain, Users, BadgeCheck,
   Briefcase, Landmark, Home, GraduationCap, Wheat, User,
-  
 } from "lucide-react";
+import { services, type Service } from "@/data/services";
+import { ServiceDetailDialog } from "@/components/ServiceDetailDialog";
 import heroImg from "@/assets/hero-ssg-vehicle.jpg";
 import ceo from "@/assets/ceo-portrait.jpg";
 import psiraLogo from "@/assets/psira-logo.png";
@@ -19,12 +20,6 @@ import actionVip from "@/assets/action-vip.jpg";
 import actionRetail from "@/assets/action-retail.jpg";
 import actionConstruction from "@/assets/action-construction.jpg";
 import actionFarm from "@/assets/action-farm.jpg";
-import actionFarmReal from "@/assets/action-farm-real.jpg";
-import actionIndustrialReal from "@/assets/action-industrial-real.jpg";
-import actionPetroleumReal from "@/assets/action-petroleum-real.jpg";
-import actionHospitalityReal from "@/assets/action-hospitality-real.jpg";
-import actionEventsReal from "@/assets/action-events-real.jpg";
-import actionHighwayReal from "@/assets/action-highway-real.jpg";
 import caseFarmArrest from "@/assets/case-farm-arrest.jpg";
 import { Reveal } from "@/components/Reveal";
 
@@ -42,18 +37,7 @@ export const Route = createFileRoute("/")({
   component: LandingPage,
 });
 
-const services = [
-  { icon: UserCheck, label: "VIP Protection", desc: "Discreet close protection for executives and high-profile clients.", image: actionVip },
-  { icon: CalendarDays, label: "Events Security Management", desc: "Crowd management, access control and incident response for events.", image: actionEventsReal },
-  { icon: Camera, label: "CCTV & 24/7 Armed Response", desc: "Monitored surveillance backed by rapid armed response teams.", image: actionRetail },
-  { icon: Building2, label: "Commercial & Industrial Security", desc: "Site protection, access control and patrols for facilities.", image: actionIndustrialReal },
-  { icon: Hotel, label: "Hospitality Security", desc: "Guest-facing security for hotels, lodges and resorts.", image: actionHospitalityReal },
-  { icon: Fuel, label: "Petroleum, Oil & Gas Security", desc: "Specialised security for high-risk fuel and energy sites.", image: actionPetroleumReal },
-  { icon: Truck, label: "Highway Patrol & Road Assistance", desc: "Routine patrols and roadside support along key routes.", image: actionHighwayReal },
-  { icon: Trees, label: "Property & Farm Watch", desc: "Rural and estate protection tailored to remote properties.", image: actionFarmReal },
-  { icon: Flame, label: "Integrated Fire Security Solutions", desc: "Fire detection, prevention and emergency coordination." },
-  { icon: Sparkles, label: "Specialised Cleaning & Hygiene", desc: "Professional cleaning bundled with security operations." },
-];
+
 
 const inAction = [
   { src: actionVip, label: "VIP Protection & Escort" },
@@ -124,9 +108,14 @@ const container = "max-w-7xl mx-auto px-6 lg:px-8";
 const sectionPad = "py-16 lg:py-24";
 
 function LandingPage() {
+  const [activeService, setActiveService] = useState<Service | null>(null);
   return (
     <div className="bg-white">
-      {/* HERO — full bleed */}
+      <ServiceDetailDialog
+        service={activeService}
+        open={!!activeService}
+        onOpenChange={(o) => !o && setActiveService(null)}
+      />
       <section
         className="relative w-full min-h-[560px] lg:min-h-[760px] overflow-hidden"
         style={{
@@ -297,19 +286,27 @@ function LandingPage() {
             {services.map((s, i) =>
               s.image ? (
                 <Reveal key={s.label} variant="zoom-in" delay={i * 50} className="group relative rounded-xl overflow-hidden bg-black aspect-[4/5]">
-                  <img src={s.image} alt={s.label} loading="lazy" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
-                  <div className="absolute left-5 right-5 bottom-5">
-                    <div className="w-8 h-[2px] bg-brand-red mb-2" />
-                    <h3 className="font-display text-white text-[17px] tracking-wide leading-tight">{s.label}</h3>
-                    <p className="text-[12px] text-white/80 leading-[1.5] mt-1.5">{s.desc}</p>
-                  </div>
+                  <button type="button" onClick={() => setActiveService(s)} className="absolute inset-0 w-full h-full text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-red">
+                    <img src={s.image} alt={s.label} loading="lazy" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+                    <div className="absolute left-5 right-5 bottom-5">
+                      <div className="w-8 h-[2px] bg-brand-red mb-2" />
+                      <h3 className="font-display text-white text-[17px] tracking-wide leading-tight">{s.label}</h3>
+                      <p className="text-[12px] text-white/80 leading-[1.5] mt-1.5">{s.desc}</p>
+                      <span className="mt-3 inline-flex items-center gap-1.5 text-brand-red text-[11px] font-extrabold uppercase tracking-[0.15em]">
+                        Learn more <ArrowRight size={13} />
+                      </span>
+                    </div>
+                  </button>
                 </Reveal>
               ) : (
-                <Reveal key={s.label} variant="fade-up" delay={i * 50} className="rounded-xl border border-[#E5E7EB] p-6 bg-white hover:shadow-lg hover:border-brand-red/30 transition-all">
+                <Reveal key={s.label} variant="fade-up" delay={i * 50} className="rounded-xl border border-[#E5E7EB] p-6 bg-white hover:shadow-lg hover:border-brand-red/30 transition-all flex flex-col">
                   <s.icon size={32} className="text-brand-red mb-3" />
                   <h3 className="font-display text-[17px] text-[#0F172A] tracking-wide leading-tight">{s.label}</h3>
-                  <p className="text-[13px] text-[#4B5563] leading-[1.55] mt-2">{s.desc}</p>
+                  <p className="text-[13px] text-[#4B5563] leading-[1.55] mt-2 flex-1">{s.desc}</p>
+                  <button type="button" onClick={() => setActiveService(s)} className="mt-4 inline-flex items-center gap-1.5 text-brand-red text-[11px] font-extrabold uppercase tracking-[0.15em] hover:gap-2 transition-all self-start">
+                    Learn more <ArrowRight size={13} />
+                  </button>
                 </Reveal>
               )
             )}
