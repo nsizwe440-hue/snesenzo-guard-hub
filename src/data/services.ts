@@ -16,6 +16,7 @@ export type Service = {
   label: string;
   desc: string;
   image?: string;
+  integrated?: boolean;
   details: ServiceDetails;
 };
 
@@ -233,6 +234,8 @@ export const services: Service[] = [
     icon: Flame,
     label: "Integrated Fire Security Solutions",
     desc: "Fire detection, prevention and emergency coordination.",
+    image: "service-fire",
+    integrated: true,
     details: {
       intro:
         "Fire risk doesn't sleep, and neither do we. We integrate fire detection, prevention and emergency coordination into your security stack so a single incident gets a single, coordinated response.",
@@ -258,6 +261,8 @@ export const services: Service[] = [
     icon: Sparkles,
     label: "Specialised Cleaning & Hygiene",
     desc: "Professional cleaning bundled with security operations.",
+    image: "service-cleaning",
+    integrated: true,
     details: {
       intro:
         "A clean, well-presented site is a secure site. We bundle professional cleaning and hygiene services with our security operations so you deal with one accountable partner instead of three.",
