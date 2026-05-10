@@ -207,22 +207,34 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* CEO — light gray full bleed */}
+      {/* MEET THE FOUNDER — light gray full bleed */}
       <section className={`bg-[#F8FAFC] ${sectionPad}`}>
-        <div className={`${container} grid lg:grid-cols-2 gap-10 lg:gap-16 items-center`}>
+        <div className={`${container} grid lg:grid-cols-2 gap-12 items-center`}>
           <Reveal variant="fade-up">
-            <img src={ceo} alt="Mr Senzo S Nkosi, CEO" className="w-full h-auto rounded-2xl shadow-lg" loading="lazy" />
+            <img
+              src={ceo}
+              alt="Ntabazwe Ndlovu, Founder & CEO of Snesenzo Security Group"
+              className="w-full aspect-[4/5] object-cover object-top rounded-2xl shadow-lg"
+              loading="lazy"
+            />
           </Reveal>
           <Reveal variant="fade-up" delay={120}>
-            <Quote size={36} className="text-brand-red mb-3" />
-            <p className="text-[20px] md:text-[26px] leading-[1.35] italic text-[#0F172A] font-light">
-              "We will hold ourselves accountable to the highest standards of professional integrity and service."
+            <SectionTitle eyebrow="Meet the Founder">Ntabazwe Ndlovu</SectionTitle>
+            <p className="text-brand-red text-[14px] font-extrabold uppercase tracking-wide -mt-4 mb-5">
+              Founder &amp; CEO, Snesenzo Security Group
             </p>
-            <p className="text-brand-red text-[14px] font-extrabold mt-5">Mr Senzo S Nkosi</p>
-            <p className="text-[#374151] text-[13px]">Chief Executive Officer · PSIRA Grade A</p>
-            <p className="text-[#4B5563] text-[15px] leading-[1.7] mt-5">
-              Under the leadership of CEO Senzo Nkosi, Snesenzo Security Group has grown into a trusted partner for corporate, government and private clients — delivering professional integrity, trained personnel and 24/7 readiness across two provinces.
+            <p className="text-[#374151] text-[16px] leading-[1.7]">
+              Not your typical security company CEO. An Amajuba-born entrepreneur and community leader who runs multiple businesses across the district — and chose to put his name, his standards, and his reputation behind a youth-led, 100% black-owned security company built to serve the people of KwaZulu-Natal and Mpumalanga.
             </p>
+            <p className="text-[#374151] text-[16px] leading-[1.7] mt-4">
+              When you partner with Snesenzo, you're not hiring a logo. You're standing alongside a founder who backs his own community.
+            </p>
+            <Link
+              to="/about"
+              className="inline-flex items-center gap-2 mt-6 h-12 px-6 rounded-lg bg-brand-red text-white text-[13px] font-bold uppercase tracking-wide hover:opacity-90"
+            >
+              Read More About Ntabazwe <ArrowRight size={16} />
+            </Link>
           </Reveal>
         </div>
       </section>
