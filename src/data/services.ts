@@ -1,6 +1,6 @@
 import {
   UserCheck, CalendarDays, Camera, Building2, Hotel, Fuel,
-  Truck, Trees, Flame, Sparkles, type LucideIcon,
+  Truck, Trees, Flame, SprayCan, type LucideIcon,
 } from "lucide-react";
 
 export type ServiceDetails = {
@@ -258,7 +258,7 @@ export const services: Service[] = [
   },
   {
     slug: "cleaning-hygiene",
-    icon: Sparkles,
+    icon: SprayCan,
     label: "Specialised Cleaning & Hygiene",
     desc: "Professional cleaning bundled with security operations.",
     image: "service-cleaning",
