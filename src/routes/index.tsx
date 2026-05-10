@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
-  Phone, ArrowRight, Quote, Check,
+  Phone, ArrowRight, Check,
   ShieldCheck, FileText, Award, MapPin,
   UserCheck, CalendarDays, Camera, Building2, Hotel, Fuel,
   Truck, Trees, Flame, Sparkles,
