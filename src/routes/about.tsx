@@ -95,11 +95,11 @@ function AboutPage() {
           <Reveal variant="fade-up" delay={120}>
             <div className="space-y-5 text-[#374151] text-[16px] md:text-[17px] leading-[1.75]">
               <p>
-                <span className="font-bold text-[#0F172A]">Ntabazwe Shemeni Wegidi Ndlovu</span> is not your typical
-                security company CEO. He's an Amajuba-born entrepreneur and community leader who runs multiple
-                businesses across the district - and Snesenzo Security Group is the venture closest to home, born out of
-                a simple conviction: the people, businesses, and families of KwaZulu-Natal and Mpumalanga deserve a
-                security partner who actually knows them, lives among them, and answers to them.
+                <span className="font-bold text-[#0F172A]">Senzo Ndlovu</span> is not your typical security company CEO.
+                He's an Amajuba-born entrepreneur and community leader who runs multiple businesses across the district
+                - and Snesenzo Security Group is the venture closest to home, born out of a simple conviction: the
+                people, businesses, and families of KwaZulu-Natal and Mpumalanga deserve a security partner who actually
+                knows them, lives among them, and answers to them.
               </p>
               <p>
                 Operating from Utrecht in the Amajuba District, Ntabazwe brings the instincts of a businessman and the
