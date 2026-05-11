@@ -143,12 +143,12 @@ function LandingPage() {
           }}
         />
 
-        <div className={`${container} relative h-full min-h-[640px] lg:min-h-[760px] flex flex-col items-center justify-end pb-28 lg:pb-36 text-center`}>
+        <div className={`${container} relative h-full min-h-[640px] lg:min-h-[760px] flex flex-col items-center justify-center pt-20 pb-32 lg:pb-40 text-center`}>
           <p className="font-display text-white text-[20px] md:text-[28px] tracking-[0.25em] mb-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
             WE ARE
           </p>
-          <h1 className="font-display text-white text-[40px] md:text-[68px] lg:text-[92px] leading-[0.95] -tracking-[1px] mb-6 drop-shadow-[0_4px_14px_rgba(0,0,0,0.7)]">
-            FASTER.<span className="text-brand-red">STRONGER.</span>SMARTER.
+          <h1 className="font-display text-white text-[36px] md:text-[64px] lg:text-[88px] leading-[0.95] -tracking-[1px] mb-6 drop-shadow-[0_4px_14px_rgba(0,0,0,0.7)]">
+            FASTER. <span className="text-brand-red">STRONGER.</span> SMARTER.
           </h1>
           <div className="inline-block bg-brand-navy/85 backdrop-blur-sm border border-white/10 rounded-md px-5 py-2.5 mb-7 max-w-[92%]">
             <p className="text-white text-[13px] md:text-[15px] font-semibold tracking-wide">
@@ -157,15 +157,11 @@ function LandingPage() {
           </div>
           <Link
             to="/contact"
-            className="inline-flex h-12 px-10 items-center justify-center rounded-full border-2 border-brand-red text-white text-[14px] font-bold uppercase tracking-wider hover:bg-brand-red transition-colors backdrop-blur-sm bg-black/20"
+            className="inline-flex h-12 px-10 items-center justify-center rounded-full border-2 border-brand-red text-white text-[14px] font-bold uppercase tracking-wider hover:bg-brand-red transition-colors backdrop-blur-sm bg-black/20 mb-10 lg:mb-14"
           >
             Get Protected
           </Link>
-        </div>
-
-        {/* Bottom strap */}
-        <div className="absolute left-0 right-0 bottom-6 lg:bottom-10 flex justify-center pointer-events-none">
-          <p className="font-display text-white text-center text-[16px] md:text-[24px] lg:text-[28px] leading-tight tracking-[0.15em] drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
+          <p className="font-display text-white text-center text-[15px] md:text-[22px] lg:text-[26px] leading-tight tracking-[0.15em] drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
             FOR PEACE OF MIND<br />
             TO SNESENZO SECURITY
           </p>
