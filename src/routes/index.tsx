@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
-  Phone, ArrowRight, Check,
+  ArrowRight, Check,
   ShieldCheck, FileText, Award, MapPin,
   Fuel,
   Ear, Brain, Users, BadgeCheck,
@@ -8,12 +8,14 @@ import {
 } from "lucide-react";
 import { services } from "@/data/services";
 import { ResponsiveImage } from "@/components/ResponsiveImage";
-import { getImage } from "@/assets/optimized";
+import { getImage, imageSrcSet } from "@/assets/optimized";
 import psiraLogo from "@/assets/psira-logo.png";
 import { Reveal } from "@/components/Reveal";
 import { TrustedBy } from "@/components/TrustedBy";
 
-const heroImg = getImage("hero-ssg-vehicle").fallback.url;
+const heroDesktop = getImage("hero-team-desktop");
+const heroMobile = getImage("hero-team-mobile");
+const heroImg = heroDesktop.fallback.url;
 const peopleDisciplinedBg = getImage("people-disciplined").fallback.url;
 
 export const Route = createFileRoute("/")({
