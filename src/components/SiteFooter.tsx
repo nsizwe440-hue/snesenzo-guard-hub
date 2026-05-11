@@ -48,11 +48,15 @@ export function SiteFooter() {
           <ul className="space-y-3 text-[12.5px] text-white/80">
             <li className="flex items-start gap-2">
               <Phone size={14} className="mt-0.5 text-brand-red shrink-0" />
-              <a href="tel:0639102378" className="hover:text-white">063 910 2378</a>
+              <a href="tel:0639102378" className="hover:text-white">
+                063 910 2378
+              </a>
             </li>
             <li className="flex items-start gap-2">
               <Mail size={14} className="mt-0.5 text-brand-red shrink-0" />
-              <a href="mailto:info@snesenzo.co.za" className="hover:text-white break-all">info@snesenzo.co.za</a>
+              <a href="mailto:info@snesenzosecuritygroup.co.za" className="hover:text-white break-all">
+                info@snesenzo.co.za
+              </a>
             </li>
             <li className="flex items-start gap-2">
               <MapPin size={14} className="mt-0.5 text-brand-red shrink-0" />
