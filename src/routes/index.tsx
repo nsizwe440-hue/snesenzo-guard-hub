@@ -244,7 +244,7 @@ function LandingPage() {
       <section className={`bg-[#F8FAFC] ${sectionPad}`}>
         <div className={container}>
           <Reveal variant="fade-up">
-            <SectionTitle eyebrow="Meet the Founder">Ntabazwe Ndlovu</SectionTitle>
+            <SectionTitle eyebrow="Meet the Founder">Senzo Ndlovu</SectionTitle>
             <p className="text-brand-red text-[14px] font-extrabold uppercase tracking-wide -mt-4 mb-10">
               Founder &amp; CEO, Snesenzo Security Group
             </p>
