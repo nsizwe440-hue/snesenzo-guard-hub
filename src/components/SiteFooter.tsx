@@ -55,7 +55,7 @@ export function SiteFooter() {
             <li className="flex items-start gap-2">
               <Mail size={14} className="mt-0.5 text-brand-red shrink-0" />
               <a href="mailto:info@snesenzosecuritygroup.co.za" className="hover:text-white break-all">
-                info@snesenzo.co.za
+                info@snesenzosecuritygroup.co.za
               </a>
             </li>
             <li className="flex items-start gap-2">
