@@ -43,9 +43,16 @@ for (const [name, entry] of map) {
 }
 
 export function getImage(name: string): ImgAsset {
-  const a = assets.get(name);
+  const a = assets.get(name) ?? getSingleDimensionedAlias(name);
   if (!a) throw new Error(`No optimized image found for "${name}". Available: ${[...assets.keys()].join(", ")}`);
   return a;
+}
+
+function getSingleDimensionedAlias(name: string): ImgAsset | undefined {
+  const escaped = name.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const aliasPattern = new RegExp(`^${escaped}-\\d+$`);
+  const matches = [...assets.entries()].filter(([assetName]) => aliasPattern.test(assetName));
+  return matches.length === 1 ? matches[0][1] : undefined;
 }
 
 export function imageSrcSet(a: ImgAsset): string {
