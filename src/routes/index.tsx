@@ -110,7 +110,7 @@ function LandingPage() {
       <section
         className="relative w-full min-h-[560px] lg:min-h-[760px] overflow-hidden"
         style={{
-          backgroundImage: `linear-gradient(90deg, rgba(6,16,22,0.92) 0%, rgba(6,16,22,0.7) 45%, rgba(6,16,22,0.25) 100%), url(${heroImg})`,
+          backgroundImage: `linear-gradient(90deg, rgba(6,16,22,0.85) 0%, rgba(6,16,22,0.55) 40%, rgba(6,16,22,0.15) 75%, rgba(6,16,22,0) 100%), url(${heroImg})`,
           backgroundSize: "cover",
           backgroundPosition: "center right",
         }}

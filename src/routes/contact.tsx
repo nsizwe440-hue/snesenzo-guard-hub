@@ -13,7 +13,7 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact Snesenzo Security Group | 24/7 Control Room" },
-      { name: "description", content: "Reach Snesenzo Security Group 24/7. Call 061 169 0365, email info@snesenzo.co.za, or message us on WhatsApp." },
+      { name: "description", content: "Reach Snesenzo Security Group 24/7. Call 063 910 2378, email info@snesenzo.co.za, or message us on WhatsApp." },
       { property: "og:title", content: "Contact Snesenzo Security Group" },
       { property: "og:description", content: "24/7 control room. Call, email or WhatsApp our team in KZN & Mpumalanga." },
     ],
@@ -62,12 +62,12 @@ function ContactPage() {
 
       <main className="px-5 py-10 max-w-[1120px] mx-auto">
         <Reveal as="section" variant="fade-up" className="grid grid-cols-1 md:grid-cols-3 gap-3">
-          <a href="tel:0611690365" className="bg-white rounded-[14px] p-5 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.08)] hover:shadow-md transition-shadow flex flex-col items-start gap-2">
+          <a href="tel:0639102378" className="bg-white rounded-[14px] p-5 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.08)] hover:shadow-md transition-shadow flex flex-col items-start gap-2">
             <span className="inline-flex w-12 h-12 items-center justify-center rounded-full bg-brand-red text-white">
               <Phone size={20} />
             </span>
             <p className="text-[#6B7280] text-[11px] uppercase font-bold tracking-wider mt-1">Call 24/7</p>
-            <p className="font-display text-brand-navy text-[20px]">061 169 0365</p>
+            <p className="font-display text-brand-navy text-[20px]">063 910 2378</p>
             <p className="text-[#4B5563] text-[12px]">Tap to call our control room directly.</p>
           </a>
 
@@ -80,7 +80,7 @@ function ContactPage() {
             <p className="text-[#4B5563] text-[12px]">For quotes, proposals and partnerships.</p>
           </a>
 
-          <a href="https://wa.me/27611690365" target="_blank" rel="noopener noreferrer" className="bg-white rounded-[14px] p-5 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.08)] hover:shadow-md transition-shadow flex flex-col items-start gap-2">
+          <a href="https://wa.me/27639102378" target="_blank" rel="noopener noreferrer" className="bg-white rounded-[14px] p-5 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.08)] hover:shadow-md transition-shadow flex flex-col items-start gap-2">
             <span className="inline-flex w-12 h-12 items-center justify-center rounded-full bg-brand-red text-white">
               <MessageCircle size={20} />
             </span>
