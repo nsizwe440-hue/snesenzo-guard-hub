@@ -103,10 +103,10 @@ export function SiteHeader() {
               Get Protected
             </Link>
             <a
-              href="tel:0611690365"
+              href="tel:0639102378"
               className="h-[46px] inline-flex items-center justify-center gap-2 rounded-lg border border-white/30 text-white text-[13px] font-semibold"
             >
-              <Phone size={16} /> 061 169 0365
+              <Phone size={16} /> 063 910 2378
             </a>
           </aside>
         </div>

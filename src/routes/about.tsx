@@ -194,10 +194,10 @@ function AboutPage() {
                 Request a Quote <ArrowRight size={16} />
               </Link>
               <a
-                href="tel:0611690365"
+                href="tel:0639102378"
                 className="inline-flex h-12 px-6 items-center justify-center gap-2 rounded-lg text-white text-[13px] font-bold border border-white/45 bg-black/40 hover:bg-black/60"
               >
-                <Phone size={16} /> Call 24/7 - 061 169 0365
+                <Phone size={16} /> Call 24/7 - 063 910 2378
               </a>
             </div>
           </Reveal>
