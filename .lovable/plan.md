@@ -1,27 +1,21 @@
-# Make logos fully fill the cards
+# Plan: New hero image + phone number update
 
-The whitespace inside each card comes from two things:
-1. The logo images themselves have built-in white padding (especially the JPGs).
-2. We're using `object-contain`, which preserves the logo's own empty space.
+## 1. Hero image swap
+- Copy uploaded image (`user-uploads://file_00000000ba4c722fbf082af43830e966.png`) to `src/assets/hero-ssg-vehicle.png`.
+- Run `node scripts/optimize-images.mjs` to regenerate optimized variants (`hero-ssg-vehicle-400.webp`, `-800.webp`, `-1600.webp`, plus `.jpg` fallback) so the existing `getImage("hero-ssg-vehicle")` keeps working with no code changes in `src/routes/index.tsx`.
+- Tweak hero overlay gradient in `src/routes/index.tsx` (line 113) so the two officers + vehicle on the right stay visible: shift dark gradient to weight the left side more (e.g. `rgba(6,16,22,0.85) 0%, rgba(6,16,22,0.55) 40%, rgba(6,16,22,0.15) 75%, transparent 100%`) so headline copy on left stays legible while the subjects on the right read clearly.
+- Delete the old hero source files so only the new variants remain.
 
-## Fix
+## 2. Phone number replacement
+Replace `061 169 0365` / `0611690365` / `+27611690365` / `27611690365` with the new number `063 910 2378` (tel/WhatsApp: `0639102378`, intl `+27639102378`) in:
+- `src/components/SiteHeader.tsx`
+- `src/components/StickyCallBar.tsx`
+- `src/components/SiteFooter.tsx`
+- `src/routes/contact.tsx` (call card + mailto context)
+- `src/routes/index.tsx`
+- `src/routes/about.tsx`
 
-Switch the logos to `object-cover` so each image scales up and fully fills its card (no internal gaps), and tighten the card so the logo dominates.
+Display format: `063 910 2378`. `tel:` links: `tel:0639102378`. WhatsApp links: `https://wa.me/27639102378`.
 
-Changes in `src/components/TrustedBy.tsx`:
-
-- Card classes: remove inner padding, keep border + rounded corners, give a fixed size that matches a typical logo aspect ratio.
-  - Mobile: `h-20 w-32`
-  - Desktop: `h-24 w-40`
-- Image classes: `w-full h-full object-cover` (no padding) so the logo zooms to fill the card edge-to-edge.
-- Add `overflow-hidden` on the card so the rounded corners crop cleanly.
-
-## Trade-off the user should know
-
-`object-cover` zooms the logo until the card is fully filled, which can crop a few pixels off the longest edge of each logo. Given the user's explicit instruction ("no space in cards, zoom in pictures, I don't [mind cropping]"), this is the right call.
-
-If any single logo crops too aggressively after the change, the follow-up fix is per-logo: re-export that source file with its built-in whitespace trimmed, rather than changing the layout again.
-
-## Files touched
-
-- `src/components/TrustedBy.tsx` only. No CSS, data, or other components.
+## Out of scope
+No other copy, layout, or component changes.
