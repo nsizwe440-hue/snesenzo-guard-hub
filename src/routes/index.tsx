@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
-  Phone, ArrowRight, Check,
+  ArrowRight, Check,
   ShieldCheck, FileText, Award, MapPin,
   Fuel,
   Ear, Brain, Users, BadgeCheck,
@@ -8,12 +8,14 @@ import {
 } from "lucide-react";
 import { services } from "@/data/services";
 import { ResponsiveImage } from "@/components/ResponsiveImage";
-import { getImage } from "@/assets/optimized";
+import { getImage, imageSrcSet } from "@/assets/optimized";
 import psiraLogo from "@/assets/psira-logo.png";
 import { Reveal } from "@/components/Reveal";
 import { TrustedBy } from "@/components/TrustedBy";
 
-const heroImg = getImage("hero-ssg-vehicle").fallback.url;
+const heroDesktop = getImage("hero-team-desktop");
+const heroMobile = getImage("hero-team-mobile");
+const heroImg = heroDesktop.fallback.url;
 const peopleDisciplinedBg = getImage("people-disciplined").fallback.url;
 
 export const Route = createFileRoute("/")({
@@ -107,43 +109,62 @@ function LandingPage() {
   const homeServices = services.filter((s) => s.image);
   return (
     <div className="bg-white">
-      <section
-        className="relative w-full min-h-[560px] lg:min-h-[760px] overflow-hidden"
-        style={{
-          backgroundImage: `linear-gradient(90deg, rgba(6,16,22,0.85) 0%, rgba(6,16,22,0.55) 40%, rgba(6,16,22,0.15) 75%, rgba(6,16,22,0) 100%), url(${heroImg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center right",
-        }}
-      >
-        <div className={`${container} relative h-full min-h-[560px] lg:min-h-[760px] flex items-end pb-20 lg:pb-32`}>
-          <div className="max-w-2xl">
-            <p className="text-white text-[11px] font-bold tracking-[1.5px] mb-3 uppercase">
-              Professional. Reliable. Accountable.
+      <section className="relative w-full min-h-[640px] lg:min-h-[760px] overflow-hidden bg-brand-navy">
+        {/* Mobile background */}
+        <picture className="absolute inset-0 md:hidden">
+          <source type="image/webp" srcSet={imageSrcSet(heroMobile)} sizes="100vw" />
+          <img
+            src={heroMobile.fallback.url}
+            alt="Snesenzo Security Group officers in front of branded vehicles"
+            className="w-full h-full object-cover object-center"
+            // @ts-ignore
+            fetchpriority="high"
+            decoding="async"
+          />
+        </picture>
+        {/* Desktop background */}
+        <picture className="absolute inset-0 hidden md:block">
+          <source type="image/webp" srcSet={imageSrcSet(heroDesktop)} sizes="100vw" />
+          <img
+            src={heroDesktop.fallback.url}
+            alt="Snesenzo Security Group officers in front of branded vehicles"
+            className="w-full h-full object-cover object-center"
+            // @ts-ignore
+            fetchpriority="high"
+            decoding="async"
+          />
+        </picture>
+        {/* Contrast overlay */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to top, rgba(6,16,22,0.88) 0%, rgba(6,16,22,0.45) 38%, rgba(6,16,22,0.15) 70%, rgba(6,16,22,0.35) 100%)",
+          }}
+        />
+
+        <div className={`${container} relative h-full min-h-[640px] lg:min-h-[760px] flex flex-col items-center justify-center pt-20 pb-32 lg:pb-40 text-center`}>
+          <p className="font-display text-white text-[20px] md:text-[28px] tracking-[0.25em] mb-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
+            WE ARE
+          </p>
+          <h1 className="font-display text-white text-[36px] md:text-[64px] lg:text-[88px] leading-[0.95] -tracking-[1px] mb-6 drop-shadow-[0_4px_14px_rgba(0,0,0,0.7)]">
+            FASTER. <span className="text-brand-red">STRONGER.</span> SMARTER.
+          </h1>
+          <div className="inline-block bg-brand-navy/85 backdrop-blur-sm border border-white/10 rounded-md px-5 py-2.5 mb-7 max-w-[92%]">
+            <p className="text-white text-[13px] md:text-[15px] font-semibold tracking-wide">
+              The undisputed leader in the security sector in KZN &amp; Mpumalanga
             </p>
-            <h1 className="font-display text-white text-[40px] md:text-[64px] lg:text-[88px] leading-[0.95] -tracking-[1px] mb-5">
-              STRENGTH &amp;<br />
-              CONFIDENCE IN<br />
-              <span className="text-brand-red">PROTECTION</span> SERVICES
-            </h1>
-            <p className="text-white/90 text-[15px] md:text-[17px] leading-[1.55] max-w-[480px] mb-6">
-              Professional, PSIRA-registered security solutions for corporate, government, commercial and private clients.
-            </p>
-            <div className="flex flex-row gap-3 flex-wrap">
-              <Link
-                to="/contact"
-                className="inline-flex h-12 px-6 items-center justify-center gap-2 rounded-lg bg-brand-red text-white text-[13px] font-bold uppercase tracking-wide hover:opacity-90"
-              >
-                Request a Quote <ArrowRight size={16} />
-              </Link>
-              <a
-                href="tel:0611690365"
-                className="inline-flex h-12 px-6 items-center justify-center gap-2 rounded-lg text-white text-[13px] font-bold border"
-                style={{ background: "rgba(0,0,0,0.55)", borderColor: "rgba(255,255,255,0.45)" }}
-              >
-                <Phone size={16} /> 061 169 0365
-              </a>
-            </div>
           </div>
+          <Link
+            to="/contact"
+            className="inline-flex h-12 px-10 items-center justify-center rounded-full border-2 border-brand-red text-white text-[14px] font-bold uppercase tracking-wider hover:bg-brand-red transition-colors backdrop-blur-sm bg-black/20 mb-10 lg:mb-14"
+          >
+            Get Protected
+          </Link>
+          <p className="font-display text-white text-center text-[15px] md:text-[22px] lg:text-[26px] leading-tight tracking-[0.15em] drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
+            FOR PEACE OF MIND<br />
+            TO SNESENZO SECURITY
+          </p>
         </div>
       </section>
 
