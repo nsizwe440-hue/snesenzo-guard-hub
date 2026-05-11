@@ -69,7 +69,7 @@ function AboutPage() {
         <div className={`${container} relative`}>
           <Reveal variant="fade-up">
             <SectionTitle dark eyebrow="Meet the Founder">
-              Senzo Ndlovu
+              Ntabazwe Ndlovu
             </SectionTitle>
           </Reveal>
           <Reveal variant="fade-up" delay={80}>
@@ -86,7 +86,7 @@ function AboutPage() {
           <Reveal variant="fade-up">
             <ResponsiveImage
               name="ceo-portrait"
-              alt="Senzo Ndlovu, Founder & CEO of Snesenzo Security Group"
+              alt="Ntabazwe Ndlovu, Founder & CEO of Snesenzo Security Group"
               sizes="(min-width: 1024px) 540px, 100vw"
               className="block w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-xl"
               imgClassName="w-full h-full object-cover object-top"
@@ -200,7 +200,7 @@ function AboutPage() {
             <p className="text-[22px] md:text-[30px] leading-[1.35] italic text-[#0F172A] font-light">
               "We will hold ourselves accountable to the highest standards of professional integrity and service."
             </p>
-            <p className="text-brand-red text-[14px] font-extrabold mt-6">Ntabazwe Shemeni Wegidi Ndlovu</p>
+            <p className="text-brand-red text-[14px] font-extrabold mt-6">Senzo Ndlovu</p>
             <p className="text-[#374151] text-[13px]">Founder &amp; CEO, Snesenzo Security Group</p>
           </Reveal>
         </div>
