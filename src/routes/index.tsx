@@ -17,6 +17,7 @@ import {
   GraduationCap,
   Wheat,
   User,
+  Phone,
 } from "lucide-react";
 import { services } from "@/data/services";
 import { ResponsiveImage } from "@/components/ResponsiveImage";
@@ -37,12 +38,12 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "PSIRA-registered, 100% youth black-owned private security across KwaZulu-Natal & Mpumalanga. VIP, armed response, CCTV, events, industrial.",
+          "PSIRA-registered, 100% youth black-owned private security across KwaZulu-Natal, Mpumalanga & Gauteng. VIP, armed response, CCTV, events, industrial.",
       },
       { property: "og:title", content: "Snesenzo Security Group" },
       {
         property: "og:description",
-        content: "Strength & Confidence in Protection Services. PSIRA-registered security across KZN & Mpumalanga.",
+        content: "Strength & Confidence in Protection Services. PSIRA-registered security across KZN, Mpumalanga & Gauteng.",
       },
       { property: "og:image", content: heroImg },
       { name: "twitter:image", content: heroImg },
@@ -79,7 +80,7 @@ const credentials = [
   { icon: FileText, label: "CIPC", value: "2024/620995/07" },
   { icon: ShieldCheck, label: "PSIRA Company", value: "4972817" },
   { icon: Award, label: "CEO Grade A", value: "4821072" },
-  { icon: MapPin, label: "Operating", value: "KZN & Mpumalanga" },
+  { icon: MapPin, label: "Operating", value: "KZN, Mpumalanga & Gauteng" },
 ];
 
 const clients = [
@@ -136,7 +137,7 @@ function LandingPage() {
   const homeServices = services.filter((s) => s.image);
   return (
     <div className="bg-white">
-      <section className="relative w-full min-h-[640px] lg:min-h-[760px] overflow-hidden bg-brand-navy">
+      <section className="relative w-full min-h-[520px] md:min-h-[640px] lg:min-h-[760px] overflow-hidden bg-brand-navy">
         {/* Mobile background */}
         <picture className="absolute inset-0 md:hidden">
           <source type="image/webp" srcSet={imageSrcSet(heroMobile)} sizes="100vw" />
@@ -166,40 +167,43 @@ function LandingPage() {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to top, rgba(6,16,22,0.88) 0%, rgba(6,16,22,0.45) 38%, rgba(6,16,22,0.15) 70%, rgba(6,16,22,0.35) 100%)",
+              "linear-gradient(to top, rgba(6,16,22,0.88) 0%, rgba(6,16,22,0.45) 38%, rgba(6,16,22,0.15) 70%, rgba(6,16,22,0.55) 100%)",
           }}
         />
 
         <div
-          className={`${container} relative h-full min-h-[640px] lg:min-h-[760px] flex flex-col items-center justify-center pt-20 pb-32 lg:pb-40 text-center`}
+          className={`${container} relative h-full min-h-[520px] md:min-h-[640px] lg:min-h-[760px] flex flex-col items-center justify-center pt-16 pb-24 md:pb-32 lg:pb-40 text-center`}
         >
-          <p className="font-display text-white text-[20px] md:text-[28px] tracking-[0.25em] mb-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
-            WE ARE
-          </p>
-          <h1 className="font-display text-white text-[36px] md:text-[64px] lg:text-[88px] leading-[0.95] -tracking-[1px] mb-6 drop-shadow-[0_4px_14px_rgba(0,0,0,0.7)]">
-            FASTER. <span className="text-brand-red">STRONGER.</span> SMARTER.
+          <h1 className="font-display text-white text-[34px] md:text-[60px] lg:text-[80px] leading-[0.95] -tracking-[1px] mb-3 drop-shadow-[0_4px_14px_rgba(0,0,0,0.7)]">
+            STRENGTH &amp; <span className="text-brand-red">CONFIDENCE</span>
           </h1>
+          <p className="font-display text-white/90 text-[16px] md:text-[22px] lg:text-[26px] tracking-[0.15em] uppercase mb-6 drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
+            in Protection Services
+          </p>
           <div className="inline-block bg-brand-navy/85 backdrop-blur-sm border border-white/10 rounded-md px-5 py-2.5 mb-7 max-w-[92%]">
-            <p className="text-white text-[13px] md:text-[15px] font-semibold tracking-wide">
-              The undisputed leader in the security sector in KZN &amp; Mpumalanga
+            <p className="text-white text-[12.5px] md:text-[15px] font-semibold tracking-wide">
+              The undisputed leader in the security sector in KZN, Mpumalanga &amp; Gauteng
             </p>
           </div>
-          <Link
-            to="/contact"
-            className="inline-flex h-12 px-10 items-center justify-center rounded-full border-2 border-brand-red text-white text-[14px] font-bold uppercase tracking-wider hover:bg-brand-red transition-colors backdrop-blur-sm bg-black/20 mb-10 lg:mb-14"
-          >
-            Get Protected
-          </Link>
-          <p className="font-display text-white text-center text-[15px] md:text-[22px] lg:text-[26px] leading-tight tracking-[0.15em] drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
-            FOR PEACE OF MIND
-            <br />
-            TO SNESENZO SECURITY
-          </p>
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 w-full max-w-md sm:max-w-none">
+            <Link
+              to="/contact"
+              className="inline-flex h-12 px-7 items-center justify-center rounded-full bg-brand-red text-white text-[13px] font-bold uppercase tracking-wider hover:opacity-90 transition-opacity shadow-lg"
+            >
+              Request a Quote
+            </Link>
+            <a
+              href="tel:+27639102387"
+              className="inline-flex h-12 px-7 items-center justify-center gap-2 rounded-full border-2 border-white/80 text-white text-[13px] font-bold uppercase tracking-wider hover:bg-white hover:text-brand-navy transition-colors backdrop-blur-sm bg-black/20"
+            >
+              <Phone size={15} /> 063 910 2387
+            </a>
+          </div>
         </div>
       </section>
 
       {/* Credentials strip - overlaps bottom of hero */}
-      <div className={`${container} relative z-10 -mt-12 lg:-mt-20`}>
+      <div className={`${container} relative z-10 -mt-10 lg:-mt-20`}>
         {/* Desktop dark bar */}
         <Reveal
           variant="fade-up"
@@ -220,20 +224,20 @@ function LandingPage() {
         </Reveal>
 
         {/* Mobile 2x2 light cards */}
-        <div className="grid grid-cols-2 lg:hidden gap-3">
+        <div className="grid grid-cols-2 lg:hidden gap-2.5">
           {credentials.map((c, i) => (
             <Reveal
               key={c.label}
               variant="fade-up"
               delay={i * 80}
-              className="flex items-center gap-3 p-4 rounded-2xl bg-[#F8FAFC] border border-[#E5E7EB] shadow-lg"
+              className="flex items-center gap-2.5 p-3 rounded-xl bg-[#F8FAFC] border border-[#E5E7EB] shadow-md"
             >
-              <span className="shrink-0 inline-flex items-center justify-center w-11 h-11 rounded-full bg-brand-red text-white">
-                <c.icon size={18} />
+              <span className="shrink-0 inline-flex items-center justify-center w-9 h-9 rounded-full bg-brand-red text-white">
+                <c.icon size={16} />
               </span>
               <div className="leading-tight min-w-0">
-                <div className="text-[#6B7280] text-[10px] uppercase tracking-wider font-semibold">{c.label}</div>
-                <div className="text-brand-navy text-[12px] font-bold break-words">{c.value}</div>
+                <div className="text-[#6B7280] text-[9px] uppercase tracking-wider font-semibold">{c.label}</div>
+                <div className="text-brand-navy text-[11.5px] font-bold break-words leading-tight">{c.value}</div>
               </div>
             </Reveal>
           ))}
@@ -263,8 +267,8 @@ function LandingPage() {
               <p className="text-[#374151] text-[16px] leading-[1.7]">
                 Not your typical security company CEO. An Amajuba-born entrepreneur and community leader who runs
                 multiple businesses across the district - and chose to put his name, his standards, and his reputation
-                behind a youth-led, 100% black-owned security company built to serve the people of KwaZulu-Natal and
-                Mpumalanga.
+                behind a youth-led, 100% black-owned security company built to serve the people of KwaZulu-Natal,
+                Mpumalanga and Gauteng.
               </p>
               <p className="text-[#374151] text-[16px] leading-[1.7] mt-4">
                 When you partner with Snesenzo, you're not hiring a logo. You're standing alongside a founder who backs
@@ -292,7 +296,7 @@ function LandingPage() {
               <Reveal variant="fade-up" delay={80}>
                 <p className="text-[16px] md:text-[18px] leading-[1.7] text-[#374151]">
                   Snesenzo Security Group (Pty) Ltd is 100% youth black-owned and provides expert, risk-based security
-                  solutions across KwaZulu-Natal &amp; Mpumalanga with professional integrity, trained personnel and
+                  solutions across KwaZulu-Natal, Mpumalanga &amp; Gauteng with professional integrity, trained personnel and
                   24/7 readiness - ensuring safety, compliance and peace of mind.
                 </p>
               </Reveal>
@@ -469,17 +473,20 @@ function LandingPage() {
           <Reveal variant="fade-up" delay={80}>
             <ResponsiveImage
               name="coverage-map"
-              alt="Snesenzo Security coverage areas: KwaZulu-Natal and Mpumalanga"
+              alt="Snesenzo Security coverage areas: KwaZulu-Natal, Mpumalanga and Gauteng"
               sizes="(min-width: 768px) 720px, 100vw"
               className="block w-full max-w-3xl mx-auto"
               imgClassName="w-full h-auto"
             />
-            <div className="flex items-center justify-center gap-8 mt-6 text-[14px] text-[#374151] font-semibold">
+            <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 mt-6 text-[14px] text-[#374151] font-semibold">
               <span className="flex items-center gap-2">
                 <span className="w-3 h-3 rounded-full bg-brand-red" /> KwaZulu-Natal
               </span>
               <span className="flex items-center gap-2">
                 <span className="w-3 h-3 rounded-full bg-brand-navy" /> Mpumalanga
+              </span>
+              <span className="flex items-center gap-2">
+                <span className="w-3 h-3 rounded-full" style={{ backgroundColor: "#F59E0B" }} /> Gauteng Areas
               </span>
             </div>
           </Reveal>

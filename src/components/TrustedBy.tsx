@@ -21,7 +21,7 @@ export function TrustedBy() {
           Trusted to protect people, property and operations
         </h2>
         <p className="text-[15px] md:text-base text-[#4B5563] max-w-2xl mx-auto">
-          A selection of the businesses, municipalities and estates we secure across KZN and Mpumalanga.
+          A selection of the businesses, municipalities and estates we secure across KZN, Mpumalanga and Gauteng.
         </p>
       </div>
       <div

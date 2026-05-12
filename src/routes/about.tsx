@@ -13,7 +13,7 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "Meet Senzo Ndlovu, the Amajuba-born entrepreneur and founder of Snesenzo Security Group - a youth-led, 100% black-owned security company serving KZN & Mpumalanga.",
+          "Meet Senzo Ndlovu, the Amajuba-born entrepreneur and founder of Snesenzo Security Group - a youth-led, 100% black-owned security company serving KZN, Mpumalanga & Gauteng.",
       },
       { property: "og:title", content: "Meet the Founder - Senzo Ndlovu" },
       {
@@ -98,7 +98,7 @@ function AboutPage() {
                 <span className="font-bold text-[#0F172A]">Senzo Ndlovu</span> is not your typical security company CEO.
                 He's an Amajuba-born entrepreneur and community leader who runs multiple businesses across the district
                 - and Snesenzo Security Group is the venture closest to home, born out of a simple conviction: the
-                people, businesses, and families of KwaZulu-Natal and Mpumalanga deserve a security partner who actually
+                people, businesses, and families of KwaZulu-Natal, Mpumalanga and Gauteng deserve a security partner who actually
                 knows them, lives among them, and answers to them.
               </p>
               <p>
@@ -137,7 +137,7 @@ function AboutPage() {
               {
                 icon: Users,
                 title: "Youth-Led, 100% Black-Owned",
-                body: "A new generation of operators raising the standard for security in KZN and Mpumalanga.",
+                body: "A new generation of operators raising the standard for security in KZN, Mpumalanga and Gauteng.",
               },
               {
                 icon: ShieldCheck,
@@ -213,7 +213,7 @@ function AboutPage() {
             { k: "PSIRA", v: "4972817" },
             { k: "CIPC", v: "2024/620995/07" },
             { k: "Founded in", v: "Amajuba, KZN" },
-            { k: "Operating", v: "KZN & Mpumalanga" },
+            { k: "Operating", v: "KZN, Mpumalanga & Gauteng" },
           ].map((f) => (
             <div key={f.k}>
               <p className="text-brand-red text-[10px] font-extrabold tracking-[0.2em] uppercase mb-1">{f.k}</p>

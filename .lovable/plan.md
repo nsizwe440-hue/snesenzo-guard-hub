@@ -1,43 +1,55 @@
-# Hero Redesign Plan
+# Hero, CTA & Coverage Update
 
-## 1. New hero images
-- Copy `user-uploads://file_00000000611071f59193c3d872e3805a.png` → `src/assets/hero-team-mobile.png` (portrait, mobile bg).
-- Copy `user-uploads://file_00000000c25471f79f20625d92d52a42_2.png` → `src/assets/hero-team-desktop.png` (landscape, desktop bg).
-- Run `node scripts/optimize-images.mjs` to produce `-400.webp`, `-800.webp`, `-1600.webp`, plus jpg fallbacks for both.
-- Old `hero-ssg-vehicle-*` files: leave in place (still used as `og:image` preload). Switch hero usage only.
+## 1. Hero section redesign (`src/routes/index.tsx`, lines 139–199)
 
-## 2. Hero markup rewrite (`src/routes/index.tsx`, ~lines 110–148)
-Replace the current hero section with a new layout that mirrors the Blue Security reference:
+**Replace slogan block.** Drop "WE ARE / FASTER. STRONGER. SMARTER." and "FOR PEACE OF MIND / TO SNESENZO SECURITY" entirely. Replace with one focused headline:
 
-```
-[Eyebrow gone]
-WE ARE
-FASTER. STRONGER. SMARTER.       (STRONGER in gold/brand accent)
-────────────────────────────────
-| The undisputed leader in the |  (colored banner pill)
-|  security sector in KZN &    |
-|  Mpumalanga                  |
-────────────────────────────────
-        [ Get Protected ]          (rounded outline gold button)
+> **STRENGTH & CONFIDENCE**
+> in Protection Services
 
-(bottom of hero, smaller)
-FOR PEACE OF MIND
-TO SNESENZO SECURITY
-```
+Headline uses `font-display`, white, with "STRENGTH &" in white and "CONFIDENCE" highlighted in `text-brand-red`. Smaller "in Protection Services" tagline below in white/80.
 
-Implementation details:
-- Two `<picture>`-style backgrounds via CSS: use mobile image up to `md`, desktop image from `md` upward. Implemented with two absolutely-positioned `<img>` elements (`md:hidden` + `hidden md:block`) using `object-cover`, plus an overlay div for contrast.
-- Overlay: dark gradient bottom-up (`linear-gradient(to top, rgba(6,16,22,0.85) 0%, rgba(6,16,22,0.35) 45%, rgba(6,16,22,0.15) 100%)`) so officers stay visible but text is legible.
-- Headline: `font-display`, white, sizes `text-[44px] md:text-[72px] lg:text-[96px]`, centered. "WE ARE" smaller (`text-[18px] md:text-[24px]` tracking-wide). "STRONGER" wrapped in `<span className="text-brand-red">` (brand red = the existing gold-ish accent already used site-wide; matches design tokens — no new color needed).
-- Subheadline banner: pill with `bg-brand-navy/85 text-white` rounded, padding `px-5 py-2`, max-width centered, single line on desktop, 2 lines on mobile.
-- CTA: `Link to="/contact"` styled as rounded-full outline button — `border-2 border-brand-red text-white px-8 h-12` with subtle hover fill.
-- Bottom strap line: absolutely positioned near bottom of hero (above credentials strip), `font-display text-white text-[18px] md:text-[28px] tracking-wide text-center`, two lines: "FOR PEACE OF MIND" / "TO SNESENZO SECURITY".
-- Remove the existing eyebrow, paragraph, "Request a Quote" red button, and tel button — per request: "No other text on the hero image itself."
-- Hero min-height: keep `min-h-[640px] lg:min-h-[760px]` so credentials strip still overlaps cleanly.
+Keep the navy pill subheadline ("The undisputed leader in the security sector for over 35 years" — kept as-is, but updated to mention all three regions in step 3).
 
-## 3. Preserve below-hero
-- Credentials strip and all subsequent sections untouched.
-- `og:image` and preload link continue to use `hero-ssg-vehicle` fallback (or switch to new desktop hero — will switch to new desktop image so social share matches).
+**Replace single CTA with two side-by-side action cards** (stacked on mobile, row on `sm`+):
+- Card A — `Request a Quote` → `Link to="/contact"`, brand-red filled rounded button.
+- Card B — `Call 063 910 2387` → `<a href="tel:+27639102387">`, navy/outline rounded button with phone icon.
 
-## Out of scope
-No changes to header, footer, other pages, copy elsewhere, phone number, or color tokens.
+This removes the overlap with the two officers in the background (the current "Get Protected" pill sits on their heads).
+
+**Mobile sizing fixes** — current hero is too tall and the credentials cards below it are too thick on mobile:
+- Reduce hero `min-h` from `min-h-[640px] lg:min-h-[760px]` to `min-h-[520px] md:min-h-[640px] lg:min-h-[760px]`.
+- Reduce headline scale on mobile: `text-[34px]` (was 36px wasn't the issue, but tightening for narrower phones), keep `md:text-[64px] lg:text-[88px]`.
+- Reduce `pt-20 pb-32 lg:pb-40` → `pt-16 pb-20 md:pb-32 lg:pb-40` so the inner content is more compact.
+- Tighten the mobile credentials cards (lines 222–240): smaller padding (`p-3` instead of `p-4`), smaller icon circle (`w-9 h-9`), smaller gap (`gap-2.5`), and `rounded-xl` instead of `rounded-2xl`. Tighter shadow (`shadow-md`).
+
+## 2. Save & wire new coverage map image
+
+- Copy the uploaded map (KZN red, Mpumalanga navy, Gauteng amber) → `src/assets/coverage-map.png` (overwrite source).
+- Run `node scripts/optimize-images.mjs` to regenerate `coverage-map-400.webp / -800.webp / -1448.webp` and the jpg fallback.
+- No code change needed for the `<ResponsiveImage name="coverage-map" />` usages on `index.tsx` (line 470) and `coverage.tsx` (line 68) — they pick the new file automatically.
+- Update legend chips on both pages to show three swatches: KwaZulu-Natal (red), Mpumalanga (navy), Gauteng Areas (amber/`#F59E0B`).
+- Update the `alt` text on both pages to "Snesenzo Security coverage areas: KwaZulu-Natal, Mpumalanga and Gauteng".
+
+## 3. Add Gauteng to all KZN/Mpumalanga copy
+
+Change every "KZN & Mpumalanga" / "KwaZulu-Natal and Mpumalanga" reference to include Gauteng. Files & lines:
+
+- `src/routes/index.tsx`
+  - line 40 description: "...across KwaZulu-Natal, Mpumalanga & Gauteng."
+  - line 45 og:description: "...across KZN, Mpumalanga & Gauteng."
+  - line 82 credentials value: `"KZN, Mpumalanga & Gauteng"`
+  - line 184 hero pill: "...in KZN, Mpumalanga &amp; Gauteng"
+  - lines 266–267, 295: "KwaZulu-Natal, Mpumalanga and Gauteng"
+- `src/routes/coverage.tsx`
+  - line 13 title, 14 description, 50 hero copy, 57 alt text — all extended to include Gauteng.
+  - Add a third town list column under "WHERE EXACTLY WE OPERATE" (lines 78–98): **Gauteng Areas** with `Johannesburg, Pretoria, Centurion, Midrand, Sandton`. Switch the grid from `md:grid-cols-2` to `md:grid-cols-3`.
+- `src/routes/services.tsx` lines 12–13 — add Gauteng.
+- `src/routes/careers.tsx` lines 10, 11, 42, 79 — add Gauteng.
+- `src/routes/about.tsx` lines 16, 101, 140, 216 — add Gauteng (`"KZN, Mpumalanga & Gauteng"`).
+- `src/routes/contact.tsx` line 34 — add Gauteng.
+- `src/routes/__root.tsx` lines 79, 85, 86 — add Gauteng.
+- `src/components/TrustedBy.tsx` line 24 — add Gauteng.
+
+## 4. Out of scope
+No changes to header, footer address (Utrecht is HQ), services list, pricing, or other visual sections.
