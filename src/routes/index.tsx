@@ -267,8 +267,8 @@ function LandingPage() {
               <p className="text-[#374151] text-[16px] leading-[1.7]">
                 Not your typical security company CEO. An Amajuba-born entrepreneur and community leader who runs
                 multiple businesses across the district - and chose to put his name, his standards, and his reputation
-                behind a youth-led, 100% black-owned security company built to serve the people of KwaZulu-Natal and
-                Mpumalanga.
+                behind a youth-led, 100% black-owned security company built to serve the people of KwaZulu-Natal,
+                Mpumalanga and Gauteng.
               </p>
               <p className="text-[#374151] text-[16px] leading-[1.7] mt-4">
                 When you partner with Snesenzo, you're not hiring a logo. You're standing alongside a founder who backs
@@ -296,7 +296,7 @@ function LandingPage() {
               <Reveal variant="fade-up" delay={80}>
                 <p className="text-[16px] md:text-[18px] leading-[1.7] text-[#374151]">
                   Snesenzo Security Group (Pty) Ltd is 100% youth black-owned and provides expert, risk-based security
-                  solutions across KwaZulu-Natal &amp; Mpumalanga with professional integrity, trained personnel and
+                  solutions across KwaZulu-Natal, Mpumalanga &amp; Gauteng with professional integrity, trained personnel and
                   24/7 readiness - ensuring safety, compliance and peace of mind.
                 </p>
               </Reveal>
