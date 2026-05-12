@@ -17,6 +17,7 @@ import {
   GraduationCap,
   Wheat,
   User,
+  Phone,
 } from "lucide-react";
 import { services } from "@/data/services";
 import { ResponsiveImage } from "@/components/ResponsiveImage";
