@@ -145,7 +145,7 @@ function LandingPage() {
           <img
             src={heroMobile.fallback.url}
             alt="Snesenzo Security Group officers in front of branded vehicles"
-            className="w-full h-full object-cover object-[center_35%] md:object-center"
+            className="w-full h-full object-cover object-[center_60%] md:object-center"
             // @ts-ignore
             fetchpriority="high"
             decoding="async"
