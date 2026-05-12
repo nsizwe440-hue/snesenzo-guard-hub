@@ -80,7 +80,7 @@ const credentials = [
   { icon: FileText, label: "CIPC", value: "2024/620995/07" },
   { icon: ShieldCheck, label: "PSIRA Company", value: "4972817" },
   { icon: Award, label: "CEO Grade A", value: "4821072" },
-  { icon: MapPin, label: "Operating", value: "KZN & Mpumalanga" },
+  { icon: MapPin, label: "Operating", value: "KZN, Mpumalanga & Gauteng" },
 ];
 
 const clients = [
