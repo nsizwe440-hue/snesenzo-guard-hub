@@ -43,7 +43,8 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: "Snesenzo Security Group" },
       {
         property: "og:description",
-        content: "Strength & Confidence in Protection Services. PSIRA-registered security across KZN, Mpumalanga & Gauteng.",
+        content:
+          "Strength & Confidence in Protection Services. PSIRA-registered security across KZN, Mpumalanga & Gauteng.",
       },
       { property: "og:image", content: heroImg },
       { name: "twitter:image", content: heroImg },
@@ -144,7 +145,7 @@ function LandingPage() {
           <img
             src={heroMobile.fallback.url}
             alt="Snesenzo Security Group officers in front of branded vehicles"
-            className="w-full h-full object-cover object-center"
+            className="w-full h-full object-cover object-[center_35%] md:object-center"
             // @ts-ignore
             fetchpriority="high"
             decoding="async"
@@ -296,8 +297,8 @@ function LandingPage() {
               <Reveal variant="fade-up" delay={80}>
                 <p className="text-[16px] md:text-[18px] leading-[1.7] text-[#374151]">
                   Snesenzo Security Group (Pty) Ltd is 100% youth black-owned and provides expert, risk-based security
-                  solutions across KwaZulu-Natal, Mpumalanga &amp; Gauteng with professional integrity, trained personnel and
-                  24/7 readiness - ensuring safety, compliance and peace of mind.
+                  solutions across KwaZulu-Natal, Mpumalanga &amp; Gauteng with professional integrity, trained
+                  personnel and 24/7 readiness - ensuring safety, compliance and peace of mind.
                 </p>
               </Reveal>
             </div>
