@@ -189,7 +189,7 @@ function LandingPage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-fit max-w-[90vw] mx-auto">
             <Link
               to="/contact"
-              className="inline-flex h-12 px-7 items-center justify-center rounded-full bg-brand-red text-white text-[13px] font-bold uppercase tracking-wider hover:opacity-90 transition-opacity shadow-lg"
+              className="inline-flex h-10 px-7 items-center justify-center rounded-full bg-brand-red text-white text-[13px] font-bold uppercase tracking-wider hover:opacity-90 transition-opacity shadow-lg"
             >
               Request a Quote
             </Link>
