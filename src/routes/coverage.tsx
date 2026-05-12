@@ -65,10 +65,11 @@ function CoveragePage() {
         </Reveal>
 
         <Reveal as="section" variant="fade-up" className="bg-white rounded-[14px] p-5 md:p-7 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.08)]">
-          <ResponsiveImage name="coverage-map" alt="Snesenzo Security coverage areas: KwaZulu-Natal and Mpumalanga" sizes="(min-width: 768px) 720px, 100vw" className="block w-full max-w-[720px] mx-auto" imgClassName="w-full h-auto" />
-          <div className="flex items-center justify-center gap-6 mt-3 text-[12px] text-[#374151] font-semibold">
+          <ResponsiveImage name="coverage-map" alt="Snesenzo Security coverage areas: KwaZulu-Natal, Mpumalanga and Gauteng" sizes="(min-width: 768px) 720px, 100vw" className="block w-full max-w-[720px] mx-auto" imgClassName="w-full h-auto" />
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mt-3 text-[12px] text-[#374151] font-semibold">
             <span className="flex items-center gap-2"><span className="w-3 h-3 rounded-full bg-brand-red" /> KwaZulu-Natal</span>
             <span className="flex items-center gap-2"><span className="w-3 h-3 rounded-full bg-brand-navy" /> Mpumalanga</span>
+            <span className="flex items-center gap-2"><span className="w-3 h-3 rounded-full" style={{ backgroundColor: "#F59E0B" }} /> Gauteng Areas</span>
           </div>
         </Reveal>
 
@@ -78,7 +79,7 @@ function CoveragePage() {
             <span className="block w-[3px] h-[18px] bg-brand-red rounded-sm" />
             <h2 className="font-display text-[#111827] text-[18px] tracking-wide">WHERE EXACTLY WE OPERATE</h2>
           </div>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-3 gap-6">
             <div>
               <p className="text-brand-red text-[11px] font-extrabold tracking-[0.18em] uppercase mb-3">KwaZulu-Natal</p>
               <ul className="grid grid-cols-2 gap-y-2 text-[13px] text-[#374151]">
@@ -91,6 +92,14 @@ function CoveragePage() {
               <p className="text-brand-red text-[11px] font-extrabold tracking-[0.18em] uppercase mb-3">Mpumalanga</p>
               <ul className="grid grid-cols-2 gap-y-2 text-[13px] text-[#374151]">
                 {["Volksrust","Wakkerstroom","Piet Retief","Ermelo","Standerton"].map((t) => (
+                  <li key={t} className="flex items-center gap-2"><MapPin size={14} className="text-brand-red shrink-0" />{t}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <p className="text-brand-red text-[11px] font-extrabold tracking-[0.18em] uppercase mb-3">Gauteng Areas</p>
+              <ul className="grid grid-cols-2 gap-y-2 text-[13px] text-[#374151]">
+                {["Johannesburg","Pretoria","Centurion","Midrand","Sandton"].map((t) => (
                   <li key={t} className="flex items-center gap-2"><MapPin size={14} className="text-brand-red shrink-0" />{t}</li>
                 ))}
               </ul>
