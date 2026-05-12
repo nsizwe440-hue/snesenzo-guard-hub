@@ -473,17 +473,20 @@ function LandingPage() {
           <Reveal variant="fade-up" delay={80}>
             <ResponsiveImage
               name="coverage-map"
-              alt="Snesenzo Security coverage areas: KwaZulu-Natal and Mpumalanga"
+              alt="Snesenzo Security coverage areas: KwaZulu-Natal, Mpumalanga and Gauteng"
               sizes="(min-width: 768px) 720px, 100vw"
               className="block w-full max-w-3xl mx-auto"
               imgClassName="w-full h-auto"
             />
-            <div className="flex items-center justify-center gap-8 mt-6 text-[14px] text-[#374151] font-semibold">
+            <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 mt-6 text-[14px] text-[#374151] font-semibold">
               <span className="flex items-center gap-2">
                 <span className="w-3 h-3 rounded-full bg-brand-red" /> KwaZulu-Natal
               </span>
               <span className="flex items-center gap-2">
                 <span className="w-3 h-3 rounded-full bg-brand-navy" /> Mpumalanga
+              </span>
+              <span className="flex items-center gap-2">
+                <span className="w-3 h-3 rounded-full" style={{ backgroundColor: "#F59E0B" }} /> Gauteng Areas
               </span>
             </div>
           </Reveal>
