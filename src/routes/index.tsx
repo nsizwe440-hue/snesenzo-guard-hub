@@ -157,7 +157,7 @@ function LandingPage() {
           <img
             src={heroDesktop.fallback.url}
             alt="Snesenzo Security Group officers in front of branded vehicles"
-            className="w-full h-full object-cover object-center"
+            className="w-full h-full object-cover object-[center_30%] md:object-center"
             // @ts-ignore
             fetchpriority="high"
             decoding="async"
