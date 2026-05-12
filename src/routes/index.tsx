@@ -38,12 +38,12 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "PSIRA-registered, 100% youth black-owned private security across KwaZulu-Natal & Mpumalanga. VIP, armed response, CCTV, events, industrial.",
+          "PSIRA-registered, 100% youth black-owned private security across KwaZulu-Natal, Mpumalanga & Gauteng. VIP, armed response, CCTV, events, industrial.",
       },
       { property: "og:title", content: "Snesenzo Security Group" },
       {
         property: "og:description",
-        content: "Strength & Confidence in Protection Services. PSIRA-registered security across KZN & Mpumalanga.",
+        content: "Strength & Confidence in Protection Services. PSIRA-registered security across KZN, Mpumalanga & Gauteng.",
       },
       { property: "og:image", content: heroImg },
       { name: "twitter:image", content: heroImg },
