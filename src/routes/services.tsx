@@ -9,8 +9,8 @@ import { getImage } from "@/assets/optimized";
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Security Services in KZN & Mpumalanga | Snesenzo Security Group" },
-      { name: "description", content: "VIP protection, armed response, CCTV, events, hospitality, industrial and farm security across KwaZulu-Natal & Mpumalanga." },
+      { title: "Security Services in KZN, Mpumalanga & Gauteng | Snesenzo Security Group" },
+      { name: "description", content: "VIP protection, armed response, CCTV, events, hospitality, industrial and farm security across KwaZulu-Natal, Mpumalanga & Gauteng." },
       { property: "og:title", content: "Our Security Services | Snesenzo Security Group" },
       { property: "og:description", content: "A full stack of PSIRA-registered security services for corporate, government and private clients." },
     ],

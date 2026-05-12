@@ -31,7 +31,7 @@ export const Route = createFileRoute("/contact")({
       { property: "og:title", content: "Contact Snesenzo Security Group" },
       {
         property: "og:description",
-        content: "24/7 control room. Call, email or WhatsApp our team in KZN & Mpumalanga.",
+        content: "24/7 control room. Call, email or WhatsApp our team in KZN, Mpumalanga & Gauteng.",
       },
     ],
   }),
