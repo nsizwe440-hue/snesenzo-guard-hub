@@ -7,8 +7,8 @@ const bannerOfficers = getImage("hero-ssg-vehicle").fallback.url;
 export const Route = createFileRoute("/careers")({
   head: () => ({
     meta: [
-      { title: "Careers - Join Snesenzo Security Group | KZN & Mpumalanga" },
-      { name: "description", content: "Build a career in protection with Snesenzo Security Group. PSIRA-registered roles across KwaZulu-Natal and Mpumalanga - officers, armed response, control room and supervisors." },
+      { title: "Careers - Join Snesenzo Security Group | KZN, Mpumalanga & Gauteng" },
+      { name: "description", content: "Build a career in protection with Snesenzo Security Group. PSIRA-registered roles across KwaZulu-Natal, Mpumalanga and Gauteng - officers, armed response, control room and supervisors." },
       { property: "og:title", content: "Careers at Snesenzo Security Group" },
       { property: "og:description", content: "PSIRA-registered training, local deployment, real growth path. Apply today." },
       { property: "og:image", content: bannerOfficers },
@@ -39,7 +39,7 @@ function CareersPage() {
           <p className="text-brand-red text-[10px] font-extrabold tracking-[0.2em] uppercase">Join the team</p>
           <h1 className="font-display text-[36px] md:text-[56px] leading-[0.95] mt-2">BUILD A CAREER IN PROTECTION.</h1>
           <p className="text-white/80 text-[14px] md:text-[15px] max-w-[620px] mt-4">
-            We're hiring across KwaZulu-Natal and Mpumalanga. If you take pride in your post and answer to your community, we want to meet you.
+            We're hiring across KwaZulu-Natal, Mpumalanga and Gauteng. If you take pride in your post and answer to your community, we want to meet you.
           </p>
         </div>
       </section>
@@ -76,7 +76,7 @@ function CareersPage() {
               No open positions right now.
             </h3>
             <p className="text-[#4B5563] text-[14px] mt-2 max-w-[520px] mx-auto">
-              We're not actively recruiting at the moment - please check back soon. New roles across KZN and Mpumalanga are posted here as they open.
+              We're not actively recruiting at the moment - please check back soon. New roles across KZN, Mpumalanga and Gauteng are posted here as they open.
             </p>
             <p className="text-[#374151] text-[13px] mt-4">
               In the meantime, you can still send us your CV below and we'll keep it on file.

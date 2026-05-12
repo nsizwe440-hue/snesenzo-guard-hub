@@ -10,8 +10,8 @@ import { getImage } from "@/assets/optimized";
 export const Route = createFileRoute("/coverage")({
   head: () => ({
     meta: [
-      { title: "Our Coverage: KwaZulu-Natal & Mpumalanga | Snesenzo Security Group" },
-      { name: "description", content: "Snesenzo Security Group operates across KZN and Mpumalanga, protecting corporate, government, agricultural and private clients." },
+      { title: "Our Coverage: KwaZulu-Natal, Mpumalanga & Gauteng | Snesenzo Security Group" },
+      { name: "description", content: "Snesenzo Security Group operates across KZN, Mpumalanga and Gauteng, protecting corporate, government, agricultural and private clients." },
       { property: "og:title", content: "Coverage Areas | Snesenzo Security Group" },
       { property: "og:description", content: "Disciplined, deployed and accountable officers across two provinces." },
     ],
@@ -47,14 +47,14 @@ function CoveragePage() {
           <p className="text-brand-red text-[10px] font-extrabold tracking-[0.2em] uppercase">Where we operate</p>
           <h1 className="font-display text-[36px] md:text-[56px] leading-[0.95] mt-2">COVERAGE AREAS</h1>
           <p className="text-white/75 text-[14px] max-w-[620px] mt-4">
-            We deliver protection services across KwaZulu-Natal and Mpumalanga - from coastal cities to inland farms.
+            We deliver protection services across KwaZulu-Natal, Mpumalanga and Gauteng - from coastal cities to inland farms.
           </p>
         </div>
       </section>
 
       <main className="px-5 py-10 max-w-[1120px] mx-auto">
         <Reveal as="div" variant="fade-up" className="rounded-[14px] overflow-hidden mb-5 relative h-[180px] md:h-[240px]">
-          <ResponsiveImage name="action-farm-real" alt="Officers on patrol across KZN & Mpumalanga" sizes="100vw" className="absolute inset-0 w-full h-full" imgClassName="w-full h-full object-cover" />
+          <ResponsiveImage name="action-farm-real" alt="Officers on patrol across KZN, Mpumalanga & Gauteng" sizes="100vw" className="absolute inset-0 w-full h-full" imgClassName="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-brand-navy/85 via-brand-navy/55 to-transparent" />
           <div className="relative h-full flex items-center px-6 md:px-10">
             <div>
