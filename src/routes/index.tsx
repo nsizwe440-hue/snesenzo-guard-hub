@@ -195,7 +195,7 @@ function LandingPage() {
             </Link>
             <a
               href="tel:+27639102387"
-              className="inline-flex h-12 px-7 items-center justify-center gap-2 rounded-full border-2 border-white/80 text-white text-[13px] font-bold uppercase tracking-wider hover:bg-white hover:text-brand-navy transition-colors backdrop-blur-sm bg-black/20"
+              className="inline-flex h-10 px-7 items-center justify-center gap-2 rounded-full border-2 border-white/80 text-white text-[13px] font-bold uppercase tracking-wider hover:bg-white hover:text-brand-navy transition-colors backdrop-blur-sm bg-black/20"
             >
               <Phone size={15} /> 063 910 2387
             </a>
