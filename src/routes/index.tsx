@@ -181,7 +181,7 @@ function LandingPage() {
           <p className="font-display text-white/90 text-[16px] md:text-[22px] lg:text-[26px] tracking-[0.15em] uppercase mb-6 drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
             in Protection Services
           </p>
-          <div className="w-fit max-w-[90vw] mx-auto bg-brand-navy/85 backdrop-blur-sm border border-white/10 rounded-md px-5 py-2.5 mb-7">
+          <div className="w-fit max-w-[90vw] mx-auto bg-brand-navy/85 backdrop-blur-sm border border-white/10 rounded-md px-5 py-2.5 mb-7 -translate-y-4 sm:translate-y-0">
             <p className="text-white text-[12.5px] md:text-[15px] font-semibold tracking-wide">
               The undisputed leader in the security sector in KZN, Mpumalanga &amp; Gauteng
             </p>
