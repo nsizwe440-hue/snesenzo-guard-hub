@@ -186,7 +186,7 @@ function LandingPage() {
               The undisputed leader in the security sector in KZN, Mpumalanga &amp; Gauteng
             </p>
           </div>
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 w-full max-w-md sm:max-w-none">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-fit max-w-[90vw] mx-auto">
             <Link
               to="/contact"
               className="inline-flex h-12 px-7 items-center justify-center rounded-full bg-brand-red text-white text-[13px] font-bold uppercase tracking-wider hover:opacity-90 transition-opacity shadow-lg"
