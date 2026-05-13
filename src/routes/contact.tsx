@@ -213,12 +213,14 @@ function ContactPage() {
             <div className="md:col-span-2">
               <button
                 type="submit"
-                className="inline-flex h-12 px-6 items-center justify-center gap-2 rounded-lg bg-brand-red text-white text-[13px] font-bold uppercase tracking-wide hover:opacity-90"
+                disabled={submitting}
+                className="inline-flex h-12 px-6 items-center justify-center gap-2 rounded-lg bg-brand-red text-white text-[13px] font-bold uppercase tracking-wide hover:opacity-90 disabled:opacity-60"
               >
-                Send request <ArrowRight size={16} />
+                {submitting ? <Loader2 size={16} className="animate-spin" /> : <ArrowRight size={16} />}
+                {submitting ? "Sending..." : "Send request"}
               </button>
               <p className="text-[#6B7280] text-[11px] mt-3">
-                Your request opens in your email app, addressed to info@snesenzo.co.za.
+                We typically respond within one business hour.
               </p>
             </div>
           </form>
