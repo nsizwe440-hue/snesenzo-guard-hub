@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { ShieldCheck, MapPin, TrendingUp, ArrowRight, Briefcase, CheckCircle2, Loader2, Upload } from "lucide-react";
+import { ShieldCheck, MapPin, TrendingUp, Briefcase, CheckCircle2, Loader2, Upload } from "lucide-react";
 import { toast } from "sonner";
 import { Reveal } from "@/components/Reveal";
 import { getImage } from "@/assets/optimized";
