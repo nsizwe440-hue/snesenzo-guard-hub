@@ -31,6 +31,54 @@ const why = [
 
 
 function CareersPage() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [roleInterest, setRoleInterest] = useState("");
+  const [message, setMessage] = useState("");
+  const [cvFile, setCvFile] = useState<File | null>(null);
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleCvSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (submitting) return;
+    if (!cvFile) {
+      toast.error("Please attach your CV (PDF or Word).");
+      return;
+    }
+    if (cvFile.size > 10 * 1024 * 1024) {
+      toast.error("CV must be 10MB or smaller.");
+      return;
+    }
+    setSubmitting(true);
+    const ext = cvFile.name.split(".").pop() || "pdf";
+    const filePath = `${Date.now()}-${crypto.randomUUID()}.${ext}`;
+    const { error: upErr } = await supabase.storage.from("cvs").upload(filePath, cvFile, {
+      contentType: cvFile.type,
+      upsert: false,
+    });
+    if (upErr) {
+      setSubmitting(false);
+      toast.error("Could not upload your CV. Please try again.");
+      return;
+    }
+    const { error: insErr } = await supabase.from("cv_submissions").insert({
+      name,
+      email,
+      phone,
+      role_interest: roleInterest,
+      message,
+      cv_file_path: filePath,
+    });
+    setSubmitting(false);
+    if (insErr) {
+      toast.error("Could not submit your application. Please try again.");
+      return;
+    }
+    toast.success("Application received. We'll be in touch when a role opens.");
+    setName(""); setEmail(""); setPhone(""); setRoleInterest(""); setMessage(""); setCvFile(null);
+    (document.getElementById("cv-file-input") as HTMLInputElement | null)?.value && ((document.getElementById("cv-file-input") as HTMLInputElement).value = "");
+  };
   return (
     <div className="bg-brand-surface">
       {/* Hero */}
