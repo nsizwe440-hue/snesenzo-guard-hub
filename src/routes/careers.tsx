@@ -21,7 +21,7 @@ export const Route = createFileRoute("/careers")({
   component: CareersPage,
 });
 
-const CAREERS_EMAIL = "careers@snesenzo.co.za";
+
 
 const why = [
   { icon: ShieldCheck, title: "PSIRA-Registered Training", body: "Work for a compliant operator that invests in proper grading, refreshers and on-site coaching." },
