@@ -10,9 +10,12 @@ import {
   PhoneCall,
   ClipboardCheck,
   FileText,
+  Loader2,
 } from "lucide-react";
+import { toast } from "sonner";
 import { Reveal } from "@/components/Reveal";
 import { services } from "@/data/services";
+import { supabase } from "@/integrations/supabase/client";
 
 type ContactSearch = { service?: string };
 
