@@ -1,7 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ShieldCheck, MapPin, TrendingUp, ArrowRight, Briefcase, CheckCircle2 } from "lucide-react";
+import { useState } from "react";
+import { ShieldCheck, MapPin, TrendingUp, ArrowRight, Briefcase, CheckCircle2, Loader2, Upload } from "lucide-react";
+import { toast } from "sonner";
 import { Reveal } from "@/components/Reveal";
 import { getImage } from "@/assets/optimized";
+import { supabase } from "@/integrations/supabase/client";
 const bannerOfficers = getImage("hero-ssg-vehicle").fallback.url;
 
 export const Route = createFileRoute("/careers")({
