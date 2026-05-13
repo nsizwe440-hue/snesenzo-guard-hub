@@ -4,9 +4,11 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
+import { Toaster } from "sonner";
 
 import appCss from "../styles.css?url";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -116,17 +118,20 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const isAdmin = pathname.startsWith("/admin");
 
   return (
     <QueryClientProvider client={queryClient}>
       <div className="min-h-screen flex flex-col">
-        <SiteHeader />
+        {!isAdmin && <SiteHeader />}
         <div className="flex-1">
           <Outlet />
         </div>
-        <SiteFooter />
-        <CookieConsent />
+        {!isAdmin && <SiteFooter />}
+        {!isAdmin && <CookieConsent />}
       </div>
+      <Toaster position="top-center" richColors />
     </QueryClientProvider>
   );
 }
