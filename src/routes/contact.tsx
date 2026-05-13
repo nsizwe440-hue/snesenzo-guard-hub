@@ -50,21 +50,30 @@ function ContactPage() {
   const [email, setEmail] = useState("");
   const [serviceSlug, setServiceSlug] = useState(matched?.slug ?? "");
   const [message, setMessage] = useState("");
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (submitting) return;
+    setSubmitting(true);
     const serviceLabel = services.find((s) => s.slug === serviceSlug)?.label ?? "General enquiry";
-    const subject = `Quote request - ${serviceLabel}`;
-    const body = [
-      `Name: ${name}`,
-      `Phone: ${phone}`,
-      `Email: ${email}`,
-      `Service: ${serviceLabel}`,
-      "",
-      "Message:",
-      message,
-    ].join("\n");
-    window.location.href = `mailto:info@snesenzo.co.za?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const { error } = await supabase.from("quote_requests").insert({
+      name,
+      email,
+      phone,
+      service: serviceLabel,
+      message: message || `Quote request for ${serviceLabel}`,
+    });
+    setSubmitting(false);
+    if (error) {
+      toast.error("Could not send your request. Please try again or call us.");
+      return;
+    }
+    toast.success("Thanks! We'll be in touch within one business hour.");
+    setName("");
+    setPhone("");
+    setEmail("");
+    setMessage("");
   };
 
   return (
