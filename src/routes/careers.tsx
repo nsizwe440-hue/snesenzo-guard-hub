@@ -156,28 +156,61 @@ function CareersPage() {
           </div>
         </Reveal>
 
-        {/* CTA */}
-        <Reveal as="section" variant="fade-up" className="mt-8 bg-white rounded-[14px] p-6 md:p-8 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.08)] text-center">
-          <h2 className="font-display text-brand-navy text-[24px] md:text-[30px] leading-tight">
-            Don't see your role? <span className="text-brand-red">Send us your CV.</span>
-          </h2>
-          <p className="text-[#4B5563] text-[14px] mt-2 max-w-[560px] mx-auto">
-            We're always interested in disciplined, accountable people. Email your CV and PSIRA certificate and we'll be in touch when something opens.
-          </p>
-          <div className="mt-5 flex flex-row gap-3 flex-wrap justify-center">
-            <a
-              href={`mailto:${CAREERS_EMAIL}?subject=${encodeURIComponent("General application - CV submission")}`}
-              className="inline-flex h-12 px-6 items-center justify-center gap-2 rounded-lg bg-brand-red text-white text-[13px] font-bold uppercase tracking-wide hover:opacity-90"
-            >
-              Email your CV <ArrowRight size={16} />
-            </a>
-            <Link
-              to="/contact"
-              className="inline-flex h-12 px-6 items-center justify-center gap-2 rounded-lg border border-brand-navy/20 text-brand-navy text-[13px] font-bold uppercase tracking-wide hover:bg-brand-navy/5"
-            >
-              Other enquiries
-            </Link>
+        {/* CV upload form */}
+        <Reveal as="section" variant="fade-up" className="mt-8 bg-white rounded-[14px] p-6 md:p-8 shadow-[0_4px_16px_-4px_rgba(0,0,0,0.08)]">
+          <div className="text-center mb-6">
+            <h2 className="font-display text-brand-navy text-[24px] md:text-[30px] leading-tight">
+              Don't see your role? <span className="text-brand-red">Send us your CV.</span>
+            </h2>
+            <p className="text-[#4B5563] text-[14px] mt-2 max-w-[560px] mx-auto">
+              Upload your CV and PSIRA certificate. We'll be in touch when something opens.
+            </p>
           </div>
+          <form onSubmit={handleCvSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <label className="flex flex-col gap-1.5">
+              <span className="text-[12px] font-bold uppercase tracking-wider text-brand-navy">Full name *</span>
+              <input type="text" required value={name} onChange={(e) => setName(e.target.value)}
+                className="h-11 px-3 rounded-lg border border-[#E5E7EB] bg-white text-[14px] focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red" />
+            </label>
+            <label className="flex flex-col gap-1.5">
+              <span className="text-[12px] font-bold uppercase tracking-wider text-brand-navy">Phone *</span>
+              <input type="tel" required value={phone} onChange={(e) => setPhone(e.target.value)}
+                className="h-11 px-3 rounded-lg border border-[#E5E7EB] bg-white text-[14px] focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red" />
+            </label>
+            <label className="flex flex-col gap-1.5 md:col-span-2">
+              <span className="text-[12px] font-bold uppercase tracking-wider text-brand-navy">Email *</span>
+              <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)}
+                className="h-11 px-3 rounded-lg border border-[#E5E7EB] bg-white text-[14px] focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red" />
+            </label>
+            <label className="flex flex-col gap-1.5 md:col-span-2">
+              <span className="text-[12px] font-bold uppercase tracking-wider text-brand-navy">Role interested in</span>
+              <input type="text" placeholder="e.g. Armed response, Site officer, Control room" value={roleInterest} onChange={(e) => setRoleInterest(e.target.value)}
+                className="h-11 px-3 rounded-lg border border-[#E5E7EB] bg-white text-[14px] focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red" />
+            </label>
+            <label className="flex flex-col gap-1.5 md:col-span-2">
+              <span className="text-[12px] font-bold uppercase tracking-wider text-brand-navy">A short note (optional)</span>
+              <textarea rows={4} value={message} onChange={(e) => setMessage(e.target.value)}
+                className="px-3 py-2 rounded-lg border border-[#E5E7EB] bg-white text-[14px] focus:outline-none focus:border-brand-red focus:ring-1 focus:ring-brand-red resize-y" />
+            </label>
+            <label className="flex flex-col gap-1.5 md:col-span-2">
+              <span className="text-[12px] font-bold uppercase tracking-wider text-brand-navy">Upload CV (PDF/DOC) *</span>
+              <input id="cv-file-input" type="file" required accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                onChange={(e) => setCvFile(e.target.files?.[0] ?? null)}
+                className="text-[13px] file:mr-3 file:rounded-md file:border-0 file:bg-brand-navy file:text-white file:px-3 file:py-2 file:text-[12px] file:font-bold file:uppercase file:tracking-wider" />
+              <span className="text-[#6B7280] text-[11px]">Max 10MB.</span>
+            </label>
+            <div className="md:col-span-2 flex flex-wrap gap-3">
+              <button type="submit" disabled={submitting}
+                className="inline-flex h-12 px-6 items-center justify-center gap-2 rounded-lg bg-brand-red text-white text-[13px] font-bold uppercase tracking-wide hover:opacity-90 disabled:opacity-60">
+                {submitting ? <Loader2 size={16} className="animate-spin" /> : <Upload size={16} />}
+                {submitting ? "Submitting..." : "Submit application"}
+              </button>
+              <Link to="/contact"
+                className="inline-flex h-12 px-6 items-center justify-center gap-2 rounded-lg border border-brand-navy/20 text-brand-navy text-[13px] font-bold uppercase tracking-wide hover:bg-brand-navy/5">
+                Other enquiries
+              </Link>
+            </div>
+          </form>
         </Reveal>
       </main>
     </div>
