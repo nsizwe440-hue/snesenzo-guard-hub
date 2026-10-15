@@ -46,7 +46,7 @@ export const Route = createFileRoute("/services/$slug")({
   errorComponent: ({ error }) => (
     <div className="min-h-[60vh] flex flex-col items-center justify-center px-5 text-center">
       <h1 className="font-display text-[28px] text-brand-navy">Something went wrong</h1>
-      <p className="text-[#4B5563] mt-3">{error.message}</p>
+      <p className="text-[#4B5563] mt-3">{error instanceof Error ? error.message : "An unexpected error occurred."}</p>
       <Link to="/services" className="mt-6 inline-flex h-11 px-5 items-center gap-2 rounded-lg bg-brand-red text-white text-[13px] font-bold uppercase tracking-wide hover:opacity-90">
         Back to services <ArrowRight size={16} />
       </Link>
